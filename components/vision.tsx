@@ -16,17 +16,7 @@ export function Vision() {
             </p>
           </div>
           
-          <div className="bg-card rounded-2xl p-8 border border-border">
-            <h3 className="text-xl font-semibold mb-4">Our Core Belief</h3>
-            <p className="text-muted-foreground mb-6 text-pretty">
-              Real estate is already a digital asset. The market just hasn&apos;t been given the infrastructure to act like one — until now.
-            </p>
-            <div className="pt-6 border-t border-border">
-              <p className="text-sm text-muted-foreground">
-                EQARY is not a listings platform. It is a <span className="text-foreground font-medium">settlement layer</span> — the missing digital bridge between buyers, sellers, government registries, and bank partners in Abu Dhabi&apos;s property market.
-              </p>
-            </div>
-          </div>
+
         </div>
         
         <div className="mt-16 p-8 bg-primary/5 rounded-2xl border border-primary/10">
