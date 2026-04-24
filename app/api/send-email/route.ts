@@ -26,19 +26,20 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Send email to your inbox (ahmedalkindi849@gmail.com)
+    // Note: On Resend's free tier, we can only send to the verified email.
+    // The user's contact email is included in the body so you can manually reply to them.
     const result = await resend.emails.send({
       from: 'EQARY <onboarding@resend.dev>',
       to: 'ahmedalkindi849@gmail.com',
-      replyTo: email,
       subject: `New App Access Request from ${name}`,
       html: `
         <h2>New App Access Request</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Contact Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
         <p>This person is requesting early access to the EQARY app.</p>
         <hr />
-        <p><small>You can reply directly to this email to contact them at: ${email}</small></p>
+        <p><small>To respond, copy their email (${email}) and send a new email from your personal account.</small></p>
       `,
     })
 
