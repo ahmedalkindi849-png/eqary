@@ -25,10 +25,10 @@ export async function POST(request: NextRequest) {
     // Initialize Resend client on request
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    // Send email to your inbox (alkindymaryam@gmail.com)
+    // Send email to your inbox (ahmedalkindi849@gmail.com)
     const result = await resend.emails.send({
       from: 'EQARY <onboarding@resend.dev>',
-      to: 'alkindymaryam@gmail.com',
+      to: 'ahmedalkindi849@gmail.com',
       replyTo: email,
       subject: `New App Access Request from ${name}`,
       html: `
