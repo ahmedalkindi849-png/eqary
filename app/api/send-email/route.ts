@@ -25,10 +25,10 @@ export async function POST(request: NextRequest) {
     // Initialize Resend client on request
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    // Send email to your inbox (alkindymaryam@gmail.com)
+    // Send email to your inbox (ahmedalkindi849@gmail.com)
     const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
-      to: 'alkindymaryam@gmail.com',
+      from: 'EQARY <onboarding@resend.dev>',
+      to: 'ahmedalkindi849@gmail.com',
       replyTo: email,
       subject: `New App Access Request from ${name}`,
       html: `
@@ -45,7 +45,10 @@ export async function POST(request: NextRequest) {
     if (result.error) {
       console.error('[v0] Email sending error:', result.error)
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { 
+          error: 'Failed to send email',
+          details: result.error.message || JSON.stringify(result.error)
+        },
         { status: 500 }
       )
     }
