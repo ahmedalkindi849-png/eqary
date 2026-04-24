@@ -83,7 +83,7 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
             <div className="text-green-600 text-4xl mb-4">✓</div>
             <p className="font-semibold mb-2">Thank you!</p>
             <p className="text-sm text-muted-foreground">
-              We&apos;ve received your request. We&apos;ll be in touch soon at alkindymaryam@gmail.com
+              We&apos;ve received your request and will contact you at {formData.email} soon.
             </p>
           </div>
         ) : (

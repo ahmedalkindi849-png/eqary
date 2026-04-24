@@ -1,8 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   try {
     const { name, email, phone } = await request.json()
@@ -23,6 +21,9 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    // Initialize Resend client on request
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Send email to your inbox (alkindymaryam@gmail.com)
     const result = await resend.emails.send({
