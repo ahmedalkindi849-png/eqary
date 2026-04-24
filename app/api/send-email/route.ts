@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     // Send email to your inbox (alkindymaryam@gmail.com)
     const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+      from: 'EQARY <onboarding@resend.dev>',
       to: 'alkindymaryam@gmail.com',
       replyTo: email,
       subject: `New App Access Request from ${name}`,
@@ -45,7 +45,10 @@ export async function POST(request: NextRequest) {
     if (result.error) {
       console.error('[v0] Email sending error:', result.error)
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { 
+          error: 'Failed to send email',
+          details: result.error.message || JSON.stringify(result.error)
+        },
         { status: 500 }
       )
     }
