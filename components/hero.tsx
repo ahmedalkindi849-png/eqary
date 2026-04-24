@@ -25,7 +25,7 @@ export function Hero() {
             Transforming Abu Dhabi&apos;s property market from a manual service industry into a high-velocity digital asset class — one secure, zero-footprint closing session at a time.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex justify-center">
             <Button 
               onClick={() => setIsModalOpen(true)}
               size="lg" 
@@ -33,9 +33,6 @@ export function Hero() {
             >
               Request Access
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="px-8 h-12 text-base">
-              Learn More
             </Button>
           </div>
         </div>
