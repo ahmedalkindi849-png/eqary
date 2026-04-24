@@ -16,29 +16,7 @@ export function Header() {
             <span className="text-xl font-semibold tracking-tight">EQARY</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="#vision" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Vision
-            </Link>
-            <Link href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Problem
-            </Link>
-            <Link href="#solution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Solution
-            </Link>
-            <Link href="#partners" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Partners
-            </Link>
-          </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Login
-            </Button>
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Request Access
-            </Button>
-          </div>
 
           <button
             className="md:hidden p-2"
