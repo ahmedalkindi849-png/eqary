@@ -33,6 +33,8 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
     setError('')
 
     try {
+      console.log('[v0] Submitting form with data:', { name: formData.name, email: formData.email, phone: formData.phone })
+      
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -41,8 +43,12 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
         body: JSON.stringify(formData),
       })
 
+      console.log('[v0] Response status:', response.status)
+      const data = await response.json()
+      console.log('[v0] Response data:', data)
+
       if (!response.ok) {
-        throw new Error('Failed to submit request')
+        throw new Error(data.error || 'Failed to submit request')
       }
 
       setSubmitted(true)
@@ -54,7 +60,8 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
         setSubmitted(false)
       }, 2000)
     } catch (err) {
-      setError('Failed to submit. Please try again.')
+      const errorMessage = err instanceof Error ? err.message : 'Failed to submit. Please try again.'
+      setError(errorMessage)
       console.error('[v0] Submission error:', err)
     } finally {
       setLoading(false)
