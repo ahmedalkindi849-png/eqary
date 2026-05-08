@@ -48,7 +48,7 @@ export function Header() {
                 Login
               </Button>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Request Access
+                Join Waitlist
               </Button>
             </div>
           </nav>

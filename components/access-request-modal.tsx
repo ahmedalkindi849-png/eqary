@@ -80,7 +80,7 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
           <X className="h-5 w-5" />
         </button>
 
-        <h2 className="text-2xl font-semibold mb-2">Request Early Access</h2>
+        <h2 className="text-2xl font-semibold mb-2">Join the Waitlist</h2>
         <p className="text-muted-foreground mb-6">
           Be among the first to experience zero-footprint property closings.
         </p>
@@ -152,7 +152,7 @@ export function AccessRequestModal({ isOpen, onClose }: AccessRequestModalProps)
               disabled={loading}
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              {loading ? 'Sending...' : 'Request Access'}
+              {loading ? 'Sending...' : 'Join Waitlist'}
             </Button>
           </form>
         )}
