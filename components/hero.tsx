@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Lock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AccessRequestModal } from "@/components/access-request-modal"
+import { InvestorAccessModal } from "@/components/investor-access-modal"
 
 export function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isInvestorModalOpen, setIsInvestorModalOpen] = useState(false)
 
   return (
     <>
@@ -25,7 +27,7 @@ export function Hero() {
             Transforming Abu Dhabi&apos;s property market from a manual service industry into a high-velocity digital asset class — one secure, zero-footprint closing session at a time.
           </p>
           
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => setIsModalOpen(true)}
               size="lg" 
@@ -34,12 +36,25 @@ export function Hero() {
               Join Waitlist
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+            <Button 
+              onClick={() => setIsInvestorModalOpen(true)}
+              size="lg" 
+              variant="outline"
+              className="px-8 h-12 text-base border-border hover:bg-secondary"
+            >
+              <Lock className="mr-2 h-4 w-4" />
+              For Investors
+            </Button>
           </div>
         </div>
       </section>
       <AccessRequestModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+      />
+      <InvestorAccessModal
+        isOpen={isInvestorModalOpen}
+        onClose={() => setIsInvestorModalOpen(false)}
       />
     </>
   )
