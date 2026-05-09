@@ -33,7 +33,7 @@ export function Hero() {
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-base"
             >
-              Join Waitlist
+              Join The Waitlist
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
