@@ -24,7 +24,7 @@ export function Hero() {
           </h1>
           
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty">
-            Transforming Abu Dhabi&apos;s property market from a manual service industry into a high-velocity digital asset class — one secure, zero-footprint closing session at a time.
+            We&apos;re unifying the UAE&apos;s fragmented real estate market through secure, paperless transactions and reduced entry costs. We&apos;re putting the power back in the buyer&apos;s and seller&apos;s hands.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
