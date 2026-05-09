@@ -16,7 +16,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-8">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            Launching in Abu Dhabi
+            Launching Soon
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6">
@@ -24,7 +24,7 @@ export function Hero() {
           </h1>
           
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty">
-            Transforming Abu Dhabi&apos;s property market from a manual service industry into a high-velocity digital asset class — one secure, zero-footprint closing session at a time.
+            We&apos;re unifying the UAE&apos;s fragmented real estate market through secure, paperless transactions and reduced entry costs. We&apos;re putting the power back in the buyer&apos;s and seller&apos;s hands.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -33,7 +33,7 @@ export function Hero() {
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-base"
             >
-              Join Waitlist
+              Join The Waitlist
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
