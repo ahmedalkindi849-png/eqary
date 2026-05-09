@@ -32,53 +32,14 @@ export function Footer() {
                   Partners
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Security
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Press
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-primary-foreground/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-primary-foreground/20">
           <p className="text-sm text-primary-foreground/70">
             &copy; {new Date().getFullYear()} EQARY. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
