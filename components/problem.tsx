@@ -4,12 +4,12 @@ const problems = [
   {
     icon: DollarSign,
     title: "High Costs",
-    description: "Residents pay a 2% brokerage fee for a process that is largely manual paperwork, a fee with no technological justification in 2026."
+    description: "Residents pay a 2% brokerage fee for a process that is largely manual paperwork — a fee with no technological justification in 2026."
   },
   {
     icon: Shuffle,
     title: "Process Fragmentation",
-    description: "Private brokers, DARI portals, government offices, and bank branches each a separate silo with no unified experience."
+    description: "Private brokers, DARI portals, government offices, and bank branches — each a separate silo with no unified experience."
   },
   {
     icon: ShieldOff,
@@ -28,7 +28,7 @@ export function Problem() {
             The Friction Gap Is Costing Everyone
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            The current secondary market journey is fragmented, expensive, and slow, eroding trust and leaving high-value opportunities on the table for both consumers and financial institutions.
+            The current secondary market journey is fragmented, expensive, and slow — eroding trust and leaving high-value opportunities on the table for both consumers and financial institutions.
           </p>
         </div>
         

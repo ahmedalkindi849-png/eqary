@@ -24,7 +24,7 @@ const features = [
   {
     icon: Smartphone,
     title: "Mobile-First Experience",
-    description: "Complete your entire property transaction from your smartphone, anytime, anywhere."
+    description: "Complete your entire property transaction from your smartphone — anytime, anywhere."
   },
   {
     icon: Shield,
@@ -43,7 +43,7 @@ export function Solution() {
             The Digital Bridge
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            EQARY is a proprietary interoperability layer that transforms government registries into a seamless, fully mobile closing experience without replacing the underlying infrastructure.
+            EQARY is a proprietary interoperability layer that transforms government registries into a seamless, fully mobile closing experience — without replacing the underlying infrastructure.
           </p>
         </div>
         
