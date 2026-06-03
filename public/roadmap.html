@@ -1,813 +1,1447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Eqary | Product & Roadmap</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>EQARY — Investor Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#FFFFFF;
-  --s1:#F5F7FA;
-  --s2:#EEF1F6;
-  --s3:#E4E8F0;
-  --gold:#4CAF7F;
-  --goldL:#5FBF95;
-  --goldDim:rgba(76,175,127,0.10);
-  --goldBorder:rgba(76,175,127,0.28);
-  --slate:#6C7280;
-  --slateL:#1C2B5E;
-  --white:#1C2B5E;
-  --green:#4CAF7F;
-  --teal:#1A6B8A;
-  --violet:#5B3A9A;
-  --rose:#EF4444;
-  --navy:#1C2B5E;
-  --b1:rgba(28,43,94,0.06);
-  --b2:rgba(28,43,94,0.12);
-  --r:8px;
-  --r2:14px;
-  --serif:'Fraunces',serif;
-  --sans:'Inter',sans-serif;
-  --mono:'JetBrains Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--navy);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  :root{
+    --dark:#1C2B5E;
+    --dark-2:#162252;
+    --card-dark:#1C2B5E;
+    --card-dark-border:rgba(28,43,94,0.25);
+    --cream:#F5F7FA;
+    --cream-2:#EEF1F6;
+    --card-cream:#ffffff;
+    --accent:#4CAF7F;
+    --accent-bright:#5FBF95;
+    --accent-deep:#2D8A5E;
+    --accent-soft:rgba(76,175,127,.12);
+    --navy:#1C2B5E;
+    --ink:#1C2B5E;
+    --ink-soft:#4A5578;
+    --paper-on-dark:#ffffff;
+    --muted-on-dark:rgba(255,255,255,0.75);
+    --radius:22px;
+    --maxw:1180px;
+    --bar-h:74px;
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:#ffffff;color:var(--navy);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .ar{font-family:'IBM Plex Sans Arabic',sans-serif;direction:rtl;unicode-bidi:isolate}
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 3rem;
-  background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(20px);
-  border-bottom:.5px solid var(--b1);
-}
-.logo{
-  font-family:var(--serif);font-size:19px;font-weight:600;
-  letter-spacing:.03em;color:var(--navy);
-}
-.logo em{color:var(--gold);font-style:normal}
-.nav-links{display:flex;gap:2.5rem;align-items:center}
-.nav-links a{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .18s;
-}
-.nav-links a:hover{color:var(--white)}
-.nav-links a.active{color:var(--gold)}
-@media(max-width:640px){.nav-links{gap:1.25rem}.nav-links a{font-size:9px}}
+  /* ---------- Sticky bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;height:var(--bar-h);z-index:120;
+    display:flex;align-items:center;gap:16px;padding:0 clamp(16px,4vw,40px);
+    background:rgba(28,43,94,.96);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+  .topbar .sec-num{color:var(--accent);font-weight:700;font-size:.92rem;letter-spacing:.04em}
+  .topbar .sec-name{color:#f3f2ee;font-weight:500;font-size:1.02rem}
+  .topbar .spacer{flex:1}
+  .jump-btn{
+    display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+    border:1px solid rgba(255,255,255,.16);border-radius:999px;
+    padding:11px 20px;color:#f3f2ee;font-size:.95rem;font-weight:500;background:transparent;
+    transition:border-color .25s,background .25s;
+  }
+  .jump-btn:hover{border-color:var(--accent);background:rgba(16,185,129,.08)}
+  .jump-btn svg{transition:transform .3s}
+  .jump-btn.open svg{transform:rotate(180deg)}
+  .jump-menu{
+    position:fixed;top:calc(var(--bar-h) + 6px);right:clamp(16px,4vw,40px);z-index:119;
+    width:min(380px,calc(100vw - 32px));max-height:70vh;overflow:auto;
+    background:#1C2B5E;border:1px solid rgba(255,255,255,.12);border-radius:20px;
+    padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);
+    opacity:0;transform:translateY(-10px) scale(.98);pointer-events:none;transition:.28s;
+  }
+  .jump-menu.open{opacity:1;transform:none;pointer-events:auto}
+  .jump-menu a{
+    display:flex;align-items:center;gap:18px;text-decoration:none;color:#cfd2cb;
+    padding:14px 16px;border-radius:12px;font-size:1.05rem;transition:background .2s,color .2s;
+  }
+  .jump-menu a .n{color:var(--accent);font-weight:700;font-size:.85rem;min-width:22px}
+  .jump-menu a:hover,.jump-menu a.active{background:rgba(16,185,129,.1);color:#fff}
 
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:8rem 2rem 5rem;text-align:center;position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 80% 55% at 50% 40%, rgba(0,0,0,0.025) 0%, transparent 70%);
-}
-.hero-label{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:2rem;
-  display:flex;align-items:center;gap:14px;
-}
-.hero-label::before,.hero-label::after{content:'';width:28px;height:.5px;background:rgba(28,43,94,0.2)}
-.hero-h1{
-  font-family:var(--serif);
-  font-size:clamp(2.8rem,6.5vw,5.2rem);
-  font-weight:300;
-  letter-spacing:-.02em;
-  line-height:1.05;
-  margin-bottom:2rem;
-  max-width:820px;
-}
-.hero-h1 strong{font-weight:600}
-.hero-h1 em{color:var(--gold);font-style:italic}
-.hero-p{
-  font-size:17px;font-weight:300;color:var(--slate);
-  line-height:1.7;max-width:560px;margin-bottom:3rem;
-}
-.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.chip{
-  font-family:var(--mono);font-size:10px;letter-spacing:.06em;
-  padding:5px 14px;border-radius:20px;
-  border:.5px solid rgba(0,0,0,.18);color:#4A4440;
-  transition:all .18s;
-}
-.chip:hover{border-color:var(--goldBorder);color:var(--gold)}
+  /* ---------- Layout ---------- */
+  section{position:relative;padding:clamp(80px,11vh,140px) clamp(20px,5vw,40px)}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  section[data-bg="cream"]{background:var(--cream);color:var(--ink)}
+  section[data-bg="cream"] .lead{color:var(--ink-soft)}
+  section[data-bg="dark"]{background:var(--navy);color:#fff}
+  section[data-bg="dark2"]{background:var(--dark-2);color:#fff}
 
-/* DIVIDER */
-hr.rule{border:none;border-top:.5px solid var(--b1)}
+  .badge{
+    display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:9px 20px;
+    font-size:.82rem;letter-spacing:.14em;font-weight:600;text-transform:uppercase;margin-bottom:34px;
+  }
+  [data-bg="dark"] .badge,[data-bg="dark2"] .badge{border:1px solid rgba(16,185,129,.28);color:var(--accent);background:rgba(16,185,129,.05)}
+  [data-bg="cream"] .badge{border:1px solid rgba(16,150,110,.32);color:var(--accent-deep);background:rgba(16,150,110,.07)}
+  .badge .n{font-weight:800}
+  .badge .div{width:1px;height:14px;background:currentColor;opacity:.4}
+  .badge .ar{font-weight:500;opacity:.85}
 
-/* SECTION */
-section{padding:5.5rem 2rem;max-width:1200px;margin:0 auto}
-.s-head{text-align:center;margin-bottom:3.5rem}
-.s-tag{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:.75rem;
-}
-.s-title{
-  font-family:var(--serif);
-  font-size:clamp(1.9rem,4vw,3.2rem);
-  font-weight:300;letter-spacing:-.02em;margin-bottom:.85rem;
-  line-height:1.1;
-}
-.s-title strong{font-weight:600}
-.s-desc{font-size:15.5px;font-weight:300;color:var(--slate);max-width:540px;margin:0 auto;line-height:1.7}
+  .display{
+    font-weight:300;line-height:1.04;letter-spacing:-.02em;
+    font-size:clamp(2.3rem,6.2vw,4.4rem);margin-bottom:28px;
+  }
+  .display b{font-weight:700}
+  h3.sub{font-weight:300;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.01em;line-height:1.12}
+  h3.sub b{font-weight:700}
+  .lead{font-size:clamp(1.08rem,1.7vw,1.38rem);line-height:1.62;font-weight:400;color:var(--muted-on-dark);max-width:60ch}
+  .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:14px}
 
-/* MARKET STRIP */
-.mstrip{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  background:var(--s1);border:.5px solid var(--b2);border-radius:var(--r2);
-  overflow:hidden;margin-bottom:4rem;
-}
-.mitem{padding:1.75rem 1.5rem;text-align:center;border-right:.5px solid var(--b1);position:relative}
-.mitem:last-child{border-right:none}
-.mitem-num{
-  font-family:var(--serif);font-size:2.4rem;font-weight:600;
-  color:var(--navy);letter-spacing:-.02em;line-height:1;margin-bottom:.4rem;
-}
-.mitem-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
-.mitem-src{font-size:10px;color:rgba(124,139,161,.5);margin-top:.25rem;font-style:italic}
-@media(max-width:680px){.mstrip{grid-template-columns:1fr 1fr}.mitem{border-bottom:.5px solid var(--b1)}}
+  /* ---------- Cards ---------- */
+  .cards{display:grid;gap:22px;margin-top:48px}
+  .cards.c2{grid-template-columns:repeat(2,1fr)}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:820px){.cards.c2,.cards.c3{grid-template-columns:1fr}}
+  .card{
+    border-radius:var(--radius);padding:34px 30px;transition:transform .4s,border-color .4s;
+  }
+  [data-bg="dark"] .card,[data-bg="dark2"] .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+  [data-bg="dark"] .card:hover,[data-bg="dark2"] .card:hover{transform:translateY(-5px);border-color:rgba(76,175,127,.5)}
+  [data-bg="cream"] .card{background:var(--card-cream);border:1px solid rgba(0,0,0,.05);box-shadow:0 14px 40px rgba(40,30,20,.05)}
+  [data-bg="cream"] .card:hover{transform:translateY(-5px)}
+  .icn{
+    width:54px;height:54px;border-radius:15px;display:grid;place-items:center;margin-bottom:22px;
+    background:rgba(16,185,129,.13);
+  }
+  .icn svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  [data-bg="cream"] .icn{background:rgba(16,150,110,.1)}
+  .card h4{font-size:1.3rem;font-weight:600;margin-bottom:14px;line-height:1.15}
+  [data-bg="dark"] .card h4,[data-bg="dark2"] .card h4{color:#fff}
+  .card p{font-size:1.02rem;line-height:1.55;color:var(--muted-on-dark)}
+  [data-bg="cream"] .card p{color:var(--ink-soft)}
+  .card .tag{display:inline-block;margin-top:18px;font-size:.78rem;letter-spacing:.12em;font-weight:700;text-transform:uppercase;color:var(--accent)}
 
-/* FEATURES */
-.ftabs{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
-.ftab{
-  font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
-  padding:7px 16px;border-radius:20px;border:.5px solid var(--b2);
-  background:none;color:var(--slate);cursor:pointer;transition:all .18s;
-}
-.ftab:hover{border-color:var(--goldBorder);color:var(--goldL)}
-.ftab.active{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:500}
+  /* callout */
+  .callout{
+    display:flex;gap:18px;align-items:flex-start;border-radius:18px;padding:26px 28px;margin-top:40px;
+    background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);
+  }
+  [data-bg="cream"] .callout{background:rgba(16,150,110,.06);border-color:rgba(16,150,110,.22)}
+  .callout .check{flex:none;width:26px;height:26px;color:var(--accent)}
+  .callout p{font-size:1.08rem;line-height:1.55}
+  [data-bg="dark"] .callout p,[data-bg="dark2"] .callout p{color:#e8e7e1}
+  [data-bg="cream"] .callout p{color:var(--ink)}
 
-.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--b1)}
-.fcard{
-  background:var(--s1);padding:1.6rem;
-  transition:background .2s;animation:fIn .28s ease both;
-}
-.fcard:hover{background:var(--s2);border-left:2px solid var(--gold)}
-@keyframes fIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.fcard-icon{font-size:22px;margin-bottom:.9rem}
-.fcard-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:.35rem;letter-spacing:-.01em}
-.fcard-desc{font-size:12.5px;color:var(--slate);line-height:1.6}
-.fcard-phase{
-  display:inline-block;margin-top:.8rem;
-  font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;
-  padding:3px 8px;border-radius:4px;
-}
-.p1{background:rgba(28,43,94,.08);color:var(--navy);border:.5px solid rgba(28,43,94,.18)}
-.p2{background:rgba(26,107,138,.1);color:#1A6B8A;border:.5px solid rgba(26,107,138,.2)}
-.p3{background:rgba(76,175,127,.1);color:#2D8A5E;border:.5px solid rgba(76,175,127,.25)}
-.p4{background:rgba(239,68,68,.08);color:#DC2626;border:.5px solid rgba(239,68,68,.2)}
-.p5{background:rgba(91,58,154,.1);color:#5B3A9A;border:.5px solid rgba(91,58,154,.2)}
+  /* tag pills */
+  .pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:42px}
+  .pill{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:11px 20px;font-size:.97rem;
+    border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);background:rgba(255,255,255,.07)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
-/* ROADMAP */
-.roadmap-wrap{position:relative;padding:0 0 2rem}
-.rm-spine{display:none}
-@media(max-width:700px){.rm-spine{display:none}}
+  /* ---------- Reveal ---------- */
+  .rev{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rev.in{opacity:1;transform:none}
+  .rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}.rev.d4{transition-delay:.32s}
 
-.rm-block{
-  position:relative;margin-bottom:4rem;
-  display:flex;gap:3rem;align-items:flex-start;
-}
-.rm-block:nth-child(even){flex-direction:row-reverse}
-@media(max-width:700px){
-  .rm-block,.rm-block:nth-child(even){flex-direction:column;padding-left:52px}
-}
+  /* ================= HERO ================= */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:calc(var(--bar-h) + 30px) clamp(20px,5vw,40px) 60px;position:relative;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 90% at 75% 20%, rgba(199,150,80,.22), transparent 55%),
+      linear-gradient(180deg,#1C2B5E 0%,#162252 60%,#1C2B5E 100%);
+  }
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(115deg,transparent 30%,rgba(214,170,110,.10) 46%,rgba(214,170,110,.16) 50%,rgba(214,170,110,.06) 56%,transparent 72%);
+    mix-blend-mode:screen;
+  }
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-greet{position:absolute;top:calc(var(--bar-h) + 4px);right:clamp(20px,5vw,40px);z-index:3;color:var(--accent-bright);font-size:1.25rem}
+  .hero h1{font-weight:300;letter-spacing:-.025em;line-height:1.02;font-size:clamp(2.7rem,8vw,5.6rem);color:#f5f3ee;margin-bottom:30px;max-width:16ch}
+  .hero h1 b{font-weight:700}
+  .hero .lead{max-width:58ch;font-size:clamp(1.1rem,1.8vw,1.4rem);color:#c4c8c0}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:46px}
+  .btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:18px 32px;font-size:1.08rem;font-weight:600;cursor:pointer;text-decoration:none;border:none;transition:transform .2s,background .2s,border-color .2s}
+  .btn-primary{background:var(--accent-deep);color:#fff}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.05);color:#f3f2ee;border:1px solid rgba(255,255,255,.16)}
+  .btn-ghost:hover{border-color:var(--accent);background:rgba(16,185,129,.08)}
+  .hero-logo{margin-top:64px}
+  .logo-tile{width:96px;height:96px;border-radius:24px;background:linear-gradient(160deg,#243775,#1C2B5E);display:grid;place-items:center;box-shadow:0 24px 60px rgba(28,43,94,.45),inset 0 1px 0 rgba(255,255,255,.12)}
 
-.rm-dot{
-  flex-shrink:0;width:40px;height:40px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:11px;
-  position:relative;z-index:2;border:1px solid;
-}
-.rd-gold{background:rgba(28,43,94,.08);border-color:var(--navy);color:var(--navy)}
-.rd-teal{background:rgba(76,175,127,.1);border-color:var(--gold);color:var(--gold)}
-.rd-green{background:rgba(76,175,127,.1);border-color:var(--gold);color:var(--gold)}
-.rd-rose{background:rgba(239,68,68,.1);border-color:#EF4444;color:#EF4444}
-.rd-violet{background:rgba(91,58,154,.1);border-color:#5B3A9A;color:#5B3A9A}
+  /* EQARY house mark */
+  .mark{width:52px;height:52px}
+  .mark path,.mark line{fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-.rm-body{flex:1;max-width:460px}
-.rm-block:nth-child(even) .rm-body{text-align:left}
+  /* ================= flow stepper ================= */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:54px;position:relative}
+  @media(max-width:760px){.flow{grid-template-columns:1fr 1fr;gap:30px 0}}
+  .flow .step{text-align:center;position:relative;padding:0 10px}
+  .flow .step .ring{width:84px;height:84px;border-radius:50%;border:3px solid var(--accent-deep);display:grid;place-items:center;margin:0 auto 18px;background:var(--cream)}
+  .flow .step .ring svg{width:34px;height:34px;stroke:var(--ink);fill:none;stroke-width:1.7}
+  .flow .step h5{font-size:1.12rem;font-weight:600;color:var(--accent-deep)}
+  .flow .step::after{content:"";position:absolute;top:42px;left:50%;width:100%;height:3px;background:var(--accent-deep);z-index:-1}
+  .flow .step:last-child::after{display:none}
+  @media(max-width:760px){.flow .step::after{display:none}}
 
-.rm-meta{display:flex;align-items:center;gap:10px;margin-bottom:.9rem;flex-wrap:wrap}
-.rm-phase{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
-.rm-date{font-family:var(--mono);font-size:9.5px;padding:3px 9px;border-radius:10px;border:.5px solid var(--b2);color:var(--slate)}
-.rm-badge{font-family:var(--mono);font-size:9px;padding:3px 9px;border-radius:10px;color:#4B2A84;border:.5px solid rgba(91,58,154,.3);background:rgba(91,58,154,.08)}
+  /* phone / video */
+  .appshow{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;margin-top:60px}
+  @media(max-width:860px){.appshow{grid-template-columns:1fr;gap:40px}}
+  .phone{justify-self:center;width:280px;max-width:78vw;aspect-ratio:540/960;border-radius:42px;padding:11px;background:linear-gradient(160deg,#243775,#1C2B5E);box-shadow:0 40px 90px rgba(28,43,94,.5),inset 0 1px 0 rgba(255,255,255,.12)}
+  .phone video{width:100%;height:100%;object-fit:cover;border-radius:32px;display:block;background:#000}
 
-.rm-title{font-family:var(--serif);font-size:1.5rem;font-weight:300;margin-bottom:.5rem;line-height:1.2}
-.rm-title strong{font-weight:600}
-.rm-desc{font-size:13.5px;font-weight:300;color:var(--slate);margin-bottom:1.1rem;line-height:1.65}
+  /* ================= market stats ================= */
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  @media(max-width:760px){.stat-row{grid-template-columns:1fr}}
+  .stat{border-top:2px solid rgba(16,150,110,.5);padding-top:20px}
+  .stat .big{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:700;letter-spacing:-.02em;line-height:1}
+  .stat .big small{font-size:.42em;font-weight:400;color:var(--ink-soft);letter-spacing:0}
+  .stat .lbl{margin-top:10px;font-size:1rem;color:var(--ink-soft);line-height:1.4}
 
-.rm-items{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
-@media(max-width:460px){.rm-items{grid-template-columns:1fr}}
-.rm-item{
-  display:flex;align-items:center;gap:8px;
-  font-size:12.5px;color:var(--slateL);
-  padding:.35rem .6rem;background:var(--s1);border-radius:6px;
-  border:.5px solid var(--b1);
-}
-.rm-dot-sm{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+  .player-list{margin-top:48px;display:grid;gap:0}
+  .player{display:grid;grid-template-columns:60px 1fr;gap:24px;align-items:start;padding:28px 0;border-top:1px solid rgba(0,0,0,.1)}
+  .player .icn{margin:0}
+  .player h4{font-size:1.25rem;font-weight:700;margin-bottom:6px}
+  .player p{color:var(--ink-soft);font-size:1.05rem;line-height:1.5}
 
-.rm-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:.85rem;font-family:var(--mono);font-size:10px;
-  padding:4px 11px;border-radius:5px;
-}
-.rt-gold{background:rgba(28,43,94,.07);color:var(--navy);border:.5px solid rgba(28,43,94,.18)}
-.rt-teal{background:rgba(76,175,127,.08);color:#2D8A5E;border:.5px solid rgba(76,175,127,.25)}
-.rt-green{background:rgba(76,175,127,.08);color:#2D8A5E;border:.5px solid rgba(76,175,127,.25)}
-.rt-rose{background:rgba(239,68,68,.08);color:#DC2626;border:.5px solid rgba(239,68,68,.2)}
-.rt-violet{background:rgba(91,58,154,.08);color:#4B2A84;border:.5px solid rgba(91,58,154,.2)}
+  /* ================= architecture ================= */
+  .arch{margin-top:54px;border-radius:24px;border:1px dashed rgba(76,175,127,.4);padding:clamp(20px,3vw,40px);background:rgba(255,255,255,.06)}
+  .arch .arch-lbl{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-on-dark);margin:6px 0 14px;font-weight:600}
+  .reg-strip{border:1px solid rgba(212,170,90,.5);border-radius:14px;padding:16px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:26px;background:rgba(212,170,90,.05)}
+  .reg-strip .l{color:#d9b56a;font-weight:700;font-size:.95rem}
+  .reg-strip .r{color:#caa55f;font-size:.85rem;letter-spacing:.04em}
+  .surfaces{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+  @media(max-width:760px){.surfaces{grid-template-columns:1fr 1fr}}
+  .abox{border-radius:14px;padding:16px 18px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(160deg,rgba(36,55,117,.6),rgba(28,43,94,.8))}
+  .abox b{display:block;color:#dfe6f2;font-size:1rem;margin-bottom:4px}
+  .abox span{color:#8d97ab;font-size:.82rem}
+  .core{border-radius:16px;padding:26px;text-align:center;border:1px solid rgba(16,185,129,.5);background:linear-gradient(160deg,rgba(16,185,129,.16),rgba(16,185,129,.04));margin-bottom:30px}
+  .core b{color:var(--accent-bright);font-size:1.4rem;font-weight:700;display:block;margin-bottom:8px}
+  .core span{color:#bfe6d6;font-size:.95rem;line-height:1.5}
+  .core .host{display:block;margin-top:10px;color:var(--accent);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+  .providers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+  @media(max-width:760px){.providers{grid-template-columns:1fr}}
+  .pgroup{border-radius:14px;padding:18px;border:1px solid #2a2f29}
+  .pgroup.gov{border-color:rgba(212,170,90,.45);background:rgba(212,170,90,.04)}
+  .pgroup.bank{border-color:#33384a;background:rgba(70,80,110,.06)}
+  .pgroup.svc{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.05)}
+  .pgroup>.h{font-weight:700;font-size:1rem;margin-bottom:14px}
+  .pgroup.gov>.h{color:#d9b56a}.pgroup.bank>.h{color:#aeb6c9}.pgroup.svc>.h{color:var(--accent-bright)}
+  .pgroup .row{padding:9px 0;border-top:1px solid rgba(255,255,255,.05)}
+  .pgroup .row:first-of-type{border-top:none}
+  .pgroup .row b{display:block;color:#e6e7e2;font-size:.95rem}
+  .pgroup .row span{color:#8b918a;font-size:.8rem}
+  .money{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-radius:12px;border:1px solid rgba(16,185,129,.35);padding:16px;background:rgba(16,185,129,.04)}
+  .money .m{flex:1;min-width:150px;text-align:center;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:12px 8px;color:#cdebde;font-size:.92rem}
+  .money .m b{color:var(--accent-bright);display:block;font-size:.95rem}
+  .money .arrow{color:var(--accent);font-size:1.3rem;font-weight:700}
 
-/* REVENUE */
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--b1)}
-.rev-card{
-  background:var(--s1);padding:1.75rem;
-  position:relative;overflow:hidden;transition:background .2s;
-}
-.rev-card:hover{background:var(--s2)}
-.rev-accent{position:absolute;top:0;left:0;right:0;height:2px}
-.rev-icon{font-size:24px;margin-bottom:.9rem}
-.rev-tier{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:.4rem}
-.rev-title{font-size:15px;font-weight:600;margin-bottom:.5rem;letter-spacing:-.01em}
-.rev-desc{font-size:12.5px;font-weight:300;color:var(--slate);line-height:1.6;margin-bottom:.8rem}
-.rev-pill{font-family:var(--mono);font-size:9.5px;padding:3px 9px;border-radius:4px;display:inline-block}
+  /* ================= ROADMAP (interactive) ================= */
+  .rm{margin-top:56px}
+  .rm-track{display:flex;justify-content:space-between;position:relative;margin:0 auto 50px;max-width:880px}
+  .rm-track::before{content:"";position:absolute;top:19px;left:6%;right:6%;height:2px;background:rgba(255,255,255,.12)}
+  .rm-track .prog{position:absolute;top:19px;left:6%;height:2px;background:var(--accent);transition:width .5s ease}
+  .rm-node{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer;flex:1;background:none;border:none;font-family:inherit}
+  .rm-node .dot{width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.22);background:var(--dark);display:grid;place-items:center;color:var(--muted-on-dark);font-weight:700;font-size:.9rem;transition:.35s}
+  .rm-node .nlabel{font-size:.8rem;color:var(--muted-on-dark);text-align:center;transition:.3s;font-weight:500;letter-spacing:.02em}
+  .rm-node:hover .dot{border-color:var(--accent)}
+  .rm-node.active .dot{border-color:var(--accent);background:var(--accent);color:#fff;box-shadow:0 0 0 6px rgba(76,175,127,.20)}
+  .rm-node.active .nlabel{color:#fff}
+  @media(max-width:680px){
+    .rm-track{flex-direction:column;align-items:flex-start;gap:0;max-width:340px}
+    .rm-track::before{top:0;bottom:0;left:19px;right:auto;width:2px;height:auto}
+    .rm-track .prog{top:0;left:19px;width:2px!important;height:0;transition:height .5s}
+    .rm-node{flex-direction:row;width:100%;padding:14px 0;gap:18px}
+    .rm-node .nlabel{text-align:left}
+  }
+  .rm-panel{border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);padding:clamp(26px,4vw,44px);min-height:240px}
+  .rm-panel .ph-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:8px}
+  .rm-panel .ph-phase{color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem}
+  .rm-panel .ph-date{color:var(--muted-on-dark);font-size:.95rem}
+  .rm-panel h4{color:#fff;font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.01em;margin-bottom:18px;line-height:1.1}
+  .rm-panel .ph-body{color:var(--muted-on-dark);font-size:1.1rem;line-height:1.6;max-width:62ch;margin-bottom:24px}
+  .rm-panel .ph-list{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+  .rm-panel .ph-list span{border:1px solid var(--card-dark-border);border-radius:999px;padding:9px 16px;font-size:.92rem;color:#d3d6cf}
+  .rm-panel .ph-rev{display:inline-flex;align-items:center;gap:10px;color:var(--accent-bright);font-size:.98rem;border-top:1px solid rgba(16,185,129,.2);padding-top:18px}
+  .rm-fade{animation:rmf .45s ease}
+  @keyframes rmf{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-/* RTO SPECIAL CARD */
-.rto-card{
-  background:var(--s1);border:.5px solid rgba(155,111,232,.2);
-  padding:2.5rem;border-radius:var(--r2);
-  border-top:2px solid var(--violet);
-}
-.rto-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem;position:relative}
-.rto-steps::before{display:none}
-.rto-step{text-align:center;position:relative;z-index:1;padding:1rem;border-radius:8px;transition:all .3s ease;background:rgba(91,58,154,.04)}
-.rto-step:nth-child(3){background:rgba(91,58,154,.12);border:.5px solid rgba(155,111,232,.3)}
-.rto-step-icon{
-  width:48px;height:48px;border-radius:50%;
-  background:rgba(91,58,154,.1);border:1.5px solid rgba(91,58,154,.3);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto .8rem;font-size:18px;
-  transition:all .3s ease;
-}
-.rto-step:nth-child(3) .rto-step-icon{background:#5B3A9A;border-color:#5B3A9A;color:#fff}
-.rto-step-icon.active{background:#4C1A8C;border-color:#4C1A8C;color:#fff}
-.rto-step-label{font-size:11.5px;font-weight:600;color:var(--white);margin-bottom:.4rem;letter-spacing:-.01em}
-.rto-step-sub{font-size:10px;color:var(--slate);line-height:1.5;font-weight:300}
-@media(max-width:640px){.rto-steps{grid-template-columns:1fr 1fr;padding-top:0;gap:.8rem}.rto-steps::before{display:none}}
+  /* ================= raise ================= */
+  .raise-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  @media(max-width:760px){.raise-stats{grid-template-columns:1fr}}
+  .raise-stats .stat .big{color:#fff}
+  .raise-stats .stat .lbl{color:var(--accent)}
+  .raise-stats .stat{border-top-color:rgba(16,185,129,.5)}
+  .use{display:grid;grid-template-columns:auto 1fr;gap:46px;align-items:center;margin-top:60px}
+  @media(max-width:760px){.use{grid-template-columns:1fr;gap:34px;justify-items:center}}
+  .donut{width:220px;height:220px;border-radius:50%;
+    background:conic-gradient(var(--accent-deep) 0 50%,var(--accent) 50% 80%,#3f6e5d 80% 100%);
+    display:grid;place-items:center;position:relative}
+  .donut::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:var(--dark)}
+  .use-legend{display:grid;gap:18px}
+  .use-legend .li{display:flex;align-items:center;gap:14px;font-size:1.1rem}
+  .use-legend .sw{width:16px;height:16px;border-radius:4px}
+  .use-legend .li b{color:#fff;font-weight:600}
+  .use-legend .li span{color:var(--muted-on-dark)}
 
-/* RENTAL SECTION */
-.rental-block{
-  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
-  background:var(--s1);border:.5px solid var(--b2);border-radius:var(--r2);
-  padding:2.5rem;align-items:start;
-}
-@media(max-width:700px){.rental-block{grid-template-columns:1fr}}
-.rental-steps{display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem}
-.rental-step{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--slateL);line-height:1.5}
-.rental-step-n{
-  width:22px;height:22px;border-radius:50%;
-  background:var(--navy);color:#fff;
-  font-size:10px;font-weight:600;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
-}
-.rental-right{background:var(--s2);border-radius:var(--r);padding:1.5rem;border:.5px solid var(--b1)}
-.rental-row{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.55rem .7rem;
-  background:rgba(76,175,127,.06);border-radius:5px;margin-bottom:.35rem;
-  font-size:12.5px;border:.5px solid rgba(76,175,127,.18);
-}
-.rk{color:var(--slate)}.rv{color:var(--white);font-family:var(--mono);font-size:11.5px}
+  /* ================= contact ================= */
+  .contact-card{margin-top:30px}
+  .contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .contact-links a{color:var(--accent-deep);font-weight:600;font-size:1.15rem;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s}
+  .contact-links a:hover{border-color:var(--accent)}
 
-/* FOOTER */
-footer{
-  border-top:.5px solid var(--b1);padding:2rem 3rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
-  font-family:var(--mono);font-size:10.5px;color:var(--slate);
-}
+  footer{background:var(--dark);padding:50px clamp(20px,5vw,40px);border-top:1px solid rgba(255,255,255,.06)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  footer .f-logo{display:flex;align-items:center;gap:14px}
+  footer .f-logo b{font-size:1.3rem;letter-spacing:.06em;color:#fff;font-weight:700}
+  footer small{color:var(--muted-on-dark);font-size:.85rem}
 
-/* SCROLLBAR */
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18)}
+  /* FAB + private badge */
+  .fab{position:fixed;right:22px;bottom:24px;z-index:115;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--accent-deep);color:#fff;display:grid;place-items:center;box-shadow:0 14px 34px rgba(0,0,0,.4);
+    opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:.35s}
+  .fab.show{opacity:1;transform:none;pointer-events:auto}
+  .fab:hover{background:var(--accent)}
+  .fab svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .priv{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:114;
+    background:rgba(28,43,94,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;padding:9px 20px;font-size:.82rem;color:#b9bdb6;letter-spacing:.02em;pointer-events:none}
+  .priv b{color:var(--accent);font-weight:600}
+
+  /* founders */
+  .founder{display:grid;grid-template-columns:96px 1fr;gap:26px;align-items:start}
+  .avatar{width:96px;height:96px;border-radius:24px;display:grid;place-items:center;font-size:2rem;font-weight:700;color:#fff;background:linear-gradient(150deg,var(--accent-bright),var(--accent-deep))}
+  .founder h4{color:#fff;font-size:1.4rem;font-weight:600;margin-bottom:4px}
+  .founder .role{color:var(--accent);font-size:.95rem;font-weight:600;letter-spacing:.04em;margin-bottom:14px}
+  .founder p{color:var(--muted-on-dark);font-size:1.02rem;line-height:1.55}
+  .meet{display:flex;flex-wrap:wrap;gap:26px;margin-top:46px}
+  .meet .mi{display:flex;align-items:center;gap:12px;color:#d3d6cf;font-size:1.05rem}
+  .meet .mi svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.7}
+
+  /* ===== interactive prototype ===== */
+  .phone{position:relative;width:300px}
+  .app-copy{align-self:center}
+  .phone-col{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .phone-hint{font-size:.85rem;color:var(--ink-soft);letter-spacing:.01em}
+  .phone-screen{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f3efe8;z-index:2}
+
+  .ps{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f3efe8;color:#181a12;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;z-index:2}
+  .ps.dark{background:#1C2B5E;color:#ffffff}
+  .ps *{box-sizing:border-box}
+  .ps-top{flex:none;padding:14px 15px 4px}
+  .ps-body{flex:1;overflow-y:auto;padding:6px 15px 10px}
+  .ps-body::-webkit-scrollbar{width:0}
+  .ps-foot{flex:none;padding:8px 15px 16px;display:grid;gap:8px}
+  .ps-prog{display:flex;flex-direction:column;gap:6px}
+  .psbars{display:flex;gap:4px}
+  .psb{flex:1;height:4px;border-radius:3px;background:rgba(0,0,0,.1)}
+  .psb.on{background:#4CAF7F}
+  .psstep{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4CAF7F}
+  .ps-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .ps-back{border:none;background:none;font-size:26px;line-height:.8;cursor:pointer;color:inherit;width:20px;padding:0}
+  .ps-title{font-size:13px;font-weight:600}
+  .ps-center{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:20px 8px}
+  .ps-logo{width:64px;height:64px;border-radius:18px;background:linear-gradient(160deg,#243775,#1C2B5E);display:grid;place-items:center}
+  .ps-h1{font-size:30px;font-weight:300;letter-spacing:.1em}
+  .ps.dark .ps-h1{color:#fff}
+  .ps-sub{font-size:13px;line-height:1.5;color:#b9bdb5;max-width:24ch}
+  .ps-h2{font-size:19px;font-weight:300;line-height:1.15;margin:4px 0 8px}
+  .ps-h2 b{font-weight:700}
+  .ps-p{font-size:12.5px;line-height:1.5;color:#5d5f56;margin-bottom:12px}
+  .ps.dark .ps-p{color:#9aa098}
+  .ps-head2{font-size:19px;font-weight:600;margin:2px 0 12px;display:flex;justify-content:space-between;align-items:baseline}
+  .ps-head2 span{font-size:11px;font-weight:500;color:#8a8c82;letter-spacing:.03em}
+  .ab{border:none;border-radius:14px;padding:14px;font-family:inherit;font-size:14px;font-weight:600;color:#fff;background:#4CAF7F;cursor:pointer;width:100%;transition:transform .12s}
+  .ab:active{transform:scale(.98)}
+  .ab.dis{background:#cdd1c8;color:#7d8076;pointer-events:none}
+  .ab2{border:1px solid rgba(0,0,0,.15);border-radius:14px;padding:14px;font-family:inherit;font-size:14px;font-weight:600;color:#181a12;background:transparent;cursor:pointer;width:100%}
+  .ab2.light{border-color:rgba(255,255,255,.22);color:#fff}
+  .ps-list{display:grid;gap:10px;margin-top:4px}
+  .vrow{display:flex;align-items:center;gap:12px;border:1px solid rgba(0,0,0,.1);background:#fff;border-radius:14px;padding:13px;cursor:pointer;text-align:left;font-family:inherit;transition:.2s;width:100%}
+  .vrow.ok{border-color:#4CAF7F;background:#edfaf4}
+  .vrow:disabled{opacity:.7}
+  .vrow-i{flex:none;width:26px;height:26px;border-radius:8px;background:#eef0ea;display:grid;place-items:center;font-size:16px;color:#9a9d92;font-weight:600}
+  .vrow.ok .vrow-i{background:#4CAF7F;color:#fff}
+  .vrow-tx{display:flex;flex-direction:column}
+  .vrow-tx b{font-size:13.5px;font-weight:600}
+  .vrow-tx span{font-size:11.5px;color:#7d8076}
+  .lcard{display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.08);background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;font-family:inherit;width:100%;margin-bottom:12px}
+  .lcard.static{cursor:default;flex-direction:row;align-items:center;gap:12px;padding:10px}
+  .lphoto{display:block;height:96px;position:relative}
+  .lcard.static .lphoto{width:62px;height:62px;border-radius:12px;flex:none}
+  .lphoto.big{height:150px;border-radius:14px}
+  .vbadge{position:absolute;left:8px;top:8px;background:rgba(255,255,255,.92);color:#2D8A5E;font-size:10px;font-weight:700;padding:4px 8px;border-radius:8px}
+  .lmeta{display:flex;flex-direction:column;gap:2px;padding:11px 12px}
+  .lcard.static .lmeta{padding:0}
+  .lmeta b{font-size:14px;font-weight:600}
+  .lloc{font-size:11.5px;color:#7d8076}
+  .lprice{font-size:15px;font-weight:700;color:#2D8A5E;margin-top:2px}
+  .lprice small{font-size:11px;font-weight:500;color:#8a8c82}
+  .lprice.big{font-size:22px;margin:6px 0}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .bdg{font-size:11px;font-weight:600;color:#2D8A5E;background:#edfaf4;border:1px solid #c5e8d8;border-radius:8px;padding:5px 9px}
+  .slot{display:flex;align-items:center;gap:11px;border:1px solid rgba(0,0,0,.1);background:#fff;border-radius:13px;padding:13px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;width:100%;text-align:left}
+  .slot .rad{width:18px;height:18px;border-radius:50%;border:2px solid #c2c5bb;flex:none}
+  .slot.sel{border-color:#4CAF7F;background:#edfaf4}
+  .slot.sel .rad{border-color:#4CAF7F;background:radial-gradient(circle,#4CAF7F 42%,transparent 46%)}
+  .okrow{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#2D8A5E;font-weight:600;margin-bottom:12px}
+  .okc{width:20px;height:20px;border-radius:50%;background:#4CAF7F;color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .okc.big{width:46px;height:46px;font-size:24px}
+  .busybox{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:22px 10px;font-size:12.5px;color:#5d5f56}
+  .busybox.done{color:#2D8A5E;font-weight:600}
+  .contract{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:4px 14px;margin:6px 0 12px}
+  .crow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid rgba(0,0,0,.06);font-size:12.5px;color:#7d8076}
+  .crow:first-child{border-top:none}
+  .crow b{color:#181a12;font-weight:600;text-align:right}
+  .crow.tot b{color:#2D8A5E;font-size:16px}
+  .crow.tot span{font-weight:600;color:#181a12}
+  .spin{width:18px;height:18px;border:2px solid rgba(0,0,0,.15);border-top-color:#4CAF7F;border-radius:50%;display:inline-block;animation:psp .7s linear infinite}
+  .spin.big{width:32px;height:32px;border-width:3px}
+  @keyframes psp{to{transform:rotate(360deg)}}
+  .bigcheck{width:74px;height:74px;border-radius:50%;background:#4CAF7F;display:grid;place-items:center;animation:pop .4s ease}
+  .bigcheck svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  @keyframes pop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
+  .faceov{position:absolute;inset:0;background:rgba(28,43,94,.93);display:flex;align-items:center;justify-content:center;color:#fff;z-index:5}
+  .faceov .facebox{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .faceov span{font-size:13px;font-weight:600}
+  .facering{width:118px;height:118px;border-radius:28px;border:2px solid rgba(16,185,129,.5);display:grid;place-items:center;position:relative;overflow:hidden}
+  .facering svg{stroke:#4CAF7F;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .facescan{position:absolute;left:0;right:0;height:3px;background:#4CAF7F;box-shadow:0 0 14px #4CAF7F;animation:scan 1.1s ease-in-out infinite}
+  @keyframes scan{0%{top:8%}50%{top:88%}100%{top:8%}}
+  .faceov.ok .facescan{display:none}
+  .ps-tabs{display:flex;gap:6px;background:rgba(0,0,0,.05);border-radius:12px;padding:4px;margin-bottom:12px}
+  .pst{flex:1;border:none;background:none;font-family:inherit;font-size:12.5px;font-weight:600;color:#7d8076;padding:9px;border-radius:9px;cursor:pointer}
+  .pst.on{background:#fff;color:#181a12;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .offtag{position:absolute;right:8px;top:8px;background:#2D8A5E;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:8px}
+  .lhand{font-size:11px;color:#8a8c82;margin-top:1px}
+  .uaeglyph{width:18px;height:18px;stroke:#4CAF7F;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  /* founder photos + edges + stakeholder */
+  .avatar-img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 35%;display:block}
+  .edges{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+  @media(max-width:820px){.edges{grid-template-columns:1fr}}
+  .edge{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:26px;background:rgba(255,255,255,.07);transition:border-color .4s}
+  .edge:hover{border-color:rgba(16,185,129,.4)}
+  .edge .ed-k{color:var(--accent);font-weight:700;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:12px}
+  .edge b{display:block;color:#fff;font-size:1.14rem;font-weight:600;margin-bottom:9px;line-height:1.2}
+  .edge p{color:var(--muted-on-dark);font-size:1rem;line-height:1.55}
+  .card.spot{border-color:rgba(16,185,129,.45);background:rgba(16,185,129,.06)}
+
+  /* persona pills */
+  .persona-tabs{display:inline-flex;gap:5px;margin-top:30px;background:rgba(0,0,0,.05);border-radius:999px;padding:5px}
+  .persobtn{border:none;background:none;cursor:pointer;font-family:inherit;font-size:.95rem;font-weight:600;color:var(--ink-soft);padding:11px 22px;border-radius:999px;transition:.2s}
+  .persobtn.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+  /* ===== seller app ===== */
+  .sbody{padding-bottom:8px}
+  .ps-app-head{display:flex;align-items:center;justify-content:space-between;padding:2px 0 12px}
+  .ps-app-head b{font-size:16px;font-weight:600}
+  .ps-app-head .owner{font-size:9.5px;color:#4CAF7F;font-weight:800;letter-spacing:.1em;border:1px solid rgba(76,175,127,.4);border-radius:6px;padding:3px 7px}
+  .ps-app-sub{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a8c82;margin:8px 0 10px}
+  .ps-tabbar{flex:none;display:flex;border-top:1px solid rgba(0,0,0,.08);background:#fff}
+  .tbtn{flex:1;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px 12px;color:#9a9d92;font-size:9px;font-weight:600}
+  .tbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .tbtn.on{color:#4CAF7F}
+  .sstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:11px}
+  .sstat{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:11px 12px}
+  .sstat .v{font-size:17px;font-weight:700;color:#181a12;line-height:1}
+  .sstat .v small{font-size:10px;color:#8a8c82;font-weight:600}
+  .sstat .k{font-size:10.5px;color:#7d8076;margin-top:5px}
+  .schart{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:13px;margin-bottom:12px}
+  .schart .ct{font-size:11px;color:#7d8076;font-weight:600;margin-bottom:11px;display:flex;justify-content:space-between}
+  .bars{display:flex;gap:7px;height:80px;align-items:flex-end}
+  .barcol{flex:1;height:100%;display:flex;flex-direction:column;gap:5px}
+  .bar{width:100%;flex:1;background:#e6f1ec;border-radius:5px 5px 0 0;position:relative}
+  .bar i{position:absolute;left:0;right:0;bottom:0;background:#4CAF7F;border-radius:5px 5px 0 0}
+  .blab{font-size:9px;color:#9a9d92;text-align:center}
+  .prop{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:10px;margin-bottom:9px;width:100%;text-align:left;font-family:inherit;cursor:pointer}
+  .prop .pth{width:46px;height:46px;border-radius:10px;flex:none}
+  .prop .pm{flex:1;min-width:0}
+  .prop .pm b{font-size:13px;font-weight:600;display:block}
+  .prop .pm span{font-size:11px;color:#7d8076}
+  .pstatus{font-size:9.5px;font-weight:700;padding:4px 8px;border-radius:7px;flex:none}
+  .pstatus.occ{background:#edfaf4;color:#2D8A5E}
+  .pstatus.vac{background:#fbeeee;color:#b4574e}
+  .pstatus.lst{background:#fff4e0;color:#9a7016}
+  .ybadge{font-size:12px;font-weight:700;color:#2D8A5E;background:#edfaf4;border:1px solid #c5e8d8;border-radius:8px;padding:5px 9px;flex:none}
+  .conv{display:flex;gap:11px;align-items:center;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:11px;margin-bottom:9px;cursor:pointer;width:100%;text-align:left;font-family:inherit}
+  .conv .ava{width:38px;height:38px;border-radius:50%;background:#dff0e9;color:#2D8A5E;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+  .conv .cm{flex:1;min-width:0}
+  .conv .cm b{font-size:13px;font-weight:600;display:block}
+  .conv .cm span{font-size:11px;color:#7d8076;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .conv .dot{width:8px;height:8px;border-radius:50%;background:#4CAF7F;flex:none}
+  .thread{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .bub{max-width:82%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.4}
+  .bub.them{align-self:flex-start;background:#fff;border:1px solid rgba(0,0,0,.07);border-bottom-left-radius:5px}
+  .bub.me{align-self:flex-end;background:#4CAF7F;color:#fff;border-bottom-right-radius:5px}
+  .quicks{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .qchip{border:1px solid #c5ddd5;background:#fff;color:#2D8A5E;border-radius:999px;padding:8px 13px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  .mcat{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+  .mcatb{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:14px;cursor:pointer;font-family:inherit;text-align:left}
+  .mcatb .ic2{width:34px;height:34px;border-radius:9px;background:#eaf6f1;display:grid;place-items:center;margin-bottom:9px}
+  .mcatb .ic2 svg{width:18px;height:18px;stroke:#4CAF7F;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .mcatb b{font-size:13px;font-weight:600;display:block}
+  .mcatb span{font-size:10.5px;color:#7d8076}
+  .mprov{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:12px 14px;margin:4px 0 14px}
+  .mprov b{font-size:13px;font-weight:600;display:block}
+  .mprov span{font-size:11px;color:#7d8076}
+  .mstep{display:flex;flex-direction:column}
+  .mstepi{display:flex;gap:11px;align-items:flex-start;padding-bottom:16px;position:relative}
+  .mstepi::before{content:"";position:absolute;left:9px;top:21px;bottom:-3px;width:2px;background:#e2e4dd}
+  .mstepi:last-child::before{display:none}
+  .mstepi .md{width:20px;height:20px;border-radius:50%;border:2px solid #c8cbc1;background:#fff;flex:none;display:grid;place-items:center;font-size:11px;color:#fff}
+  .mstepi.done .md{background:#4CAF7F;border-color:#4CAF7F}
+  .mstepi.cur .md{border-color:#4CAF7F}
+  .mstepi .mt b{font-size:12.5px;font-weight:600;display:block}
+  .mstepi .mt span{font-size:10.5px;color:#7d8076}
+  @media(max-width:340px){.phone{width:84vw}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">Eq<em>a</em>ry</div>
-  <div class="nav-links">
-    <a href="#features" id="nav-features">Features</a>
-    <a href="#roadmap" id="nav-roadmap">Roadmap</a>
-    <a href="#model" id="nav-model">Revenue</a>
-    <a href="#rental" id="nav-rental">Rental</a>
-    <a href="#rto" id="nav-rto">Rent to Own</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-label">Investor Overview · 2026</div>
-  <h1 class="hero-h1">
-    The UAE's first platform to<br/>
-    <em>close</em> a property deal<br/>
-    <strong>entirely on your phone.</strong>
-  </h1>
-  <p class="hero-p">
-    Eqary connects buyers, sellers, landlords, and tenants directly with government verification, bank financing, and digital contracts built in. No agents. No paperwork. No office visits.
-  </p>
-  <div class="hero-chips">
-    <span class="chip">UAE Pass · ADREC · DARI</span>
-    <span class="chip">Zero commission</span>
-    <span class="chip">Multi-bank mortgage</span>
-    <span class="chip">Deed verified listings</span>
-    <span class="chip">Digital closing</span>
-  </div>
+<!-- ============ STICKY BAR ============ -->
+<div class="topbar">
+  <span class="sec-num" id="barNum">01</span>
+  <span class="sec-name" id="barName">Overview</span>
+  <span class="spacer"></span>
+  <button class="jump-btn" id="jumpBtn" aria-label="Jump to section">
+    Jump to section
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
 </div>
+<nav class="jump-menu" id="jumpMenu"></nav>
 
-<hr class="rule"/>
+<!-- ============ HERO ============ -->
+<header class="hero" id="s00" data-num="01" data-name="Overview">
+  <div class="hero-bg"></div>
+    <div class="hero-greet"></div>
+  <div class="wrap">
+    <h1>Buying, selling and renting UAE property, <b>without the agent's cut</b></h1>
+    <p class="lead">EQARY puts buyers, sellers, landlords and developers in one app. Identity verified against UAE&nbsp;Pass, contracts signed in-app, money moving bank to bank. Abu&nbsp;Dhabi first, architected so Dubai switches on without a rebuild.</p>
 
-<!-- MARKET STRIP -->
-<section style="padding-top:4rem;padding-bottom:0">
-  <div class="mstrip">
-    <div class="mitem">
-      <div class="mitem-num">AED 142B</div>
-      <div class="mitem-label">Abu Dhabi RE transactions 2025</div>
-      <div class="mitem-src">ADREC Annual Report 2025</div>
-    </div>
-    <div class="mitem">
-      <div class="mitem-num">62%</div>
-      <div class="mitem-label">Foreign buyer share</div>
-      <div class="mitem-src">ADREC 2025</div>
-    </div>
-    <div class="mitem">
-      <div class="mitem-num">+44%</div>
-      <div class="mitem-label">Transaction growth year-on-year</div>
-      <div class="mitem-src">ADREC 2025</div>
-    </div>
-    <div class="mitem">
-      <div class="mitem-num">0%</div>
-      <div class="mitem-label">Commission charged to users</div>
-      <div class="mitem-src">Eqary model</div>
+
+  </div>
+</header>
+
+<!-- ============ 01 PROBLEM ============ -->
+<section id="s01" data-bg="cream" data-num="01" data-name="The problem">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">01</span><span class="div"></span><span>The problem</span></div>
+    <h2 class="display rev">The whole thing was built around <b>the agent</b></h2>
+    <p class="lead rev d1">Sara owns an apartment and rents it out. One day she'll sell it. Either way she hits the same wall: scrolling listings, guessing at prices, wondering who to trust. When she finally lists, high commission, no transparency and a fragmented market leave her frustrated. It isn't just sellers, renters, buyers and owners all hit the same wall, because the journey was built around the agent, not the people in the deal.</p>
+    <div class="cards c3">
+      <div class="card rev d1">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Too many brokers</h4>
+        <p>Multiple agents on one property, each chasing a commission on a deal the buyer and seller often found themselves.</p>
+      </div>
+      <div class="card rev d2">
+        <div class="icn"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h4>A 2% commission</h4>
+        <p>An agent's cut on every transaction, the single biggest avoidable cost in a UAE property deal.</p>
+      </div>
+      <div class="card rev d3">
+        <div class="icn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h4>Documentation delay</h4>
+        <p>Cash checks, mortgage readiness and paperwork stall the close long after a serious buyer appears.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="rule"/>
+<!-- ============ 02 FOUNDERS ============ -->
+<section id="s02" data-bg="dark" data-num="02" data-name="The founders">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">02</span><span class="div"></span><span>The founders</span></div>
+    <h2 class="display rev">You'll be backing <b>a brother and sister</b> who live this problem.</h2>
+    <p class="lead rev d1">EQARY is founder-led, and we carry the hard parts ourselves, government identity, banking rails and digital contracts, rather than hand them to a faceless team. We're siblings: a founding team that's aligned by default and won't fall apart, a CEO who lived the problem and an engineer who can build the fix. We steer every product decision and sit in every partner meeting in person.</p>
 
-<!-- FEATURES -->
-<section id="features">
-  <div class="s-head">
-    <div class="s-tag">Product</div>
-    <h2 class="s-title"><strong>Everything</strong> in one platform</h2>
-    <p class="s-desc">Five years of UAE real estate process complexity collapsed into a single, government-connected mobile experience.</p>
-  </div>
-
-  <div class="ftabs" id="featureTabs">
-    <button class="ftab active" data-filter="all">All</button>
-    <button class="ftab" data-filter="discovery">Discovery</button>
-    <button class="ftab" data-filter="transaction">Transaction</button>
-    <button class="ftab" data-filter="finance">Finance</button>
-    <button class="ftab" data-filter="government">Government</button>
-    <button class="ftab" data-filter="premium">Premium</button>
-    <button class="ftab" data-filter="rental">Rental</button>
-    <button class="ftab" data-filter="rto">Rent to Own</button>
-  </div>
-
-  <div class="fgrid" id="featuresGrid"></div>
-</section>
-
-<hr class="rule" style="margin:0 2rem"/>
-
-<!-- ROADMAP -->
-<section id="roadmap" style="max-width:860px">
-  <div class="s-head">
-    <div class="s-tag">Roadmap</div>
-    <h2 class="s-title">Abu Dhabi first.<br/><strong>Then the entire country.</strong></h2>
-    <p class="s-desc">Five delivery milestones. Each one builds the infrastructure the next requires. The plan runs from rentals and off-plan in 2026 through to the UAE's complete property ownership platform by 2029.</p>
-  </div>
-
-  <div class="roadmap-wrap">
-    <div class="rm-spine"></div>
-
-    <!-- P1 -->
-    <div class="rm-block">
-      <div class="rm-dot rd-gold">01</div>
-      <div class="rm-body">
-        <div class="rm-meta">
-          <span class="rm-phase">Phase 1</span>
-          <span class="rm-date">Q4 2026</span>
+    <div class="cards c2">
+      <div class="card rev d1">
+        <div class="founder">
+          <img class="avatar-img" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Jwdat5yvoGu2blplVFRZu4t2rRPuuv.png" alt="Maryam Alkendi">
+          <div>
+            <h4>Maryam Alkendi</h4>
+            <div class="role">FOUNDER &amp; CEO</div>
+            <p>Chemical Engineering, UCL, and six years in Oil &amp; Gas. EQARY started with her own wall: trying to invest in property, then untangling the sale of a family asset through a fog of brokers, paperwork and prices nobody could explain. She turned that into the company, and runs vision, market and the bank and government partnerships.</p>
+          </div>
         </div>
-        <div class="rm-title"><strong>Trusted Transaction Foundation</strong></div>
-        <div class="rm-desc">Eqary enters through rentals and off-plan, the industry's biggest pain points, and the regulatory simplicity needed for rapid revenue. The full government verification stack, identity layer, and bank-to-bank payment rails are live from day one. This dual-track approach builds the transaction data and regulatory relationships required to unlock the secondary market in Phase 2.</div>
-        <div class="rm-items">
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Direct rental marketplace, landlord meets tenant, no agent</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Off-plan developer listings, verified inventory from Aldar, Modon, Eagle Hills</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Property search with map, filter, and saved searches</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>UAE Pass single sign-on and legally binding e-signatures</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>ADREC / DARI / DLD ownership and deed verification</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>AECB credit score integration for buyer and tenant qualification</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>KYC / AML and income verification via Open Banking (Lean / Tarabut)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Tawtheeq (Abu Dhabi) / Ejari (Dubai) auto-registration on signing</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Madhmoun (Abu Dhabi) / Trakheesi (Dubai) advertising permit validation</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Digital tenancy contracts signed in-app via UAE Pass</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Digital locks for self-viewing, landlord-controlled time-limited access</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Bank-to-bank payment rails with UAEDDS direct debit for monthly rent</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>RNPL, partner pays landlord upfront, tenant repays monthly</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Tenant rental history score built from verified payment behaviour</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--gold)"></div>Secure document vault, encrypted with full audit trail</div>
-        </div>
-        <div class="rm-tag rt-gold">Revenue: Flat transaction fee · RNPL referral fees · Developer listing fees · Premium services (photography, DEWA setup, lock installation) · Maintenance lead generation</div>
       </div>
-    </div>
-
-    <!-- P2a -->
-    <div class="rm-block">
-      <div class="rm-dot rd-teal">02a</div>
-      <div class="rm-body">
-        <div class="rm-meta">
-          <span class="rm-phase">Phase 2a</span>
-          <span class="rm-date">Q3 2027</span>
-        </div>
-        <div class="rm-title"><strong>Secondary Market Launch</strong></div>
-        <div class="rm-desc">Phase 2a opens second-hand residential transactions on the verified user base built in Phase 1. It launches with the lighter half of the secondary market: listings, matching, negotiation, and cash transactions. This addresses approximately 87% of Abu Dhabi transactions, which are cash, without any dependency on escrow licensing or mortgage integration.</div>
-        <div class="rm-items">
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Seller onboarding with ADREC / DARI / DLD deed verification</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Buyer profile carrying pre-approval and verification badges from Phase 1</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Property verification including encumbrance check and mortgage status</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Pricing assistance using ADREC closed-deal data</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Negotiation workflows, offer, counter-offer, accept, with full audit trail</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>Digital RERA-standard MOU generated automatically from agreed terms</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>In-app viewing scheduling integrated with digital lock access</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--teal)"></div>DARI (Abu Dhabi) / DLD (Dubai) digital title transfer for cash transactions</div>
-        </div>
-        <div class="rm-tag rt-teal">Revenue: Closing transaction fee · Lead generation (insurance, cleaning, smart locks)</div>
-      </div>
-    </div>
-
-    <!-- P2b -->
-    <div class="rm-block">
-      <div class="rm-dot rd-green">02b</div>
-      <div class="rm-body">
-        <div class="rm-meta">
-          <span class="rm-phase">Phase 2b</span>
-          <span class="rm-date">Q1/Q2 2028</span>
-        </div>
-        <div class="rm-title"><strong>Mortgage and Escrow Integration</strong></div>
-        <div class="rm-desc">Phase 2b adds the heavier financial infrastructure that turns Eqary into a full secondary-market platform: regulated escrow for buyer deposits and end-to-end mortgage-financed transactions. This phase depends on bank partnerships and escrow arrangements with longer lead times, which is why it is positioned after the cash-transaction launch.</div>
-        <div class="rm-items">
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>Escrow integration for buyer deposits via licensed partner (FAB, ENBD, Al Tamimi)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>Mortgage readiness leveraging Phase 1 verification</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>Multi-bank mortgage origination (FAB · ADCB · ADIB · ENBD)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>Mortgage provider partnerships (Huspy, Holo)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>SPA, NOC, title deed, and mortgage document orchestration</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>End-to-end mortgage-financed transaction support, offer to title transfer</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--green)"></div>Cross-border payment rails for foreign buyers (Visa B2B Connect)</div>
-        </div>
-        <div class="rm-tag rt-green">Revenue: Transaction fee on financed deals · Mortgage origination referral fees · Escrow service fees · Document orchestration fee · Expedited processing tier</div>
-      </div>
-    </div>
-
-    <!-- P3 -->
-    <div class="rm-block">
-      <div class="rm-dot rd-rose">03</div>
-      <div class="rm-body">
-        <div class="rm-meta">
-          <span class="rm-phase">Phase 3</span>
-          <span class="rm-date">Q4 2028</span>
-        </div>
-        <div class="rm-title"><strong>Rent to Own</strong></div>
-        <div class="rm-desc">By Q4 2028, Eqary holds verified tenant payment histories accumulated since Phase 1, established bank partnerships from Phase 2b, escrow capability, and the platform trust earned across two years of clean transactions. Rent to Own becomes possible because every layer below it is already in place. Monthly rent accrues equity. A bank partner structures the facility. The contract unwinding is itself a revenue event.</div>
-        <div class="rm-items">
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>RTO contract framework, both parties sign via UAE Pass, registered with DLD within 90 days</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Equity accrual ledger updated monthly</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Bank RTO facility (ADCB / FAB)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Price lock mechanism, purchase price agreed at contract date</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Monthly ownership statement showing accumulated equity in real time</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Developer RTO inventory partnerships (Aldar, Modon, Eagle Hills)</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Purchase option exercise triggered by tenant when ready</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Automated DARI / DLD title transfer at conversion</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--rose)"></div>Break fee mechanism on early exit by either party</div>
-        </div>
-        <div class="rm-tag rt-rose">Revenue: Origination fee · Equity management fee · Conversion fee · Break fee on early exit · Highest LTV product in the stack</div>
-      </div>
-    </div>
-
-    <!-- P4 -->
-    <div class="rm-block">
-      <div class="rm-dot rd-violet">04</div>
-      <div class="rm-body">
-        <div class="rm-meta">
-          <span class="rm-phase">Phase 4</span>
-          <span class="rm-date">Q1/Q2 2029</span>
-          <span class="rm-badge">Final milestone</span>
-        </div>
-        <div class="rm-title"><strong>Intelligence Layer and Ecosystem Expansion</strong></div>
-        <div class="rm-desc">Phase 4 turns Eqary from a marketplace into infrastructure. The pricing engine and investor dashboard accumulate switching costs while adjacent-service lead generation monetises every transaction at near-zero marginal cost. By this point Eqary's pricing engine is fed by over two years of completed transactions, a dataset competitors cannot replicate without the same closed-deal data.</div>
-        <div class="rm-items">
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Data-driven valuation engine using Eqary + ADREC + DLD transaction data</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Comparable sales analysis at building, neighbourhood, and city level</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Heat maps showing yield, appreciation, and turnover by area</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Premium investor dashboard, ROI, yield, appreciation, cashflow updated monthly</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Portfolio tracking and price alerts at building or area level</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Predictive insights based on Eqary transaction data flywheel</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Market intelligence reports, institutional-grade research on subscription</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Full Arabic platform with right-to-left support</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Adjacent services: maintenance, cleaning, furniture, insurance, moving, property management, interior design, utility activation</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Mortgage refinancing on existing user base</div>
-          <div class="rm-item"><div class="rm-dot-sm" style="background:var(--violet)"></div>Public developer API for third-party PropTech and FinTech</div>
-        </div>
-        <div class="rm-tag rt-violet">Revenue: Investor SaaS subscriptions · Market data licensing · Lead generation fees · Insurance commissions · Property management SaaS · API licensing · Mortgage refinancing fees</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="rule" style="margin:0 2rem"/>
-
-<!-- REVENUE MODEL -->
-<section id="model">
-  <div class="s-head">
-    <div class="s-tag">Revenue Model</div>
-    <h2 class="s-title">Multiple streams.<br/><strong>Zero from users.</strong></h2>
-    <p class="s-desc">Every revenue line comes from the ecosystem: banks, developers, and institutions. Buyers and sellers pay nothing.</p>
-  </div>
-
-  <div class="rev-grid">
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--gold)"></div>
-      <div class="rev-tier">Primary · Phase 1</div>
-      <div class="rev-title">Bank Referral Fees</div>
-      <div class="rev-desc">Every pre-approved, UAE Pass verified buyer referred to FAB, ADCB, ADIB or Emirates NBD generates a referral fee. Eqary delivers fully qualified, KYC-complete buyers at the point of intent.</div>
-      <div class="rev-pill" style="background:rgba(197,151,58,.1);color:var(--goldL)">Activates from launch</div>
-    </div>
-
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--teal)"></div>
-      <div class="rev-tier">Secondary · Phase 1</div>
-      <div class="rev-title">Developer Listings</div>
-      <div class="rev-desc">Developers pay for featured placement, verified buyer analytics, and direct pipeline access.</div>
-      <div class="rev-pill" style="background:rgba(56,178,212,.1);color:var(--teal)">B2B · recurring</div>
-    </div>
-
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--violet)"></div>
-      <div class="rev-tier">SaaS · Phase 2</div>
-      <div class="rev-title">Investor Dashboard</div>
-      <div class="rev-desc">Portfolio analytics, yield tracking, market comparables, and capital appreciation data available on subscription. Once an investor's portfolio history lives inside Eqary, the switching cost is significant.</div>
-      <div class="rev-pill" style="background:rgba(155,111,232,.1);color:var(--violet)">Monthly subscription</div>
-    </div>
-
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--green)"></div>
-      <div class="rev-tier">Finance · Phase 3</div>
-      <div class="rev-title">Rent Loan Origination</div>
-      <div class="rev-desc">Eqary's bank partner issues a 12-month rent loan per tenancy. The landlord receives the full year's rent upfront. The tenant pays monthly. Eqary earns an origination fee on each facility at low marginal cost.</div>
-      <div class="rev-pill" style="background:rgba(46,204,138,.1);color:var(--green)">High-margin · scalable</div>
-    </div>
-
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--gold)"></div>
-      <div class="rev-tier">Data · Phase 2–3</div>
-      <div class="rev-title">Market Intelligence</div>
-      <div class="rev-desc">Eqary accumulates transaction data to create a pricing source in the UAE. This becomes a product: institutional reports and pricing indices sold to developers, funds, and consultancies.</div>
-      <div class="rev-pill" style="background:rgba(197,151,58,.1);color:var(--goldL)">Proprietary data asset</div>
-    </div>
-
-    <div class="rev-card">
-      <div class="rev-accent" style="background:var(--rose)"></div>
-      <div class="rev-tier">Platform · Phase 4</div>
-      <div class="rev-title">Developer API</div>
-      <div class="rev-desc">Third-party PropTech and fintech applications pay to access Eqary's verified listing database, pricing engine, and transaction infrastructure. Each integration compounds the platform's defensibility.</div>
-      <div class="rev-pill" style="background:rgba(224,107,125,.1);color:var(--rose)">Long-term moat</div>
-    </div>
-
-    <!-- RTO full-width -->
-    <div class="rev-card" style="grid-column:1/-1;border:.5px solid rgba(76,26,140,.2);border-top:2px solid #4C1A8C">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
-        <div>
-          <div class="rev-tier" style="color:var(--violet)">Highest LTV · Phase 5</div>
-          <div class="rev-title">Rent to Own</div>
-          <div class="rev-desc">The highest-lifetime-value product in the stack. Uniquely, Eqary earns whether a contract completes or unwinds. A tenant who buys at term arrives at closing already verified, bank-approved, and committed, acquired at a fraction of the cost of a cold transaction. A tenant who exits early triggers a break fee. Both outcomes generate revenue.</div>
-          <div class="rev-pill" style="background:rgba(155,111,232,.1);color:var(--violet);margin-top:.75rem">Revenue on completion and on exit</div>
-        </div>
-        <div style="background:var(--s2);border-radius:var(--r);padding:1.5rem;border:.5px solid var(--b1)">
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:1rem">Four revenue events</div>
-          <div style="display:flex;flex-direction:column;gap:.75rem">
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:12.5px">
-              <div style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex-shrink:0;margin-top:5px"></div>
-              <div><span style="color:var(--white);font-weight:500">Origination fee</span><br/><span style="color:var(--slate)">Charged when the RTO contract is signed by both parties</span></div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:12.5px">
-              <div style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex-shrink:0;margin-top:5px"></div>
-              <div><span style="color:var(--white);font-weight:500">Equity management fee</span><br/><span style="color:var(--slate)">Monthly, for maintaining the equity ledger and DARI registration throughout the term</span></div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:12.5px">
-              <div style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex-shrink:0;margin-top:5px"></div>
-              <div><span style="color:var(--white);font-weight:500">Conversion fee</span><br/><span style="color:var(--slate)">When the purchase option is exercised and the DARI title transfer completes</span></div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:12.5px;padding-top:.65rem;border-top:.5px solid var(--b2)">
-              <div style="width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:5px"></div>
-              <div><span style="color:var(--white);font-weight:500">Break fee</span><br/><span style="color:var(--slate)">If either party exits before the term ends, Eqary takes a commission from the settlement. The contract unwinding is itself a revenue event.</span></div>
-            </div>
+      <div class="card rev d2">
+        <div class="founder">
+          <img class="avatar-img" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-foKLjbXwgBDilGNL1CpQa33kVJLSPE.png" alt="Ahmed Alkindi">
+          <div>
+            <h4>Ahmed Alkindi</h4>
+            <div class="role">CO-FOUNDER</div>
+            <p>Mechanical Engineering, NYU, with a background in computational modelling, energy systems and product development. He owns the technical side, the architecture, the integrations and the build, pairing engineering rigour with how the product actually ships.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<hr class="rule" style="margin:0 2rem"/>
-
-<!-- RENTAL SPOTLIGHT -->
-<section id="rental">
-  <div class="s-head">
-    <div class="s-tag">Phase 3 | Rental</div>
-    <h2 class="s-title">Renting, <strong>without the agent.</strong></h2>
-    <p class="s-desc">The UAE renter writes a cheque for an entire year's rent on day one. Eqary ends that by connecting landlord and tenant directly, with monthly payments backed by a bank partner.</p>
-  </div>
-
-  <div class="rental-block">
-    <div>
-      <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem">How it works</div>
-      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:.75rem;line-height:1.15">Direct. <strong>Digital. Done.</strong></div>
-      <div style="font-size:13.5px;font-weight:300;color:var(--slate);line-height:1.65;margin-bottom:1.25rem">Landlords list their properties directly with no agent, no commission, no listing fees. Tenants browse, book a viewing in-app, sign digitally with UAE Pass, and pay monthly through Eqary's bank partner. Ejari registration is automatic.</div>
-      <div class="rental-steps">
-        <div class="rental-step"><div class="rental-step-n">1</div><span><strong style="color:var(--white)">Landlord lists</strong>: verified property, availability, and viewing slots</span></div>
-        <div class="rental-step"><div class="rental-step-n">2</div><span><strong style="color:var(--white)">Tenant books</strong>: in-app calendar, no agent, confirmed instantly</span></div>
-        <div class="rental-step"><div class="rental-step-n">3</div><span><strong style="color:var(--white)">Tenant signs</strong>: UAE Pass e-signature, Ejari registered automatically</span></div>
-        <div class="rental-step"><div class="rental-step-n">4</div><span><strong style="color:var(--white)">Bank pays landlord</strong>: full annual rent upfront, tenant repays monthly</span></div>
-      </div>
+    <h3 class="sub rev" style="margin-top:64px">Why <b>us</b></h3>
+    <div class="edges">
+      <div class="edge rev d1"><span class="ed-k">Founder–market fit</span><b>We lived it, we didn't read about it</b><p>Maryam hit the exact wall EQARY removes. The problem is personal, not a slide, which is why we know which corners not to cut.</p></div>
+      <div class="edge rev d2"><span class="ed-k">Engineers, not agents</span><b>Real estate is an orchestration problem</b><p>UCL and NYU engineers. Identity, registries, banking rails and contracts are a systems problem, and building systems is what we do, so we attack it as one instead of digitising a broker.</p></div>
+      <div class="edge rev d1"><span class="ed-k">Built for national rails</span><b>Access where it actually gates</b><p>EQARY runs on UAE Pass, ADREC, Tawtheeq, AECB and the banks, all trust- and relationship-gated. As Emirati founders we carry the credibility, access and fluency those partnerships need.</p></div>
+      <div class="edge rev d2"><span class="ed-k">A team that won't break</span><b>Aligned by blood, complementary by design</b><p>Most startups die of co-founder conflict. A brother and sister with a lifetime of trust and a clean split, CEO and builder, removes the single biggest early-stage risk.</p></div>
     </div>
-    <div class="rental-right">
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:1rem">The financing structure</div>
-      <div class="rental-row"><span class="rk">Landlord receives</span><span class="rv">100% upfront</span></div>
-      <div class="rental-row"><span class="rk">Tenant pays</span><span class="rv">Monthly</span></div>
-      <div class="rental-row"><span class="rk">Agent commission</span><span class="rv" style="color:var(--green)">None</span></div>
-      <div class="rental-row"><span class="rk">Ejari registration</span><span class="rv">Automated</span></div>
-      <div class="rental-row"><span class="rk">Eqary earns</span><span class="rv">Origination fee per loan</span></div>
-      <div style="margin-top:1rem;padding-top:1rem;border-top:.5px solid var(--b1);font-size:12px;color:var(--slate);line-height:1.6">
-        Every tenancy is an income event with near-zero marginal cost. At scale, this is the highest-margin stream in the platform before Phase 5.
-      </div>
+
+    <div class="meet rev d3">
+      <span class="mi"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Always up for a coffee</span>
+      <span class="mi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Always happy to meet in person</span>
+
     </div>
   </div>
 </section>
 
-<hr class="rule" style="margin:0 2rem"/>
+<!-- ============ 03 WHAT WE BUILD ============ -->
+<section id="s03" data-bg="cream" data-num="03" data-name="What we build">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">03</span><span class="div"></span><span>What we build</span></div>
+    <h2 class="display rev">We don't just list properties. <b>We settle them.</b></h2>
+    <p class="lead rev d1">Once a buyer and seller agree a price, nobody else needs to touch the deal. Every step is logged, verified and legally valid, a zero-footprint close that runs end to end inside one app.</p>
 
-<!-- RTO SPOTLIGHT -->
-<section id="rto">
-  <div class="s-head">
-    <div class="s-tag">Phase 5 · Final Milestone · Q1/Q2 2029</div>
-    <h2 class="s-title">Rent to Own:<br/><strong>the ownership bridge.</strong></h2>
-    <p class="s-desc">71% of Abu Dhabi's residents rent. Most want to own. Eqary gives them a path built on the tenant credit data, bank relationships, and platform trust accumulated across Phases 1 to 4.</p>
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
-    <div style="background:var(--s1);border:.5px solid var(--b2);border-radius:var(--r2);padding:1.75rem;border-top:2px solid var(--violet)">
-      <div style="font-size:22px;margin-bottom:.75rem"></div>
-      <div style="font-size:14px;font-weight:600;margin-bottom:.5rem">The gap it closes</div>
-      <p style="font-size:13px;font-weight:300;color:var(--slate);line-height:1.65">Traditional homeownership requires a 20-25% down payment that takes years to accumulate, and a mortgage tied to employer-verified income. Rent to Own removes both barriers. Monthly payments build equity. That equity becomes the down payment. The bank assesses creditworthiness on demonstrated payment behaviour, not employment status.</p>
+    <div class="flow rev d1">
+      <div class="step">
+        <div class="ring"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h5>Verified Discovery</h5>
+      </div>
+      <div class="step">
+        <div class="ring"><svg viewBox="0 0 24 24"><path d="M3 17l4 4M3 21l6-2 9-9-4-4-9 9z"/><path d="M14 6l4 4"/></svg></div>
+        <h5>Digital MOU</h5>
+      </div>
+      <div class="step">
+        <div class="ring"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M6 12l3-3 3 2 4-5"/></svg></div>
+        <h5>Settlement Engine</h5>
+      </div>
+      <div class="step">
+        <div class="ring"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+        <h5>Closing Confirmed</h5>
+      </div>
     </div>
-    <div style="background:var(--s1);border:.5px solid var(--b2);border-radius:var(--r2);padding:1.75rem;border-top:2px solid var(--violet)">
-      <div style="font-size:22px;margin-bottom:.75rem">⏱</div>
-      <div style="font-size:14px;font-weight:600;margin-bottom:.5rem">Why it comes last</div>
-      <p style="font-size:13px;font-weight:300;color:var(--slate);line-height:1.65">RTO requires three things to exist first: a tenant database with verified payment history (Phase 3), bank partnerships capable of structuring a bespoke financing product (Phase 2), and platform trust earned through months of clean transactions. None of those can be shortcut. Q3 2027 is the targeted entry point for full ownership capabilities.</p>
-    </div>
-  </div>
 
-  <!-- Journey -->
-  <div class="rto-card">
-    <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin-bottom:.25rem">The journey</div>
-    <div style="font-size:13.5px;font-weight:300;color:var(--slate);margin-bottom:1.25rem">From browsing to full ownership without leaving the app.</div>
-    <div class="rto-steps">
-      <div class="rto-step">
-        <div class="rto-step-icon">🔍</div>
-        <div class="rto-step-label">Select</div>
-        <div class="rto-step-sub">Browse RTO-eligible properties. Purchase price locked at contract date.</div>
+    <div class="appshow">
+      <div class="rev d2 app-copy">
+        <h3 class="sub" style="color:var(--ink)">An app you can <b>actually try</b></h3>
+        <p class="lead" style="margin-top:18px">The Phase 1 app, rebuilt so you can tap through it from both sides. Renters and buyers verify once with UAE&nbsp;Pass, then rent a home or reserve an off-plan unit. Sellers and landlords get an owner dashboard, their portfolio, analytics, messages, maintenance and a buy side, all in one app.</p>
+        <div class="callout"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><p>Identity checked against UAE&nbsp;Pass, contracts signed in-app, money moving bank to bank, with no agent commission anywhere in the flow.</p></div>
+        <div class="persona-tabs">
+          <button class="persobtn on" data-persona="tenant">Rent &amp; buy</button>
+          <button class="persobtn" data-persona="seller">Sell &amp; manage</button>
+        </div>
       </div>
-      <div class="rto-step">
-        <div class="rto-step-icon">✍️</div>
-        <div class="rto-step-label">Sign</div>
-        <div class="rto-step-sub">UAE Pass signed. Ejari registered. Bank facility activated.</div>
-      </div>
-      <div class="rto-step">
-        <div class="rto-step-icon">📈</div>
-        <div class="rto-step-label">Build equity</div>
-        <div class="rto-step-sub">Every monthly payment accrues an ownership stake, visible in real time.</div>
-      </div>
-      <div class="rto-step">
-        <div class="rto-step-icon">🎯</div>
-        <div class="rto-step-label">Exercise</div>
-        <div class="rto-step-sub">Trigger the purchase when ready. Equity converts to down payment.</div>
-      </div>
-      <div class="rto-step">
-        <div class="rto-step-icon active">🏠</div>
-        <div class="rto-step-label" style="color:var(--violet)">Own it</div>
-        <div class="rto-step-sub">DARI title transfer completes digitally. No office. No paperwork.</div>
+      <div class="rev d1 phone-col">
+        <div class="phone">
+          <div class="phone-screen" id="proto"></div>
+        </div>
+        <div class="phone-hint" id="phoneHint">Tap through it &mdash; it&rsquo;s live</div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <span>Eqary · Confidential · 2026</span>
-  <span>Built for Abu Dhabi. Built for the UAE.</span>
-</footer>
+<!-- ============ 04 PHASE 1 SCOPE ============ -->
+<section id="s04" data-bg="dark" data-num="04" data-name="Phase 1 scope">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">04</span><span class="div"></span><span>Phase one</span></div>
+    <h2 class="display rev">Phase 1, and what <b>it has to prove</b></h2>
+    <p class="lead rev d1">Phase 1 is the foundation the rest of EQARY sits on. One job: let someone rent a home or reserve an off-plan unit entirely in the app, with government-verified identity, digital contracts and bank-to-bank payment built in from day one. Win rentals and off-plan, stand up the trust layer, and start generating the transaction data the later phases depend on.</p>
+
+    <div class="cards c2">
+      <div class="card rev d1">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <h4>Rent with no agent and no cheque</h4>
+        <p>A tenant finds a home, gets verified, signs the lease with UAE&nbsp;Pass and pays the landlord directly. No agent in the middle, no post-dated cheques.</p>
+        <span class="tag">Tenants &amp; landlords</span>
+      </div>
+      <div class="card rev d2">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>List only what you own</h4>
+        <p>A landlord can only list once the property clears the ADREC ownership check, then screens an already-verified tenant and is paid straight to their account. Fake listings die at the source.</p>
+        <span class="tag">Landlords</span>
+      </div>
+      <div class="card rev d1">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h4>Reserve off-plan, pre-qualified</h4>
+        <p>A buyer reserves a unit from a verified developer, already identity-checked and income-qualified, and the developer gets a warm, ready lead routed in real time.</p>
+        <span class="tag">Buyers &amp; developers</span>
+      </div>
+      <div class="card rev d2">
+        <div class="icn"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/></svg></div>
+        <h4>Money moves, EQARY never holds it</h4>
+        <p>Rent, deposits and reservation fees move bank to bank and split mid-air, so EQARY is never in the money path. That keeps the licensing footprint light at launch.</p>
+        <span class="tag">Payments</span>
+      </div>
+    </div>
+
+    <div class="callout rev d1"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><p><b style="color:#fff">First definition of done:</b> 500 verified landlord listings, 50 verified developer listings, and 1,000 transactions processed end to end, live in Abu&nbsp;Dhabi with Dubai ready to switch on.</p></div>
+
+    <div class="pills rev d2">
+      <span class="pill">UAE Pass</span><span class="pill">KYC / AML</span><span class="pill">AECB Credit</span>
+      <span class="pill">Open Banking</span><span class="pill">Lean</span><span class="pill">Tarabut</span>
+      <span class="pill">Bank-to-Bank</span><span class="pill">Account-to-Account</span><span class="pill">E-Signature</span>
+      <span class="pill">Digital Contracts</span><span class="pill">Tawtheeq / Ejari</span><span class="pill">ADREC / DARI</span>
+      <span class="pill">Smart-Lock Access</span><span class="pill">Allocation Engine</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 MARKET ============ -->
+<section id="s05" data-bg="cream" data-num="05" data-name="The market">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">05</span><span class="div"></span><span>The market</span></div>
+    <h2 class="display rev">The UAE market, and where <b>EQARY fits</b></h2>
+    <p class="lead rev d1">Keyper covers rental and Rent&nbsp;Now&nbsp;Pay&nbsp;Later, Huspy covers mortgages, Dubai&nbsp;REST is the government layer. Nobody runs the whole journey as one Abu&nbsp;Dhabi-first platform. That is the gap EQARY fills.</p>
+
+    <div class="stat-row rev d1">
+      <div class="stat"><div class="big">AED 400<small>B</small></div><div class="lbl">Rentals &amp; off-plan, our entry slice</div></div>
+      <div class="stat"><div class="big">AED 700<small>B</small></div><div class="lbl">UAE real estate market</div></div>
+      <div class="stat"><div class="big">AED 2.6<small>T</small></div><div class="lbl">Global PropTech TAM</div></div>
+    </div>
+    <div class="stat-row rev d2">
+      <div class="stat"><div class="big">26<small>BN AED</small></div><div class="lbl">Abu Dhabi home sales in 2024, around 9,700 deals</div></div>
+      <div class="stat"><div class="big">87<small>%</small></div><div class="lbl">Of Abu Dhabi transactions are cash, the lane we open in Phase 2a</div></div>
+      <div class="stat"><div class="big">Live<small> NOW</small></div><div class="lbl">UAE Open Finance went live in early 2026, the rails EQARY runs on</div></div>
+    </div>
+
+    <h3 class="sub rev d1" style="margin-top:74px;color:var(--ink)">Who's <b>already out there</b></h3>
+    <div class="player-list">
+      <div class="player rev d1">
+        <div class="icn"><svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.5 12.5L19 4M16 7l3 3M14 9l3 3"/></svg></div>
+        <div><h4>Keyper</h4><p>RNPL and rental management, well funded with a sukuk facility, and moving into Abu&nbsp;Dhabi. The closest overlap.</p></div>
+      </div>
+      <div class="player rev d2">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <div><h4>Huspy</h4><p>Mortgages and buying, a different lane to EQARY's Phase 1.</p></div>
+      </div>
+      <div class="player rev d3">
+        <div class="icn"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01"/></svg></div>
+        <div><h4>Dubai REST · Property Finder · Bayut</h4><p>The government layer and the listing portals. Dubai-centric, with stitched-together services the user has to assemble alone.</p></div>
+      </div>
+    </div>
+
+    <div class="cards c3" style="margin-top:54px">
+      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Abu Dhabi first</h4><p>The consumer consolidation is Dubai-centric. Abu&nbsp;Dhabi, on Tawtheeq and ADREC, is the genuine open ground.</p></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><h4>End to end in one app</h4><p>Verified identity through to a signed, registered lease and a bank-to-bank payment. The others make you stitch that yourself.</p></div>
+      <div class="card rev d3"><div class="icn"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div><h4>Rental and off-plan together</h4><p>Two revenue lines on one trust layer. Most competitors pick a single lane.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 BUSINESS MODEL ============ -->
+<section id="s06" data-bg="dark2" data-num="06" data-name="Business model">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">06</span><span class="div"></span><span>Business model</span></div>
+    <h2 class="display rev">How <b>EQARY makes money</b></h2>
+    <p class="lead rev d1">Users pay a small flat fee, far less than an agent's commission. The real revenue comes from the banks and developers around the deal.</p>
+    <div class="cards c3">
+      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h4>Low flat fee</h4><p>No 2% commission. A small flat fee, a fraction of what an agent charges. That is how we win users over.</p></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><path d="M9 9h.01M9 13h.01"/></svg></div><h4>Developer fees</h4><p>Developers pay a listing and lead-generation fee to access our verified, pre-approved buyer pipeline.</p></div>
+      <div class="card rev d3"><div class="icn"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h4>Bank referral fees</h4><p>The main one. Every mortgage or loan that runs through a deal earns a referral fee from the bank.</p></div>
+      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.7 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></div><h4>Premium services</h4><p>Photography, listing placement, buyer pipelines and dashboards for developers and landlords who want them.</p></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg></div><h4>Ecosystem leads &amp; ads</h4><p>Maintenance, insurance, moving and utility providers pay per qualified referral, never the user.</p></div>
+    </div>
+
+    <h3 class="sub rev" style="margin-top:74px;color:#fff">What <b>each side gets</b></h3>
+    <p class="lead rev d1" style="margin-top:14px">EQARY only wins when everyone in the deal does. Here is what each side walks away with.</p>
+    <div class="cards c3">
+      <div class="card spot rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h4>Sellers &amp; landlords</h4><p>An investor dashboard and analytics that turns an owner into their own agent: every property, tenant, payment and yield in one place, with pricing benchmarks and occupancy at a glance. They list, screen and get paid directly, and watch the whole portfolio without ever calling a broker.</p><span class="tag">Become the new agent</span></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M15.5 11l2 2 4-4"/></svg></div><h4>Buyers &amp; tenants</h4><p>A verified, end-to-end close in one app: identity, credit and income confirmed once, contracts signed with UAE&nbsp;Pass, money moving bank to bank, and no 2% commission anywhere in the deal.</p></div>
+      <div class="card rev d3"><div class="icn"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></div><h4>Banks &amp; mortgage providers</h4><p>A pipeline of pre-verified, income-confirmed, credit-checked borrowers, routed at the moment they're transacting. Higher intent than any portal, and the main driver of EQARY's revenue.</p></div>
+      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div><h4>RNPL partners</h4><p>Applicants already gated by AECB credit and open-banking income, so the hardest financing piece arrives de-risked and ready to underwrite.</p></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><path d="M14 7l3 3M18 2l4 4-3 3-4-4z"/><path d="M3 21l4-1 9-9-3-3-9 9z"/></svg></div><h4>Service providers</h4><p>Maintenance, insurance, movers and utilities get qualified, per-lead referrals at the moment of move-in or handover, paid by the provider, never the user.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 ARCHITECTURE ============ -->
+<section id="s07" data-bg="dark" data-num="07" data-name="Architecture">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">07</span><span class="div"></span><span>Architecture</span></div>
+    <h2 class="display rev">How the whole <b>system fits together</b></h2>
+    <p class="lead rev d1">EQARY is an orchestration layer that coordinates the transaction across regulated providers. Money moves bank to bank, with the platform fee split off in the same movement, so EQARY never holds it. That keeps the licensing footprint light, with the exact perimeter confirmed by counsel.</p>
+
+    <div class="arch rev d1">
+      <div class="reg-strip">
+        <span class="l">CBUAE + ADGM</span>
+        <span class="r">Audit trail · AML / KYC · PDPL · ADGM sandbox gates RNPL</span>
+      </div>
+      <div class="arch-lbl">Client surfaces</div>
+      <div class="surfaces">
+        <div class="abox"><b>Mobile app</b><span>iOS + Android · React Native</span></div>
+        <div class="abox"><b>Web</b><span>Browse + manage</span></div>
+        <div class="abox"><b>Developer portal</b><span>Inventory + qualified leads</span></div>
+        <div class="abox"><b>Admin console</b><span>Ops + compliance</span></div>
+      </div>
+      <div class="core">
+        <b>EQARY orchestration core</b>
+        <span>Identity · Listings · Viewings · Transactions · Payment orchestration · Notifications · Compliance</span>
+        <span class="host">Hosted on Azure UAE North / G42</span>
+      </div>
+      <div class="arch-lbl">Regulated providers · integration adapters</div>
+      <div class="providers">
+        <div class="pgroup gov">
+          <div class="h">Government</div>
+          <div class="row"><b>UAE Pass</b><span>Identity + biometric auth + e-sign</span></div>
+          <div class="row"><b>ADREC / DARI</b><span>Ownership + property data</span></div>
+          <div class="row"><b>Tawtheeq / Ejari</b><span>Tenancy registration</span></div>
+          <div class="row"><b>Madhmoun / Trakheesi</b><span>Listing permits</span></div>
+        </div>
+        <div class="pgroup bank">
+          <div class="h">Banking &amp; payment rails</div>
+          <div class="row"><b>Lean / Tarabut</b><span>Open banking · income + A2A payment</span></div>
+          <div class="row"><b>AECB</b><span>Credit check</span></div>
+          <div class="row"><b>UAEDDS</b><span>Direct debit mandates</span></div>
+          <div class="row"><b>RNPL partner</b><span>Fast follow · gated by ADGM sandbox</span></div>
+        </div>
+        <div class="pgroup svc">
+          <div class="h">Services</div>
+          <div class="row"><b>Smart-lock access</b><span>Time-limited self-view codes</span></div>
+          <div class="row"><b>Document vault</b><span>Encrypted, customer-managed keys</span></div>
+          <div class="row"><b>KYC / AML</b><span>Screening + monitoring</span></div>
+          <div class="row"><b>Push / SMS / email</b><span>Notifications</span></div>
+        </div>
+      </div>
+      <div class="arch-lbl">Money flow · bank to bank (EQARY never holds funds)</div>
+      <div class="money">
+        <div class="m"><b>Payer bank account</b></div>
+        <span class="arrow">→</span>
+        <div class="m"><b>Mid-air split</b>open-banking rail · platform fee separated</div>
+        <span class="arrow">→</span>
+        <div class="m"><b>Landlord / Developer IBAN</b></div>
+      </div>
+    </div>
+
+    <!-- ECOSYSTEM MIND MAP -->
+    <div class="mm-wrap rev d2">
+      <div class="mm-header">
+        <div>
+          <div class="mm-kicker">Ecosystem Architecture</div>
+          <div class="mm-title">One platform, stitched from many systems</div>
+          <div class="mm-sub">Tap any node to explore what each partner does. Eqary coordinates — it never holds money or replaces a registry.</div>
+        </div>
+        <div class="mm-hint">Tap any bubble to explore →</div>
+      </div>
+
+      <div class="mm-stage">
+        <svg id="mm-map" viewBox="0 0 1600 1500" role="img" aria-label="Eqary ecosystem mind map"></svg>
+      </div>
+
+      <div class="mm-legend" id="mm-legend"></div>
+
+      <div class="mm-foot">
+        <b>How to read it:</b> the inner ring holds the ten capability clusters; the outer bubbles are specific partners or APIs inside each. Solid spokes = live in Phase 1 (Q4 2026); mortgage, escrow and ecosystem branches phase in across 2027–2029.
+      </div>
+    </div>
+
+    <!-- INFO CARD -->
+    <div class="mm-card" id="mm-card" style="opacity:0;transform:translateY(8px);pointer-events:none">
+      <button class="mm-close" id="mm-close">×</button>
+      <span class="mm-tag" id="mm-cardtag">Core</span>
+      <div class="mm-cardtitle" id="mm-cardtitle">EQARY</div>
+      <div class="mm-carddesc" id="mm-carddesc">The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly.</div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .mm-wrap{margin-top:40px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);padding:clamp(20px,3vw,36px);overflow:hidden}
+  .mm-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .mm-kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#4CAF7F;font-weight:700;margin-bottom:6px}
+  .mm-title{font-size:clamp(17px,2.2vw,22px);font-weight:700;color:#fff;line-height:1.2}
+  .mm-sub{color:rgba(255,255,255,.6);font-size:13px;max-width:520px;margin-top:6px;line-height:1.5}
+  .mm-hint{font-size:12px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);padding:7px 13px;border-radius:999px;white-space:nowrap;align-self:flex-start;margin-top:4px}
+  .mm-stage{position:relative;border-radius:14px;overflow:hidden;background:rgba(28,43,94,.4)}
+  .mm-stage svg{width:100%;height:auto;display:block;cursor:default}
+  .mm-legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px}
+  .mm-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.7)}
+  .mm-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+  .mm-foot{margin-top:16px;font-size:12px;color:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.1);padding-top:12px;line-height:1.5}
+  .mm-foot b{color:rgba(255,255,255,.75);font-weight:600}
+  .mm-card{position:fixed;left:20px;bottom:20px;width:300px;max-width:calc(100vw - 40px);background:rgba(28,43,94,.97);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px 18px;box-shadow:0 18px 44px -22px rgba(0,0,0,.7);transition:opacity .2s ease,transform .2s ease;z-index:200;pointer-events:auto}
+  .mm-close{position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;color:rgba(255,255,255,.5);cursor:pointer;line-height:1}
+  .mm-close:hover{color:#fff}
+  .mm-tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#fff;padding:3px 8px;border-radius:5px;margin-bottom:8px}
+  .mm-cardtitle{font-size:18px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:6px}
+  .mm-carddesc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+  .mm-node{cursor:pointer}
+  .mm-node text{font-family:'Hanken Grotesk',sans-serif;pointer-events:none}
+  .mm-bub{transition:transform .18s ease,filter .18s ease}
+  .mm-node:hover .mm-bub{filter:brightness(1.12) saturate(1.08)}
+  .mm-link{transition:opacity .2s ease}
+  .mm-dim{opacity:.1 !important}
+  .mm-dimnode{opacity:.18;transition:opacity .2s ease}
+</style>
 
 <script>
-const features = [
-  {icon:'–',title:'Direct Buyer–Seller Transactions',desc:'No agent required on either side. Buyers and sellers communicate, negotiate, and close directly through the platform. The commission that traditionally leaves both parties poorer stays with them.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'–',title:'Off-Plan Developer Listings',desc:'Developer inventory sits alongside the secondary market in a single verified feed. Buyers compare off-plan and ready units in one place. Developers get a direct channel to qualified, pre-verified buyers without broker dependency.',phase:'p1',label:'Phase 1',cat:'discovery'},
-  {icon:'01',title:'Verified Listings',desc:'Every listing is gated by a live ADREC deed check. No verified title deed, no listing. Fake properties are structurally impossible, not just against policy.',phase:'p1',label:'Phase 1',cat:'discovery'},
-  {icon:'02',title:'Map & List View',desc:'Interactive map with property markers and a detailed list view. Buyers toggle between them. Google Maps integration with property clustering at scale.',phase:'p1',label:'Phase 1',cat:'discovery'},
-  {icon:'03',title:'Advanced Filters',desc:'Property type, price range, bedrooms, bathrooms, area, amenities, furnishing, completion status. Save combinations and return to them instantly.',phase:'p1',label:'Phase 1',cat:'discovery'},
-  {icon:'04',title:'Saved Searches',desc:'Custom filter sets saved and named. Push alerts when new matching properties are listed. The platform does the monitoring.',phase:'p1',label:'Phase 1',cat:'discovery'},
-  {icon:'05',title:'Gallery + Virtual Tours',desc:'Multi-image upload, full-screen swipeable gallery, pinch-to-zoom. 360° virtual tours embedded for off-plan and high-value listings.',phase:'p1',label:'Phase 1–2',cat:'discovery'},
-  {icon:'06',title:'Property Comparison',desc:'Side-by-side view across any two or three properties including price per square foot, yield, size, amenities, floor. Differences surfaced automatically.',phase:'p2',label:'Phase 2',cat:'discovery'},
-  {icon:'07',title:'Viewing Scheduler',desc:'Buyers book available slots from a seller or landlord calendar. Both sides confirm. Reminder notifications sent automatically.',phase:'p2',label:'Phase 2',cat:'discovery'},
+(function(){
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const CX = 800, CY = 750;
+  const R_HUB = 305, R_LEAF_IN = 520, R_LEAF_OUT = 645;
+  const START = -90;
 
-  {icon:'08',title:'Digital MOU / Form F',desc:'Formal offers submitted with UAE Pass digital signature, legally binding, with contingencies, timelines, and deposit terms documented in a full audit trail.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'09',title:'Offer Management',desc:'All sent and received offers tracked in one place. Draft, pending, accepted, rejected, withdrawn with seller response notes and timestamps.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'10',title:'In-App Messaging',desc:'Buyer-seller conversations organised by property. A single inbox for all active transactions. No need to move to WhatsApp.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'11',title:'Escrow Setup',desc:'IBAN-backed escrow accounts created within the platform for deposit handling. Transaction status tracked through to closing.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'12',title:'Ready-to-Close',desc:'Buyer and seller independently flag when they are ready to proceed. Both confirmed and the DARI title transfer flow is triggered automatically.',phase:'p1',label:'Phase 1',cat:'transaction'},
-  {icon:'13',title:'Document Generation',desc:'MOU PDFs, formal offer summaries, and transaction records generated automatically and available to download or share.',phase:'p1',label:'Phase 1',cat:'transaction'},
+  const mmClusters = [
+    {name:"Identity & Verification",color:"#4CAF7F",desc:"The trust substrate. A user is verified before they can transact, and that verification carries across the whole journey.",leaves:[{n:"UAE Pass",d:"Federal single sign-on, biometric auth and legally binding e-signatures."},{n:"AECB",d:"Al Etihad Credit Bureau — the UAE's only regulated credit bureau. Scores tenants and buyers."},{n:"KYC / AML",d:"Global KYC/AML vendors with UAE coverage. Fallback for first-time foreign buyers."}]},
+    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."}]},
+    {name:"Permits & Tenancy",color:"#2D6FA8",desc:"The legality gates. An advertising permit is checked before a listing publishes, and the tenancy auto-registers the moment the lease is signed.",leaves:[{n:"Madhmoun",d:"Abu Dhabi advertising-permit system. Validated before an AD listing goes live."},{n:"Trakheesi",d:"Dubai advertising-permit system."},{n:"Tawtheeq",d:"Abu Dhabi tenancy registration. Auto-triggered via API on a UAE Pass-signed lease."},{n:"Ejari",d:"Dubai tenancy registration. Mandatory for all Dubai leases."}]},
+    {name:"Payments & Open Banking",color:"#2D8A5E",desc:"The financial core. Money moves bank-to-bank through regulated rails. Eqary never holds funds.",leaves:[{n:"Lean Technologies",d:"Open Banking A2A payments and income verification. Central Bank-regulated."},{n:"Tarabut Gateway",d:"Open Finance alternative to Lean. Provides redundancy on the payment rail."},{n:"UAEDDS",d:"The Central Bank's Direct Debit System. Replaces post-dated cheques for recurring rent."},{n:"Visa Direct",d:"Instant landlord payouts plus a cross-border rail for foreign buyers."},{n:"Checkout.com",d:"Card fallback for small premium-service fees only."}]},
+    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Huspy / Holo",d:"Mortgage platforms as an alternative to integrating each bank directly."}]},
+    {name:"Financing — RNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"RNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative RNPL provider. Pays the landlord upfront, collects monthly."}]},
+    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."}]},
+    {name:"Smart Locks",color:"#A03060",desc:"Time-limited access codes let a buyer or tenant view a property without an agent present.",leaves:[{n:"Latch",d:"Smart-lock provider for landlord-controlled, time-limited self-viewing codes."},{n:"KeyNest",d:"Key-exchange / lockbox network for self-viewing access."},{n:"igloohome",d:"Offline-capable smart locks issuing time-bound PIN codes."}]},
+    {name:"Ecosystem Services",color:"#7A3A8F",desc:"Adjacent services monetised at near-zero marginal cost — providers pay Eqary per qualified lead.",leaves:[{n:"Bayzat / Sukoon",d:"Embedded home insurance at handover. Commission per policy sold."},{n:"Justmop / Matic",d:"Pay-per-booking cleaning and maintenance."},{n:"DEWA / SEWA / ADDC",d:"Utility activation at move-in via direct APIs."},{n:"Movers & Furniture",d:"Per-move lead generation and affiliate revenue."}]},
+    {name:"Infrastructure",color:"#3D6070",desc:"UAE-resident hosting, messaging, and the regulators whose sandboxes unlock novel products.",leaves:[{n:"Azure UAE / G42",d:"UAE-resident hosting and encrypted document vault."},{n:"Push / SMS / Email",d:"Multi-channel notifications across viewing, application, payment and contract events."},{n:"Central Bank UAE",d:"Regulates Open Finance, escrow and direct debit."},{n:"ADGM / DIFC",d:"Innovation Testing Licence sandboxes — path to launch RNPL."}]},
+  ];
 
-  {icon:'14',title:'Mortgage Calculator',desc:'Built-in calculator with EIBOR base rates, LTV scenarios, tenure, and monthly breakdowns. Save multiple scenarios and share them.',phase:'p1',label:'Phase 1',cat:'finance'},
-  {icon:'15',title:'Multi-Bank Pre-Approval',desc:'One application, compared across FAB, ADCB, ADIB, and Emirates NBD. Pre-approved buyers are flagged on their profile as the strongest trust signal on the platform.',phase:'p2',label:'Phase 2',cat:'finance'},
-  {icon:'16',title:'Rent Loan Financing',desc:'Bank partner issues a 12-month rent loan per tenancy. Landlord receives the full amount upfront. Tenant pays monthly. Eqary earns the origination fee.',phase:'p3',label:'Phase 3',cat:'finance'},
-  {icon:'17',title:'Total Cost of Ownership',desc:'Full transaction cost breakdown before any commitment: transfer fee, service charge, valuation, insurance. No surprises at closing.',phase:'p1',label:'Phase 1',cat:'finance'},
+  const svgEl = document.getElementById("mm-map");
+  function pol(cx,cy,r,deg){const a=deg*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+  function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+  function wrapText(label,max){const words=label.split(" ");const lines=[];let cur="";for(const w of words){if((cur+" "+w).trim().length>max&&cur){lines.push(cur);cur=w;}else cur=(cur+" "+w).trim();}if(cur)lines.push(cur);return lines;}
 
-  {icon:'18',title:'UAE Pass',desc:'Government-issued digital identity and legally binding e-signature. Used for MOU, Form F, tenancy contracts, and RTO agreements.',phase:'p1',label:'Phase 1',cat:'government'},
-  {icon:'19',title:'DARI Deed Verification',desc:'Automated verification against ADREC property register. Ownership confirmed, encumbrances checked, deed validity established before the listing goes live.',phase:'p1',label:'Phase 1',cat:'government'},
-  {icon:'20',title:'DLD / Trakheesi',desc:'API-ready connections to the Dubai Land Department and Trakheesi permit system. NOC generation for property transactions handled within the platform.',phase:'p1',label:'Phase 1',cat:'government'},
-  {icon:'21',title:'Ejari Registration',desc:'Tenancy contract registration with Ejari is triggered automatically on signing. The final manual government step in renting, removed.',phase:'p3',label:'Phase 3',cat:'government'},
+  const linkLayer=el("g",{});svgEl.appendChild(linkLayer);
+  const nodeLayer=el("g",{});svgEl.appendChild(nodeLayer);
+  const allLinks=[],allNodes=[];
+  const N=mmClusters.length;
 
-  {icon:'22',title:'Pricing Engine',desc:'Built on ADREC closed transaction data with 60+ Abu Dhabi sub-community benchmarks. Gives buyers and sellers a data-driven reference before any negotiation.',phase:'p2',label:'Phase 2',cat:'premium'},
-  {icon:'23',title:'Investor Dashboard',desc:'Portfolio value, yield tracking, comparable transactions, capital appreciation history, and market alerts on subscription. Data history creates switching cost.',phase:'p2',label:'Phase 2',cat:'premium'},
-  {icon:'24',title:'Market Intelligence',desc:'Proprietary community-level pricing indices, yield rankings, and supply pipeline data sold as reports to developers, institutions, and fund managers.',phase:'p2',label:'Phase 2',cat:'premium'},
-  {icon:'25',title:'Golden Visa Flag',desc:'Every property at or above AED 2M is automatically flagged as Golden Visa eligible, the most relevant purchase motivator for foreign buyers.',phase:'p1',label:'Phase 1',cat:'premium'},
+  function makeBubble(x,y,label,fill,textCol,rPad,fontSize,fontWeight,data){
+    const g=el("g",{class:"mm-node"});
+    const lines=wrapText(label,label.length>18?14:22);
+    const maxLen=Math.max(...lines.map(l=>l.length));
+    const w=Math.max(56,maxLen*fontSize*0.56+rPad*2);
+    const lineH=fontSize*1.22;
+    const h=lines.length*lineH+rPad*1.4;
+    const rect=el("rect",{class:"mm-bub",x:x-w/2,y:y-h/2,width:w,height:h,rx:h/2,ry:h/2,fill:fill,stroke:"rgba(255,255,255,.25)","stroke-width":1.2});
+    rect.style.filter="drop-shadow(0 4px 12px rgba(0,0,0,.35))";
+    g.appendChild(rect);
+    lines.forEach((ln,i)=>{
+      const t=el("text",{x:x,y:y-(lines.length-1)*lineH/2+i*lineH,"text-anchor":"middle","dominant-baseline":"central",fill:textCol,"font-size":fontSize,"font-weight":fontWeight,"letter-spacing":"0.01em"});
+      t.textContent=ln;g.appendChild(t);
+    });
+    g.addEventListener("click",(e)=>{e.stopPropagation();showMMCard(data,g);});
+    g.addEventListener("mouseenter",()=>showMMCard(data,g,true));
+    nodeLayer.appendChild(g);
+    allNodes.push({g,data});
+    return g;
+  }
 
-  {icon:'26',title:'Rental Marketplace',desc:'Landlords list, tenants browse and apply directly. No agent in the chain. Verified landlord identity, property documentation, and pricing.',phase:'p3',label:'Phase 3',cat:'rental'},
-  {icon:'27',title:'Viewing Booking',desc:'Tenants pick from the landlord\'s available slots. Both sides confirm in-app. No agent coordination required.',phase:'p3',label:'Phase 3',cat:'rental'},
-  {icon:'28',title:'Digital Tenancy Contract',desc:'UAE Pass signed. Ejari auto-registered. Full audit trail from deposit to contract expiry.',phase:'p3',label:'Phase 3',cat:'rental'},
-  {icon:'29',title:'Monthly Rent Payments',desc:'The bank partner pays the landlord in full, upfront. The tenant pays monthly. The annual cheque problem solved.',phase:'p3',label:'Phase 3',cat:'rental'},
-  {icon:'30',title:'Landlord Tools',desc:'Multi-property management. Vacancy tracking, yield analytics, tenant history, renewal scheduling, service charge records.',phase:'p3',label:'Phase 3',cat:'rental'},
-  {icon:'31',title:'Tenant Credit Profile',desc:'Two years of verified payment behaviour, UAE Pass identity, and income data. A trust signal landlords can rely on and the foundation for Phase 5.',phase:'p3',label:'Phase 3',cat:'rental'},
+  mmClusters.forEach((cl,i)=>{
+    const ang=START+i*(360/N);
+    const[hx,hy]=pol(CX,CY,R_HUB,ang);
+    const l1=el("line",{class:"mm-link",x1:CX,y1:CY,x2:hx,y2:hy,stroke:cl.color,"stroke-width":3,"stroke-opacity":.6,"stroke-linecap":"round"});
+    linkLayer.appendChild(l1);allLinks.push({l:l1,cluster:i});
+    const n=cl.leaves.length;
+    const spread=Math.min(30,7+n*4);
+    cl.leaves.forEach((lf,j)=>{
+      const t=n===1?0:(j/(n-1))-0.5;
+      const la=ang+t*spread;
+      const r=(j%2===0)?R_LEAF_IN:R_LEAF_OUT;
+      const[lx,ly]=pol(CX,CY,r,la);
+      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.5,"stroke-opacity":.35,"stroke-linecap":"round"});
+      linkLayer.appendChild(ll);allLinks.push({l:ll,cluster:i});
+      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",12,11,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
+    });
+    makeBubble(hx,hy,cl.name,cl.color,"#fff",14,13,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
+  });
 
-  {icon:'32',title:'RTO Contract',desc:'A legally structured UAE agreement combining a tenancy contract with a deferred purchase option. UAE Pass signed, ADREC compliant, Ejari registered on day one.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'33',title:'Equity Ledger',desc:'Every monthly payment is split between rent and equity credit. Tenants track their exact ownership stake growing in real time.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'34',title:'Bank RTO Facility',desc:'Partner banks structure the Rent-to-Own financing product. Eqary handles origination, credit assessment, and ongoing payment routing.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'35',title:'Purchase Option',desc:'At any point in the term, the tenant triggers the purchase. Equity converts to a down payment and Eqary converts the contract to a standard mortgage.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'36',title:'Ownership Statement',desc:'A monthly statement showing rent paid, equity accrued, remaining balance to full ownership, and current property value.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'37',title:'Developer RTO Inventory',desc:'Developers designate off-plan or completed units as RTO-eligible. A new sales channel for slower-moving inventory and a new buyer cohort.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'38',title:'Price Lock',desc:'The purchase price is fixed at contract signing. If the property appreciates during the term, the tenant captures 100% of that gain.',phase:'p5',label:'Phase 5',cat:'rto'},
-  {icon:'39',title:'Automated Title Transfer',desc:'When the purchase is exercised, Eqary triggers the DARI title transfer digitally. No office visit. No paperwork. Ownership confirmed.',phase:'p5',label:'Phase 5',cat:'rto'},
-];
+  // center node
+  const cg=el("g",{class:"mm-node"});
+  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:84,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":3});
+  cc.style.filter="drop-shadow(0 12px 30px rgba(0,0,0,.5))";
+  cg.appendChild(cc);
+  const ct=el("text",{x:CX,y:CY-6,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":28,"font-weight":700,"letter-spacing":"0.02em"});
+  ct.textContent="EQARY";cg.appendChild(ct);
+  const cs=el("text",{x:CX,y:CY+20,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":10,"font-weight":700,"letter-spacing":"0.18em"});
+  cs.textContent="ORCHESTRATION";cg.appendChild(cs);
+  cg.addEventListener("click",(e)=>{e.stopPropagation();showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg);});
+  cg.addEventListener("mouseenter",()=>showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg,true));
+  nodeLayer.appendChild(cg);
 
-const phaseClass = {p1:'p1',p2:'p2',p3:'p3',p4:'p4',p5:'p5'};
+  const card=document.getElementById("mm-card");
+  const cardtag=document.getElementById("mm-cardtag");
+  const cardtitle=document.getElementById("mm-cardtitle");
+  const carddesc=document.getElementById("mm-carddesc");
 
-function render(filter) {
-  const g = document.getElementById('featuresGrid');
-  const list = filter === 'all' ? features : features.filter(f => f.cat === filter);
-  g.innerHTML = list.map((f,i) => `
-    <div class="fcard" style="animation-delay:${i*.03}s">
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--slate);margin-bottom:.75rem">${f.icon}</div>
-      <div class="fcard-title">${f.title}</div>
-      <div class="fcard-desc">${f.desc}</div>
-      <div class="fcard-phase ${phaseClass[f.phase]}">${f.label}</div>
+  function highlight(cluster){
+    allLinks.forEach(o=>o.l.classList.toggle("mm-dim",cluster!==-1&&o.cluster!==cluster));
+    allNodes.forEach(o=>o.g.classList.toggle("mm-dimnode",cluster!==-1&&o.data.cluster!==cluster&&o.data.cluster!==undefined));
+    cg.classList.remove("mm-dimnode");
+  }
+  function showMMCard(d,g,soft){
+    cardtag.textContent=d.tag;cardtag.style.background=d.color;
+    cardtitle.textContent=d.title;carddesc.textContent=d.desc;
+    card.style.opacity=1;card.style.transform="translateY(0)";card.style.pointerEvents="auto";
+    if(!soft)highlight(d.cluster);
+  }
+  svgEl.addEventListener("click",()=>highlight(-1));
+  document.getElementById("mm-close").addEventListener("click",()=>{
+    card.style.opacity=0;card.style.transform="translateY(8px)";card.style.pointerEvents="none";highlight(-1);
+  });
+
+  // legend
+  const legend=document.getElementById("mm-legend");
+  mmClusters.forEach(cl=>{
+    const s=document.createElement("span");
+    s.innerHTML=`<i style="background:${cl.color}"></i>${cl.name}`;
+    legend.appendChild(s);
+  });
+})();
+</script>
+
+<!-- ============ 08 ROADMAP ============ -->
+<section id="s08" data-bg="dark2" data-num="08" data-name="Roadmap">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">08</span><span class="div"></span><span>Roadmap</span></div>
+    <h2 class="display rev">The plan, <b>phase by phase</b></h2>
+    <p class="lead rev d1">Each phase builds the infrastructure the next one needs. Tap a phase to see what it delivers and where it earns.</p>
+
+    <div class="rm rev d1">
+      <div class="rm-track" id="rmTrack">
+        <span class="prog" id="rmProg"></span>
+        <button class="rm-node active" data-i="0"><span class="dot">1</span><span class="nlabel">Q4 2026<br>Foundation</span></button>
+        <button class="rm-node" data-i="1"><span class="dot">2a</span><span class="nlabel">Q3 2027<br>Secondary</span></button>
+        <button class="rm-node" data-i="2"><span class="dot">2b</span><span class="nlabel">Q1/Q2 2028<br>Mortgage</span></button>
+        <button class="rm-node" data-i="3"><span class="dot">3</span><span class="nlabel">Q4 2028<br>Rent to Own</span></button>
+        <button class="rm-node" data-i="4"><span class="dot">4</span><span class="nlabel">Q1/Q2 2029<br>Intelligence</span></button>
+      </div>
+      <div class="rm-panel" id="rmPanel"></div>
     </div>
-  `).join('');
-}
+  </div>
+</section>
 
-document.getElementById('featureTabs').addEventListener('click', e => {
-  const t = e.target.closest('.ftab');
-  if (!t) return;
-  document.querySelectorAll('.ftab').forEach(x => x.classList.remove('active'));
-  t.classList.add('active');
-  render(t.dataset.filter);
+<!-- ============ 09 WHY NOW ============ -->
+<section id="s09" data-bg="cream" data-num="09" data-name="Why now">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">09</span><span class="div"></span><span>Why now</span></div>
+    <h2 class="display rev">Why now, <b>the 2026 landscape</b></h2>
+    <p class="lead rev d1">UAE Pass, Open Finance and the government registries only became usable this way in the last two years. The timing is the moat.</p>
+    <div class="cards c3">
+      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div><h4>Government push</h4><p>Abu&nbsp;Dhabi 2030 calls for a paperless economy, and the registries are opening their APIs to match.</p></div>
+      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div><h4>Consumer demand</h4><p>UAE buyers expect a digital experience everywhere. Property is the last holdout.</p></div>
+      <div class="card rev d3"><div class="icn"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v4M7 18a3 3 0 016 0M11 11l-4 4M13 11l4 4"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h4>Infrastructure ready</h4><p>UAE&nbsp;Pass, Open Finance, DLD and Ejari APIs are all live now. The rails finally exist.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 RAISE ============ -->
+<section id="s10" data-bg="dark" data-num="10" data-name="The raise">
+  <div class="wrap">
+    <div class="badge rev"><span class="n">10</span><span class="div"></span><span>The raise</span></div>
+    <h2 class="display rev">What we're <b>raising</b></h2>
+    <p class="lead rev d1">Pre-seed capital to launch the UAE's first direct real estate closing platform, with eighteen months of runway from day one.</p>
+    <div class="raise-stats rev d1">
+      <div class="stat"><div class="big">$900k</div><div class="lbl">Total raise</div></div>
+      <div class="stat"><div class="big">18 mo</div><div class="lbl">Full runway</div></div>
+      <div class="stat"><div class="big">Q4 2026</div><div class="lbl">MVP launch target</div></div>
+    </div>
+    <div class="use rev d2">
+      <div class="donut"></div>
+      <div class="use-legend">
+        <div class="li"><span class="sw" style="background:var(--accent-deep)"></span><div><b>MVP build &amp; engineering</b> <span>· 50%</span></div></div>
+        <div class="li"><span class="sw" style="background:var(--accent)"></span><div><b>Operations</b> <span>· 30%</span></div></div>
+        <div class="li"><span class="sw" style="background:#3f6e5d"></span><div><b>Marketing &amp; growth</b> <span>· 20%</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 CONTACT ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-logo">
+      <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true">
+<path d="M10 34 L32 14 L54 34" fill="none" stroke="#4CAF7F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#4CAF7F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#4CAF7F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <b>EQARY</b>
+    </div>
+    <small>Investor preview · Confidential · 2026 &nbsp;·&nbsp; eqaryae@gmail.com</small>
+  </div>
+</footer>
+
+<button class="fab" id="fab" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="priv">EQARY — Investor Preview · <b>Confidential</b></div>
+
+<script>
+/* ---------- section data ---------- */
+const sections = [...document.querySelectorAll('[data-num]')];
+
+/* ---------- build jump menu ---------- */
+const menu = document.getElementById('jumpMenu');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML=`<span class="n">${s.dataset.num}</span><span>${s.dataset.name}</span>`;
+  a.dataset.target=s.id;
+  menu.appendChild(a);
 });
+const jumpBtn=document.getElementById('jumpBtn');
+function closeMenu(){menu.classList.remove('open');jumpBtn.classList.remove('open');}
+jumpBtn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');jumpBtn.classList.toggle('open');});
+document.addEventListener('click',()=>closeMenu());
+menu.addEventListener('click',e=>e.stopPropagation());
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));
 
-render('all');
-
-// Nav scroll highlight
-const sects = ['features','roadmap','model','rental','rto'];
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      sects.forEach(s => document.getElementById('nav-'+s)?.classList.remove('active'));
-      if (e.target.id) document.getElementById('nav-'+e.target.id)?.classList.add('active');
+/* ---------- scroll spy ---------- */
+const barNum=document.getElementById('barNum'), barName=document.getElementById('barName');
+const spy=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      const s=en.target;
+      barNum.textContent=s.dataset.num;
+      barName.textContent=s.dataset.name;
+      menu.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.dataset.target===s.id));
     }
   });
-},{threshold:.25});
-sects.forEach(s => { const el=document.getElementById(s); if(el) obs.observe(el); });
+},{rootMargin:'-45% 0px -50% 0px',threshold:0});
+sections.forEach(s=>spy.observe(s));
+
+/* ---------- reveal on scroll ---------- */
+const rev=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');rev.unobserve(en.target);}});
+},{rootMargin:'0px 0px -8% 0px',threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>rev.observe(el));
+
+/* ---------- FAB ---------- */
+const fab=document.getElementById('fab');
+addEventListener('scroll',()=>{fab.classList.toggle('show',scrollY>700);});
+fab.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+/* ---------- interactive roadmap ---------- */
+const phases=[
+  {phase:'Phase 1',date:'Q4 2026',title:'Trusted Transaction Foundation',
+   body:'Rentals and off-plan launch together. The verification, payment and trust layer, ADREC, DARI, UAE Pass, Tawtheeq, Ejari, goes live from day one. Bank-to-bank rails operational, and tenant credit profiling begins, all without a Central Bank escrow licence.',
+   list:['Rental marketplace','Off-plan listings','UAE Pass + KYC + AECB','A2A payments','Mid-air split'],
+   rev:'Flat completion fee · developer listing fees · RNPL referral fee'},
+  {phase:'Phase 2a',date:'Q3 2027',title:'Secondary Market Launch',
+   body:'Second-hand transactions open on the verified user base. It launches with the lighter half, listings, matching, negotiation and cash transactions, reaching roughly 87% of the Abu Dhabi market without any dependency on escrow licensing.',
+   list:['Seller onboarding','Deed verification','RERA-standard MOU','Cash title transfer'],
+   rev:'Closing transaction fee · ecosystem lead generation'},
+  {phase:'Phase 2b',date:'Q1/Q2 2028',title:'Mortgage & Escrow Integration',
+   body:'The heavier financial layer. Regulated escrow for buyer deposits and end-to-end mortgage-financed transactions, with multi-bank origination. Positioned after the cash launch because bank and escrow partnerships carry the longest lead times.',
+   list:['Escrow integration','Multi-bank mortgage','Liability Letter reads','Document orchestration'],
+   rev:'Transaction success fee · mortgage origination referral · escrow & document fees'},
+  {phase:'Phase 3',date:'Q4 2028',title:'Rent to Own',
+   body:'The ownership bridge, built on two years of accumulated tenant payment data and the Phase 2b bank partnerships. Equity-accruing monthly payments convert renters into owners, registered with DLD in the provisional register.',
+   list:['RTO contract framework','Equity accrual ledger','Price lock','Automated title transfer'],
+   rev:'Origination · monthly equity management · conversion · break fee — the highest-LTV product'},
+  {phase:'Phase 4',date:'Q1/Q2 2029',title:'Intelligence Layer & Ecosystem',
+   body:'EQARY turns from marketplace into infrastructure. A pricing engine fed by two-plus years of completed transactions, an investor dashboard with real switching costs, and adjacent-service lead generation monetising every deal at near-zero marginal cost.',
+   list:['Valuation engine','Investor dashboard','Data subscriptions','Adjacent verticals'],
+   rev:'SaaS subscriptions · data subscriptions · per-lead ecosystem revenue'}
+];
+const panel=document.getElementById('rmPanel');
+const nodes=[...document.querySelectorAll('.rm-node')];
+const prog=document.getElementById('rmProg');
+function renderPhase(i){
+  const p=phases[i];
+  panel.innerHTML=`<div class="rm-fade">
+    <div class="ph-meta"><span class="ph-phase">${p.phase}</span><span class="ph-date">${p.date}</span></div>
+    <h4>${p.title}</h4>
+    <p class="ph-body">${p.body}</p>
+    <div class="ph-list">${p.list.map(x=>`<span>${x}</span>`).join('')}</div>
+    <div class="ph-rev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>${p.rev}</div>
+  </div>`;
+  nodes.forEach((n,k)=>n.classList.toggle('active',k===i));
+  const mobile=matchMedia('(max-width:680px)').matches;
+  const pct=i/(phases.length-1)*100;
+  if(mobile){prog.style.height=pct+'%';prog.style.width='2px';}
+  else{prog.style.width=`calc(${pct}% * .88)`;prog.style.height='2px';}
+}
+nodes.forEach(n=>n.addEventListener('click',()=>renderPhase(+n.dataset.i)));
+renderPhase(0);
+addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contains('active'))));
+</script>
+<script>
+/* ============ INTERACTIVE APP PROTOTYPE ============ */
+(function(){
+  const screen=document.getElementById('proto');
+  if(!screen) return;
+
+  const listings=[
+    {id:'l1',t:'2-bed apartment',loc:'Saadiyat Island',price:145000,size:'1,240 sq ft',c1:'#cdd9d2',c2:'#94aaa0'},
+    {id:'l2',t:'Studio',loc:'Al Reem Island',price:62000,size:'520 sq ft',c1:'#dcd4c3',c2:'#b1a684'},
+    {id:'l3',t:'1-bed apartment',loc:'Yas Island',price:98000,size:'780 sq ft',c1:'#c7d1dd',c2:'#94a4bb'}
+  ];
+  const slots=['Today · 5:00 PM','Tomorrow · 11:00 AM','Tomorrow · 6:30 PM'];
+  const banks=['Emirates NBD','First Abu Dhabi Bank','ADCB'];
+  const money=n=>'AED '+n.toLocaleString('en-US');
+
+  let S;
+  const offplans=[
+    {id:'o1',off:true,t:'Saadiyat Lagoons · 3-bed villa',loc:'Saadiyat',dev:'Aldar',price:3200000,handover:'Q4 2027',c1:'#cfd9d1',c2:'#8fa79a'},
+    {id:'o2',off:true,t:'The Arthouse · 1-bed',loc:'Al Maryah',dev:'Aldar',price:1850000,handover:'Q2 2028',c1:'#dad3c3',c2:'#aa9f80'},
+    {id:'o3',off:true,t:'Reportage Hills · townhouse',loc:'Dubailand',dev:'Reportage',price:2400000,handover:'Q1 2028',c1:'#c8d1dd',c2:'#92a3ba'}
+  ];
+  const reset=()=>{S={screen:'start',mode:'rent',track:'rent',v:{id:false},listing:null,slot:0,bank:null,busy:false,bankApproved:false,signed:false,paid:false};};
+  reset();
+
+  let persona='tenant';
+  const SS={tab:'portfolio',thread:null,buySel:null,maint:null,maintStatus:0,expressed:null,msgs:{}};
+  const activeProp='2-bed · Saadiyat';
+  const sProps=[
+    {id:'p1',t:'2-bed · Saadiyat',status:'occ',rent:145000,tenant:'Omar K.',c1:'#cdd9d2',c2:'#94aaa0'},
+    {id:'p2',t:'Studio · Al Reem',status:'lst',rent:62000,tenant:'3 applicants',c1:'#dad3c3',c2:'#aa9f80'},
+    {id:'p3',t:'1-bed · Yas',status:'vac',rent:98000,tenant:'Vacant',c1:'#c8d1dd',c2:'#92a3ba'}
+  ];
+  const sConvs=[
+    {id:'c1',who:'Omar K.',ini:'O',last:'March rent paid &#10003;',unread:false,base:[['them','Salam, just paid March rent through the app.'],['me','Got it, thanks Omar. Receipt is in your vault.']]},
+    {id:'c2',who:'Layla H.',ini:'L',last:'Can I view Saturday?',unread:true,base:[['them','Hi! Could I self-view the Al Reem studio on Saturday?']]},
+    {id:'c3',who:'EQARY Concierge',ini:'E',last:'Payout AED 36,250 sent',unread:false,base:[['them','Your payout of AED 36,250 has been sent to your IBAN.']]}
+  ];
+  const sQuick=['Approve viewing','Send tenancy contract','Thanks 👍'];
+  const mcats=[
+    {id:'plumb',t:'Plumbing',d:'Leaks, fittings',prov:'AquaFix · 4.8★',est:'~AED 250'},
+    {id:'ac',t:'AC & cooling',d:'Service, repair',prov:'CoolCare · 4.7★',est:'~AED 320'},
+    {id:'elec',t:'Electrical',d:'Wiring, fixtures',prov:'VoltPro · 4.9★',est:'~AED 200'},
+    {id:'clean',t:'Cleaning',d:'Deep clean',prov:'Justmop · 4.8★',est:'~AED 180'}
+  ];
+  const mstages=['Logged','Approved','Contractor dispatched','Completed'];
+  const sBuy=[
+    {id:'b1',t:'Saadiyat Lagoons · villa',dev:'Aldar · off-plan',price:3200000,yld:'6.8%',c1:'#cfd9d1',c2:'#8fa79a'},
+    {id:'b2',t:'Al Reem · 1-bed',dev:'Secondary',price:1150000,yld:'7.4%',c1:'#dad3c3',c2:'#aa9f80'},
+    {id:'b3',t:'Yas · 2-bed',dev:'Aldar · off-plan',price:1850000,yld:'6.5%',c1:'#c8d1dd',c2:'#92a3ba'}
+  ];
+
+  function progress(){
+    const off=S.track==='offplan';
+    const idx=off?{verify:0,home:1,offlisting:1,sign:3,pay:4,done:4}:{verify:0,home:1,listing:1,viewing:1,apply:1,bank:2,sign:3,pay:4,done:4};
+    const names=off?['Verify','Browse','','Reserve','Pay']:['Verify','Find','Confirm','Sign','Pay'];
+    const i=idx[S.screen]; if(i===undefined) return '';
+    let bars=''; for(let k=0;k<5;k++) bars+=`<span class="psb ${k<=i?'on':''}"></span>`;
+    return `<div class="ps-prog"><div class="psbars">${bars}</div><div class="psstep">${names[i]||'Reserve'}</div></div>`;
+  }
+  const head=t=>`<div class="ps-head"><button class="ps-back" data-act="back">&lsaquo;</button><span class="ps-title">${t||''}</span><span style="width:20px"></span></div>`;
+
+  function view(){
+    switch(S.screen){
+      case 'start': return {dark:true,
+        body:`<div class="ps-center">
+          <div class="ps-logo"><svg viewBox="0 0 64 64" width="40" height="40"><path d="M10 34 L32 14 L54 34" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ps-h1">EQARY</div>
+          <p class="ps-sub">Rent a home or reserve an off-plan unit, start to finish from the app.</p>
+        </div>`,
+        foot:`<button class="ab" data-act="go:verify">Get started</button>`};
+      case 'verify':{
+        const done=S.v.id;
+        const ic=S.v.id?'&#10003;':(S.busy==='id'?'<span class="spin"></span>':'<svg class="uaeglyph" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 012-2h2M16 4h2a2 2 0 012 2v2M20 16v2a2 2 0 01-2 2h-2M8 20H6a2 2 0 01-2-2v-2"/><circle cx="9" cy="11" r=".8"/><circle cx="15" cy="11" r=".8"/><path d="M9 14.5s1 1 3 1 3-1 3-1"/></svg>');
+        return {top:progress(),
+          body:`<div class="ps-h2">Verify once, rent <b>anywhere on EQARY</b></div>
+            <p class="ps-p">One tap with UAE&nbsp;Pass. Your identity, credit and income are read straight from source, nothing to type.</p>
+            <div class="ps-list"><button class="vrow ${S.v.id?'ok':''}" data-act="verify:id:face" ${S.busy?'disabled':''}><span class="vrow-i">${ic}</span><span class="vrow-tx"><b>Sign in with UAE Pass</b><span>${S.v.id?'Verified · identity, credit &amp; income':'Government ID · biometric'}</span></span></button></div>
+            ${S.v.id?`<div class="okrow" style="margin-top:14px"><span class="okc">&#10003;</span> You're verified. Identity, credit and income confirmed.</div>`:''}`,
+          foot:`<button class="ab ${done?'':'dis'}" data-act="${done?'go:home':''}">${done?'Continue':'Verify with UAE Pass to continue'}</button>`};
+      }
+      case 'home':{
+        const set=S.mode==='offplan'?offplans:listings;
+        return {top:progress(),
+          body:`<div class="ps-tabs"><button class="pst ${S.mode!=='offplan'?'on':''}" data-act="mode:rent">Rent</button><button class="pst ${S.mode==='offplan'?'on':''}" data-act="mode:offplan">Buy off-plan</button></div>
+            ${set.map(l=> l.off
+              ? `<button class="lcard" data-act="open:${l.id}"><span class="lphoto" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified developer</span><span class="offtag">Off-plan</span></span><span class="lmeta"><b>${l.t}</b><span class="lloc">${l.loc} · ${l.dev}</span><span class="lprice">From ${money(l.price)}</span><span class="lhand">Handover ${l.handover}</span></span></button>`
+              : `<button class="lcard" data-act="open:${l.id}"><span class="lphoto" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified owner</span></span><span class="lmeta"><b>${l.t}</b><span class="lloc">${l.loc} · ${l.size}</span><span class="lprice">${money(l.price)}<small>/year</small></span></span></button>`
+            ).join('')}`};
+      }
+      case 'listing':{const l=S.listing; return {top:progress(),
+        body:`${head('')}
+          <span class="lphoto big" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified owner</span></span>
+          <div class="ps-h2" style="margin-top:14px">${l.t}</div>
+          <p class="ps-p" style="margin-bottom:4px">${l.loc} · ${l.size}</p>
+          <div class="lprice big">${money(l.price)}<small>/year</small></div>
+          <div class="badges"><span class="bdg">&#10003; Income verified</span><span class="bdg">&#10003; Ownership checked</span><span class="bdg">Smart-lock viewing</span></div>`,
+        foot:`<button class="ab2" data-act="go:viewing">Book a viewing</button><button class="ab" data-act="go:apply">Apply to rent</button>`};}
+      case 'offlisting':{const l=S.listing; return {top:progress(),
+        body:`${head('')}
+          <span class="lphoto big" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified developer</span><span class="offtag">Off-plan</span></span>
+          <div class="ps-h2" style="margin-top:14px">${l.t}</div>
+          <p class="ps-p" style="margin-bottom:4px">${l.loc} · ${l.dev} · Handover ${l.handover}</p>
+          <div class="lprice big">From ${money(l.price)}</div>
+          <div class="badges"><span class="bdg">&#10003; You're pre-qualified</span><span class="bdg">Verified inventory</span><span class="bdg">Direct from developer</span></div>`,
+        foot:`<button class="ab" data-act="reserve">Reserve this unit</button>`};}
+      case 'viewing': return {top:progress(),
+        body:`${head('Self-guided viewing')}
+          <p class="ps-p">EQARY issues a time-limited smart-lock code for the door. No agent, no waiting around.</p>
+          <div class="ps-list">${slots.map((s,i)=>`<button class="slot ${S.slot===i?'sel':''}" data-act="slot:${i}"><span class="rad"></span>${s}</button>`).join('')}</div>`,
+        foot:`<button class="ab" data-act="go:apply">Confirm viewing</button>`};
+      case 'apply': return {top:progress(),
+        body:`${head('Apply to rent')}
+          <div class="okrow"><span class="okc">&#10003;</span> You, fully verified, ready to apply.</div>
+          <div class="lcard static"><span class="lphoto" style="background:linear-gradient(150deg,${S.listing.c1},${S.listing.c2})"></span><span class="lmeta"><b>${S.listing.t}</b><span class="lloc">${S.listing.loc}</span><span class="lprice">${money(S.listing.price)}<small>/year</small></span></span></div>
+          ${S.busy?`<div class="busybox"><span class="spin big"></span><span>Sending your application to the landlord…</span></div>`:`<p class="ps-p">Your verified profile, identity, income and credit, goes to the landlord in one tap.</p>`}`,
+        foot:S.busy?'':`<button class="ab" data-act="send">Send application</button>`};
+      case 'bank':{const ok=S.bankApproved; return {top:progress(),
+        body:`${head('Connect your bank')}
+          <div class="okrow"><span class="okc">&#10003;</span> Landlord approved your application.</div>
+          <div class="ps-h2">Confirm the funds <b>first</b></div>
+          <p class="ps-p">You authorise your own bank. EQARY never sees your balance or touches the money.</p>
+          ${ok?`<div class="busybox done"><span class="okc big">&#10003;</span><span>Bank approved. Direct-debit mandate set up.</span></div>`:
+            `<div class="ps-list">${banks.map((b,i)=>`<button class="slot ${S.bank===i?'sel':''}" data-act="bank:${i}"><span class="rad"></span>${b}</button>`).join('')}</div>${S.busy?`<div class="busybox"><span class="spin"></span><span>Talking to your bank…</span></div>`:''}`}`,
+        foot:ok?`<button class="ab" data-act="go:sign">Continue to signing</button>`:(S.busy?'':`<button class="ab ${S.bank===null?'dis':''}" data-act="${S.bank===null?'':'authorise'}">Authorise with your bank</button>`)};}
+      case 'sign':{const s=S.signed,off=S.track==='offplan';
+        const contract=off?`<div class="crow"><span>Unit</span><b>${S.listing.t}</b></div><div class="crow"><span>Developer</span><b>${S.listing.dev}</b></div><div class="crow"><span>Price</span><b>From ${money(S.listing.price)}</b></div><div class="crow"><span>Document</span><b>Reservation + SPA</b></div>`:`<div class="crow"><span>Property</span><b>${S.listing.t}</b></div><div class="crow"><span>Location</span><b>${S.listing.loc}</b></div><div class="crow"><span>Annual rent</span><b>${money(S.listing.price)}</b></div><div class="crow"><span>Registration</span><b>Tawtheeq on signing</b></div>`;
+        return {top:progress(),
+        body:`${head(off?'Reserve the unit':'Sign the lease')}
+          <div class="ps-h2">${off?'Reservation &amp; <b>SPA</b>':'Your tenancy <b>contract</b>'}</div>
+          <div class="contract">${contract}</div>
+          ${s?`<div class="busybox done"><span class="okc big">&#10003;</span><span>${off?'Reservation signed. Unit held for you.':'Signed &amp; registered. Copy on its way.'}</span></div>`:(S.busy?`<div class="busybox"><span class="spin"></span><span>Opening UAE Pass…</span></div>`:`<p class="ps-p">Sign in-app with UAE&nbsp;Pass. Legally binding${off?'':', auto-registered'}.</p>`)}`,
+        foot:s?`<button class="ab" data-act="go:pay">Continue to payment</button>`:(S.busy?'':`<button class="ab" data-act="sign">Sign with UAE Pass</button>`)};}
+      case 'pay':{const l=S.listing,off=S.track==='offplan';let rows;
+        if(off){const resfee=Math.round(l.price*0.05),pf=Math.round(l.price*0.001),tot=resfee+pf;rows=`<div class="crow"><span>Reservation deposit (5%)</span><b>${money(resfee)}</b></div><div class="crow"><span>EQARY platform fee</span><b>${money(pf)}</b></div><div class="crow tot"><span>Total today</span><b>${money(tot)}</b></div>`;}
+        else{const q=Math.round(l.price/4),dep=Math.round(l.price*0.05),fee=Math.round(l.price*0.01),tot=q+dep+fee;rows=`<div class="crow"><span>First quarter rent</span><b>${money(q)}</b></div><div class="crow"><span>Security deposit</span><b>${money(dep)}</b></div><div class="crow"><span>EQARY platform fee</span><b>${money(fee)}</b></div><div class="crow tot"><span>Total today</span><b>${money(tot)}</b></div>`;}
+        return {top:progress(),
+        body:`${head(off?'Pay the reservation':'Pay bank to bank')}
+          <div class="okrow"><span class="okc">&#10003;</span> ${off?'Reservation signed.':'Lease signed and registered.'}</div>
+          <div class="contract">${rows}</div>
+          ${S.busy?`<div class="busybox"><span class="spin"></span><span>Moving funds, bank to bank…</span></div>`:`<p class="ps-p">Money moves straight to the ${off?'developer':'landlord'}'s IBAN. The platform fee splits off mid-air.</p>`}`,
+        foot:S.busy?'':`<button class="ab" data-act="pay">Move funds &amp; finish</button>`};}
+      case 'done':{const off=S.track==='offplan'; return {dark:true,
+        body:`<div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:24px;letter-spacing:0">${off?'Unit reserved':'You&rsquo;re in'}</div><p class="ps-sub">${off?'Your unit is reserved and the developer has been notified. The SPA sits in your document vault.':'Lease active, rent paid, keys on the way. The whole thing done in the app, in minutes.'}</p></div>`,
+        foot:`<button class="ab2 light" data-act="restart">Run it again</button>`};}
+    }
+  }
+  function render(){
+    const v=view();
+    screen.className='ps'+(v.dark?' dark':'');
+    screen.innerHTML=`${v.top?`<div class="ps-top">${v.top}</div>`:''}<div class="ps-body">${v.body||''}</div>${v.foot?`<div class="ps-foot">${v.foot}</div>`:''}`;
+  }
+  function faceScan(cb){
+    const ov=document.createElement('div');ov.className='faceov';
+    ov.innerHTML=`<div class="facebox"><div class="facering"><div class="facescan"></div><svg viewBox="0 0 24 24" width="42" height="42"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="9" cy="11" r=".6"/><circle cx="15" cy="11" r=".6"/><path d="M9 15s1 1 3 1 3-1 3-1"/></svg></div><span>UAE Pass · Face ID</span></div>`;
+    screen.appendChild(ov);
+    setTimeout(()=>{ov.classList.add('ok');ov.querySelector('span').textContent='Verified';},1100);
+    setTimeout(()=>{ov.remove();cb();},1700);
+  }
+  function backTo(){const off=S.track==='offplan';const m=off?{offlisting:'home',sign:'offlisting',pay:'sign'}:{listing:'home',viewing:'listing',apply:'listing',bank:'apply',sign:'bank',pay:'sign'};return m[S.screen];}
+
+  screen.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-act]'); if(!btn) return;
+    const act=btn.dataset.act; if(!act) return;
+    if(act.slice(0,2)==='s:'){sellerAction(act.split(':').slice(1));return;}
+    const [cmd,arg,opt]=act.split(':');
+    switch(cmd){
+      case 'go': S.busy=false; S.bankApproved=false; S.signed=false; S.paid=false; S.screen=arg; render(); break;
+      case 'back':{const b=backTo();if(b){S.busy=false;S.screen=b;render();}break;}
+      case 'verify':{
+        if(S.v[arg]||S.busy) return; S.busy=arg; render();
+        const fin=()=>{S.busy=false;S.v[arg]=true;render();};
+        opt==='face'?faceScan(fin):setTimeout(fin,750); break;
+      }
+      case 'open':{const all=[...listings,...offplans];S.listing=all.find(l=>l.id===arg);S.track=S.listing.off?'offplan':'rent';S.screen=S.listing.off?'offlisting':'listing';render();break;}
+      case 'mode': S.mode=arg; render(); break;
+      case 'reserve': S.busy=false;S.signed=false;S.paid=false;S.screen='sign';render(); break;
+      case 'slot': S.slot=+arg; render(); break;
+      case 'bank': if(!S.busy){S.bank=+arg;render();} break;
+      case 'send': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.screen='bank';render();},1300); break;
+      case 'authorise': if(S.bank===null) return; S.busy=true; render(); setTimeout(()=>{S.busy=false;S.bankApproved=true;render();},1300); break;
+      case 'sign': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.signed=true;render();},1300); break;
+      case 'pay': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.paid=true;S.screen='done';render();},1400); break;
+      case 'restart': reset(); render(); break;
+    }
+  });
+  /* ---- seller dashboard app ---- */
+  function renderApp(){ persona==='seller'?renderSeller():render(); }
+
+  function tabbar(){
+    const t=(id,lab,svg)=>`<button class="tbtn ${SS.tab===id?'on':''}" data-act="s:tab:${id}"><svg viewBox="0 0 24 24">${svg}</svg>${lab}</button>`;
+    return `<div class="ps-tabbar">${t('portfolio','Portfolio','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>')}${t('messages','Messages','<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>')}${t('maint','Maintenance','<path d="M14 7l3 3M18 2l4 4-3 3-4-4z"/><path d="M3 21l4-1 9-9-3-3-9 9z"/>')}${t('buy','Buy','<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/>')}</div>`;
+  }
+  function renderSeller(){
+    screen.className='ps';
+    let body;
+    if(SS.tab==='portfolio') body=sPortfolio();
+    else if(SS.tab==='messages') body=SS.thread?sThread():sMessages();
+    else if(SS.tab==='maint') body=sMaint();
+    else body=SS.buySel?sBuyDetail():sBuyList();
+    screen.innerHTML=`<div class="ps-body sbody">${body}</div>${tabbar()}`;
+  }
+  function sPortfolio(){
+    const bars=[62,70,73,80,77,90],m=['Oct','Nov','Dec','Jan','Feb','Mar'];
+    return `<div class="ps-app-head"><b>Your portfolio</b><span class="owner">OWNER</span></div>
+      <div class="sstats">
+        <div class="sstat"><div class="v">AED 4.2<small>M</small></div><div class="k">Portfolio value</div></div>
+        <div class="sstat"><div class="v">AED 205<small>K/yr</small></div><div class="k">Contracted rent</div></div>
+        <div class="sstat"><div class="v">92<small>%</small></div><div class="k">Occupancy</div></div>
+        <div class="sstat"><div class="v">6.4<small>%</small></div><div class="k">Net yield</div></div>
+      </div>
+      <div class="schart"><div class="ct"><span>Rent collected</span><span>last 6 months</span></div>
+        <div class="bars">${bars.map((h,i)=>`<div class="barcol"><div class="bar"><i style="height:${h}%"></i></div><span class="blab">${m[i]}</span></div>`).join('')}</div></div>
+      <div class="ps-app-sub">Properties</div>
+      ${sProps.map(p=>`<button class="prop" data-act="s:noop"><span class="pth" style="background:linear-gradient(150deg,${p.c1},${p.c2})"></span><span class="pm"><b>${p.t}</b><span>${p.tenant} · ${money(p.rent)}/yr</span></span><span class="pstatus ${p.status}">${p.status==='occ'?'Occupied':p.status==='lst'?'Listed':'Vacant'}</span></button>`).join('')}`;
+  }
+  function sMessages(){
+    return `<div class="ps-app-head"><b>Messages</b><span class="owner">OWNER</span></div>
+      ${sConvs.map(c=>`<button class="conv" data-act="s:thread:${c.id}"><span class="ava">${c.ini}</span><span class="cm"><b>${c.who}</b><span>${c.last}</span></span>${c.unread?'<span class="dot"></span>':''}</button>`).join('')}`;
+  }
+  function sThread(){
+    const c=sConvs.find(x=>x.id===SS.thread),extra=SS.msgs[c.id]||[],all=[...c.base,...extra];
+    return `<div class="ps-app-head"><button class="ps-back" data-act="s:back">&lsaquo;</button><b style="font-size:14px">${c.who}</b><span style="width:18px"></span></div>
+      <div class="thread">${all.map(mm=>`<div class="bub ${mm[0]}">${mm[1]}</div>`).join('')}</div>
+      <div class="quicks">${sQuick.map((q,i)=>`<button class="qchip" data-act="s:send:${i}">${q}</button>`).join('')}</div>`;
+  }
+  function micon(id){
+    const m={plumb:'<path d="M12 2s5 6 5 11a5 5 0 01-10 0c0-5 5-11 5-11z"/>',ac:'<rect x="3" y="6" width="18" height="9" rx="2"/><path d="M7 19v2M12 19v2M17 19v2"/>',elec:'<path d="M13 2L4 14h7l-1 8 10-12h-7z"/>',clean:'<path d="M4 21h7M6 21v-4M5 13h6l2-8 5 1-1 4-7 3z"/>'};
+    return m[id]||'';
+  }
+  function sMaint(){
+    if(SS.maint){
+      const c=mcats.find(x=>x.id===SS.maint);
+      return `<div class="ps-app-head"><button class="ps-back" data-act="s:maintreset">&lsaquo;</button><b style="font-size:14px">${c.t}</b><span style="width:18px"></span></div>
+        <div class="mprov"><b>${c.prov}</b><span>${c.est} · ${activeProp}</span></div>
+        <div class="mstep">${mstages.map((s,i)=>{const st=i<SS.maintStatus?'done':(i===SS.maintStatus?'cur':'');return `<div class="mstepi ${st}"><span class="md">${i<SS.maintStatus?'&#10003;':''}</span><span class="mt"><b>${s}</b><span>${i<SS.maintStatus?'Done':(i===SS.maintStatus?'In progress':'Pending')}</span></span></div>`;}).join('')}</div>
+        ${SS.maintStatus>=mstages.length?`<div class="okrow"><span class="okc">&#10003;</span> Job complete, logged to ${activeProp}.</div>`:''}`;
+    }
+    return `<div class="ps-app-head"><b>Maintenance</b><span class="owner">OWNER</span></div>
+      <p class="ps-p">Log a job, EQARY dispatches a vetted crew and tracks it to done.</p>
+      <div class="mcat">${mcats.map(c=>`<button class="mcatb" data-act="s:maint:${c.id}"><span class="ic2"><svg viewBox="0 0 24 24">${micon(c.id)}</svg></span><b>${c.t}</b><span>${c.d}</span></button>`).join('')}</div>`;
+  }
+  function sBuyList(){
+    return `<div class="ps-app-head"><b>Grow your portfolio</b><span class="owner">INVEST</span></div>
+      <p class="ps-p">Owners buy here too, off-plan and secondary, scored by yield.</p>
+      ${sBuy.map(b=>`<button class="prop" data-act="s:buy:${b.id}"><span class="pth" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span><span class="pm"><b>${b.t}</b><span>${b.dev} · ${money(b.price)}</span></span><span class="ybadge">${b.yld}</span></button>`).join('')}`;
+  }
+  function sBuyDetail(){
+    const b=sBuy.find(x=>x.id===SS.buySel);
+    return `<div class="ps-app-head"><button class="ps-back" data-act="s:buyback">&lsaquo;</button><b style="font-size:14px">${b.t}</b><span style="width:18px"></span></div>
+      <span class="lphoto big" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span>
+      <div class="ps-h2" style="margin-top:12px;font-size:17px">${b.t}</div>
+      <p class="ps-p" style="margin-bottom:8px">${b.dev}</p>
+      <div class="sstats"><div class="sstat"><div class="v">${money(b.price)}</div><div class="k">Price</div></div><div class="sstat"><div class="v">${b.yld}</div><div class="k">Projected net yield</div></div></div>
+      ${SS.expressed===b.id?`<div class="okrow" style="margin-top:12px"><span class="okc">&#10003;</span> Interest sent. EQARY will line up the reservation.</div>`:`<button class="ab" style="margin-top:12px" data-act="s:express:${b.id}">Express interest</button>`}`;
+  }
+  function maintRun(){
+    if(persona!=='seller'||SS.tab!=='maint'||SS.maint==null) return;
+    if(SS.maintStatus<mstages.length){SS.maintStatus++;renderApp();setTimeout(maintRun,1100);}
+  }
+  function sellerAction(p){
+    const a=p[0],b=p[1];
+    if(a==='tab'){SS.tab=b;SS.thread=null;SS.buySel=null;renderApp();}
+    else if(a==='thread'){SS.thread=b;renderApp();}
+    else if(a==='back'){SS.thread=null;renderApp();}
+    else if(a==='send'){const c=sConvs.find(x=>x.id===SS.thread);SS.msgs[c.id]=SS.msgs[c.id]||[];SS.msgs[c.id].push(['me',sQuick[+b]]);renderApp();setTimeout(()=>{SS.msgs[c.id].push(['them','Perfect, done &#10003;']);if(persona==='seller'&&SS.tab==='messages'&&SS.thread===c.id)renderApp();},900);}
+    else if(a==='maint'){SS.maint=b;SS.maintStatus=1;renderApp();setTimeout(maintRun,1000);}
+    else if(a==='maintreset'){SS.maint=null;SS.maintStatus=0;renderApp();}
+    else if(a==='buy'){SS.buySel=b;renderApp();}
+    else if(a==='buyback'){SS.buySel=null;renderApp();}
+    else if(a==='express'){SS.expressed=b;renderApp();}
+  }
+
+  /* persona switch */
+  const hintEl=document.getElementById('phoneHint');
+  document.querySelectorAll('.persobtn').forEach(b=>b.addEventListener('click',()=>{
+    persona=b.dataset.persona;
+    document.querySelectorAll('.persobtn').forEach(x=>x.classList.toggle('on',x===b));
+    if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs — tap around the dashboard';}
+    else{reset();if(hintEl)hintEl.innerHTML='Tap through it &mdash; it&rsquo;s live';}
+    renderApp();
+  }));
+
+  renderApp();
+})();
 </script>
 </body>
 </html>
