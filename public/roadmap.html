@@ -828,8 +828,182 @@
         <div class="m"><b>Landlord / Developer IBAN</b></div>
       </div>
     </div>
+
+    <!-- ECOSYSTEM MIND MAP -->
+    <div class="mm-wrap rev d2">
+      <div class="mm-header">
+        <div>
+          <div class="mm-kicker">Ecosystem Architecture</div>
+          <div class="mm-title">One platform, stitched from many systems</div>
+          <div class="mm-sub">Tap any node to explore what each partner does. Eqary coordinates — it never holds money or replaces a registry.</div>
+        </div>
+        <div class="mm-hint">Tap any bubble to explore →</div>
+      </div>
+
+      <div class="mm-stage">
+        <svg id="mm-map" viewBox="0 0 1600 1500" role="img" aria-label="Eqary ecosystem mind map"></svg>
+      </div>
+
+      <div class="mm-legend" id="mm-legend"></div>
+
+      <div class="mm-foot">
+        <b>How to read it:</b> the inner ring holds the ten capability clusters; the outer bubbles are specific partners or APIs inside each. Solid spokes = live in Phase 1 (Q4 2026); mortgage, escrow and ecosystem branches phase in across 2027–2029.
+      </div>
+    </div>
+
+    <!-- INFO CARD -->
+    <div class="mm-card" id="mm-card" style="opacity:0;transform:translateY(8px);pointer-events:none">
+      <button class="mm-close" id="mm-close">×</button>
+      <span class="mm-tag" id="mm-cardtag">Core</span>
+      <div class="mm-cardtitle" id="mm-cardtitle">EQARY</div>
+      <div class="mm-carddesc" id="mm-carddesc">The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly.</div>
+    </div>
+
   </div>
 </section>
+
+<style>
+  .mm-wrap{margin-top:40px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);padding:clamp(20px,3vw,36px);overflow:hidden}
+  .mm-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .mm-kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#4CAF7F;font-weight:700;margin-bottom:6px}
+  .mm-title{font-size:clamp(17px,2.2vw,22px);font-weight:700;color:#fff;line-height:1.2}
+  .mm-sub{color:rgba(255,255,255,.6);font-size:13px;max-width:520px;margin-top:6px;line-height:1.5}
+  .mm-hint{font-size:12px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);padding:7px 13px;border-radius:999px;white-space:nowrap;align-self:flex-start;margin-top:4px}
+  .mm-stage{position:relative;border-radius:14px;overflow:hidden;background:rgba(28,43,94,.4)}
+  .mm-stage svg{width:100%;height:auto;display:block;cursor:default}
+  .mm-legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px}
+  .mm-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.7)}
+  .mm-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+  .mm-foot{margin-top:16px;font-size:12px;color:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.1);padding-top:12px;line-height:1.5}
+  .mm-foot b{color:rgba(255,255,255,.75);font-weight:600}
+  .mm-card{position:fixed;left:20px;bottom:20px;width:300px;max-width:calc(100vw - 40px);background:rgba(28,43,94,.97);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px 18px;box-shadow:0 18px 44px -22px rgba(0,0,0,.7);transition:opacity .2s ease,transform .2s ease;z-index:200;pointer-events:auto}
+  .mm-close{position:absolute;top:10px;right:12px;border:none;background:none;font-size:18px;color:rgba(255,255,255,.5);cursor:pointer;line-height:1}
+  .mm-close:hover{color:#fff}
+  .mm-tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#fff;padding:3px 8px;border-radius:5px;margin-bottom:8px}
+  .mm-cardtitle{font-size:18px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:6px}
+  .mm-carddesc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+  .mm-node{cursor:pointer}
+  .mm-node text{font-family:'Hanken Grotesk',sans-serif;pointer-events:none}
+  .mm-bub{transition:transform .18s ease,filter .18s ease}
+  .mm-node:hover .mm-bub{filter:brightness(1.12) saturate(1.08)}
+  .mm-link{transition:opacity .2s ease}
+  .mm-dim{opacity:.1 !important}
+  .mm-dimnode{opacity:.18;transition:opacity .2s ease}
+</style>
+
+<script>
+(function(){
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const CX = 800, CY = 750;
+  const R_HUB = 305, R_LEAF_IN = 520, R_LEAF_OUT = 645;
+  const START = -90;
+
+  const mmClusters = [
+    {name:"Identity & Verification",color:"#4CAF7F",desc:"The trust substrate. A user is verified before they can transact, and that verification carries across the whole journey.",leaves:[{n:"UAE Pass",d:"Federal single sign-on, biometric auth and legally binding e-signatures."},{n:"AECB",d:"Al Etihad Credit Bureau — the UAE's only regulated credit bureau. Scores tenants and buyers."},{n:"KYC / AML",d:"Global KYC/AML vendors with UAE coverage. Fallback for first-time foreign buyers."}]},
+    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."}]},
+    {name:"Permits & Tenancy",color:"#2D6FA8",desc:"The legality gates. An advertising permit is checked before a listing publishes, and the tenancy auto-registers the moment the lease is signed.",leaves:[{n:"Madhmoun",d:"Abu Dhabi advertising-permit system. Validated before an AD listing goes live."},{n:"Trakheesi",d:"Dubai advertising-permit system."},{n:"Tawtheeq",d:"Abu Dhabi tenancy registration. Auto-triggered via API on a UAE Pass-signed lease."},{n:"Ejari",d:"Dubai tenancy registration. Mandatory for all Dubai leases."}]},
+    {name:"Payments & Open Banking",color:"#2D8A5E",desc:"The financial core. Money moves bank-to-bank through regulated rails. Eqary never holds funds.",leaves:[{n:"Lean Technologies",d:"Open Banking A2A payments and income verification. Central Bank-regulated."},{n:"Tarabut Gateway",d:"Open Finance alternative to Lean. Provides redundancy on the payment rail."},{n:"UAEDDS",d:"The Central Bank's Direct Debit System. Replaces post-dated cheques for recurring rent."},{n:"Visa Direct",d:"Instant landlord payouts plus a cross-border rail for foreign buyers."},{n:"Checkout.com",d:"Card fallback for small premium-service fees only."}]},
+    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Huspy / Holo",d:"Mortgage platforms as an alternative to integrating each bank directly."}]},
+    {name:"Financing — RNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"RNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative RNPL provider. Pays the landlord upfront, collects monthly."}]},
+    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."}]},
+    {name:"Smart Locks",color:"#A03060",desc:"Time-limited access codes let a buyer or tenant view a property without an agent present.",leaves:[{n:"Latch",d:"Smart-lock provider for landlord-controlled, time-limited self-viewing codes."},{n:"KeyNest",d:"Key-exchange / lockbox network for self-viewing access."},{n:"igloohome",d:"Offline-capable smart locks issuing time-bound PIN codes."}]},
+    {name:"Ecosystem Services",color:"#7A3A8F",desc:"Adjacent services monetised at near-zero marginal cost — providers pay Eqary per qualified lead.",leaves:[{n:"Bayzat / Sukoon",d:"Embedded home insurance at handover. Commission per policy sold."},{n:"Justmop / Matic",d:"Pay-per-booking cleaning and maintenance."},{n:"DEWA / SEWA / ADDC",d:"Utility activation at move-in via direct APIs."},{n:"Movers & Furniture",d:"Per-move lead generation and affiliate revenue."}]},
+    {name:"Infrastructure",color:"#3D6070",desc:"UAE-resident hosting, messaging, and the regulators whose sandboxes unlock novel products.",leaves:[{n:"Azure UAE / G42",d:"UAE-resident hosting and encrypted document vault."},{n:"Push / SMS / Email",d:"Multi-channel notifications across viewing, application, payment and contract events."},{n:"Central Bank UAE",d:"Regulates Open Finance, escrow and direct debit."},{n:"ADGM / DIFC",d:"Innovation Testing Licence sandboxes — path to launch RNPL."}]},
+  ];
+
+  const svgEl = document.getElementById("mm-map");
+  function pol(cx,cy,r,deg){const a=deg*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+  function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+  function wrapText(label,max){const words=label.split(" ");const lines=[];let cur="";for(const w of words){if((cur+" "+w).trim().length>max&&cur){lines.push(cur);cur=w;}else cur=(cur+" "+w).trim();}if(cur)lines.push(cur);return lines;}
+
+  const linkLayer=el("g",{});svgEl.appendChild(linkLayer);
+  const nodeLayer=el("g",{});svgEl.appendChild(nodeLayer);
+  const allLinks=[],allNodes=[];
+  const N=mmClusters.length;
+
+  function makeBubble(x,y,label,fill,textCol,rPad,fontSize,fontWeight,data){
+    const g=el("g",{class:"mm-node"});
+    const lines=wrapText(label,label.length>18?14:22);
+    const maxLen=Math.max(...lines.map(l=>l.length));
+    const w=Math.max(56,maxLen*fontSize*0.56+rPad*2);
+    const lineH=fontSize*1.22;
+    const h=lines.length*lineH+rPad*1.4;
+    const rect=el("rect",{class:"mm-bub",x:x-w/2,y:y-h/2,width:w,height:h,rx:h/2,ry:h/2,fill:fill,stroke:"rgba(255,255,255,.25)","stroke-width":1.2});
+    rect.style.filter="drop-shadow(0 4px 12px rgba(0,0,0,.35))";
+    g.appendChild(rect);
+    lines.forEach((ln,i)=>{
+      const t=el("text",{x:x,y:y-(lines.length-1)*lineH/2+i*lineH,"text-anchor":"middle","dominant-baseline":"central",fill:textCol,"font-size":fontSize,"font-weight":fontWeight,"letter-spacing":"0.01em"});
+      t.textContent=ln;g.appendChild(t);
+    });
+    g.addEventListener("click",(e)=>{e.stopPropagation();showMMCard(data,g);});
+    g.addEventListener("mouseenter",()=>showMMCard(data,g,true));
+    nodeLayer.appendChild(g);
+    allNodes.push({g,data});
+    return g;
+  }
+
+  mmClusters.forEach((cl,i)=>{
+    const ang=START+i*(360/N);
+    const[hx,hy]=pol(CX,CY,R_HUB,ang);
+    const l1=el("line",{class:"mm-link",x1:CX,y1:CY,x2:hx,y2:hy,stroke:cl.color,"stroke-width":3,"stroke-opacity":.6,"stroke-linecap":"round"});
+    linkLayer.appendChild(l1);allLinks.push({l:l1,cluster:i});
+    const n=cl.leaves.length;
+    const spread=Math.min(30,7+n*4);
+    cl.leaves.forEach((lf,j)=>{
+      const t=n===1?0:(j/(n-1))-0.5;
+      const la=ang+t*spread;
+      const r=(j%2===0)?R_LEAF_IN:R_LEAF_OUT;
+      const[lx,ly]=pol(CX,CY,r,la);
+      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.5,"stroke-opacity":.35,"stroke-linecap":"round"});
+      linkLayer.appendChild(ll);allLinks.push({l:ll,cluster:i});
+      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",12,11,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
+    });
+    makeBubble(hx,hy,cl.name,cl.color,"#fff",14,13,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
+  });
+
+  // center node
+  const cg=el("g",{class:"mm-node"});
+  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:84,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":3});
+  cc.style.filter="drop-shadow(0 12px 30px rgba(0,0,0,.5))";
+  cg.appendChild(cc);
+  const ct=el("text",{x:CX,y:CY-6,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":28,"font-weight":700,"letter-spacing":"0.02em"});
+  ct.textContent="EQARY";cg.appendChild(ct);
+  const cs=el("text",{x:CX,y:CY+20,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":10,"font-weight":700,"letter-spacing":"0.18em"});
+  cs.textContent="ORCHESTRATION";cg.appendChild(cs);
+  cg.addEventListener("click",(e)=>{e.stopPropagation();showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg);});
+  cg.addEventListener("mouseenter",()=>showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg,true));
+  nodeLayer.appendChild(cg);
+
+  const card=document.getElementById("mm-card");
+  const cardtag=document.getElementById("mm-cardtag");
+  const cardtitle=document.getElementById("mm-cardtitle");
+  const carddesc=document.getElementById("mm-carddesc");
+
+  function highlight(cluster){
+    allLinks.forEach(o=>o.l.classList.toggle("mm-dim",cluster!==-1&&o.cluster!==cluster));
+    allNodes.forEach(o=>o.g.classList.toggle("mm-dimnode",cluster!==-1&&o.data.cluster!==cluster&&o.data.cluster!==undefined));
+    cg.classList.remove("mm-dimnode");
+  }
+  function showMMCard(d,g,soft){
+    cardtag.textContent=d.tag;cardtag.style.background=d.color;
+    cardtitle.textContent=d.title;carddesc.textContent=d.desc;
+    card.style.opacity=1;card.style.transform="translateY(0)";card.style.pointerEvents="auto";
+    if(!soft)highlight(d.cluster);
+  }
+  svgEl.addEventListener("click",()=>highlight(-1));
+  document.getElementById("mm-close").addEventListener("click",()=>{
+    card.style.opacity=0;card.style.transform="translateY(8px)";card.style.pointerEvents="none";highlight(-1);
+  });
+
+  // legend
+  const legend=document.getElementById("mm-legend");
+  mmClusters.forEach(cl=>{
+    const s=document.createElement("span");
+    s.innerHTML=`<i style="background:${cl.color}"></i>${cl.name}`;
+    legend.appendChild(s);
+  });
+})();
+</script>
 
 <!-- ============ 08 ROADMAP ============ -->
 <section id="s08" data-bg="dark2" data-num="08" data-name="Roadmap">
