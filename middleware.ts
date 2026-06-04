@@ -4,13 +4,9 @@ import type { NextRequest } from "next/server"
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Block direct access to roadmap.html unless user has valid access cookie
+  // Block direct access to old roadmap.html URL - redirect to home
   if (pathname === "/roadmap.html") {
-    const hasAccess = request.cookies.get("investor_access")?.value === "verified"
-    
-    if (!hasAccess) {
-      return NextResponse.redirect(new URL("/", request.url))
-    }
+    return NextResponse.redirect(new URL("/", request.url))
   }
 
   return NextResponse.next()
