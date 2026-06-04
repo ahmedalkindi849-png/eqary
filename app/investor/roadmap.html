@@ -971,7 +971,7 @@
       </div>
 
       <div class="mm-stage">
-        <svg id="mm-map" viewBox="0 0 1600 1500" role="img" aria-label="Eqary ecosystem mind map"></svg>
+        <svg id="mm-map" viewBox="0 0 1700 1700" role="img" aria-label="Eqary ecosystem mind map"></svg>
       </div>
 
       <div class="mm-legend" id="mm-legend"></div>
@@ -1024,15 +1024,15 @@
 <script>
 (function(){
   const SVGNS = "http://www.w3.org/2000/svg";
-  const CX = 800, CY = 750;
-  const R_HUB = 305, R_LEAF_IN = 520, R_LEAF_OUT = 645;
+  const CX = 850, CY = 850;
+  const R_HUB = 340, R_LEAF_IN = 580, R_LEAF_OUT = 720;
   const START = -90;
 
   const mmClusters = [
-    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."}]},
-    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Huspy / Holo",d:"Mortgage platforms as an alternative to integrating each bank directly."}]},
-    {name:"Financing — BNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"BNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative BNPL provider. Pays the landlord upfront, collects monthly."}]},
-    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."}]},
+    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."},{n:"Madhmoun",d:"Abu Dhabi advertising-permit system. Validated before an AD listing goes live."},{n:"Trakheesi",d:"Dubai advertising-permit system for property listings."},{n:"Tawtheeq",d:"Abu Dhabi tenancy registration. Auto-triggered via API on a UAE Pass-signed lease."}]},
+    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Mashreq",d:"Major UAE bank with competitive mortgage rates."},{n:"RAK Bank",d:"Northern Emirates mortgage partner."}]},
+    {name:"Financing — BNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"BNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative BNPL provider. Pays the landlord upfront, collects monthly."},{n:"Tabby",d:"Leading BNPL provider in the region."}]},
+    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."},{n:"Emaar",d:"Dubai's largest developer. Premium off-plan inventory."},{n:"DAMAC",d:"Luxury developer with strong off-plan portfolio."},{n:"Sobha",d:"Premium developer known for quality construction."},{n:"Bloom",d:"Abu Dhabi-based developer with diverse portfolio."},{n:"Q Properties",d:"Boutique developer with select Abu Dhabi projects."}]},
   ];
 
   const svgEl = document.getElementById("mm-map");
@@ -1072,17 +1072,17 @@
     const l1=el("line",{class:"mm-link",x1:CX,y1:CY,x2:hx,y2:hy,stroke:cl.color,"stroke-width":3,"stroke-opacity":.6,"stroke-linecap":"round"});
     linkLayer.appendChild(l1);allLinks.push({l:l1,cluster:i});
     const n=cl.leaves.length;
-    const spread=Math.min(30,7+n*4);
+    const spread=Math.min(42,10+n*5);
     cl.leaves.forEach((lf,j)=>{
       const t=n===1?0:(j/(n-1))-0.5;
       const la=ang+t*spread;
       const r=(j%2===0)?R_LEAF_IN:R_LEAF_OUT;
       const[lx,ly]=pol(CX,CY,r,la);
-      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.5,"stroke-opacity":.35,"stroke-linecap":"round"});
+      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.8,"stroke-opacity":.4,"stroke-linecap":"round"});
       linkLayer.appendChild(ll);allLinks.push({l:ll,cluster:i});
-      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",12,11,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
+      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",14,13,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
     });
-    makeBubble(hx,hy,cl.name,cl.color,"#fff",14,13,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
+    makeBubble(hx,hy,cl.name,cl.color,"#fff",16,15,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
   });
 
   // center node
