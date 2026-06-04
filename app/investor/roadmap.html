@@ -1430,7 +1430,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function buyerMortgage(){
     const m=B.mort,loan=m.price-m.down,monthly=calcMonthly(loan,0.0425,m.years),total=monthly*m.years*12,interest=total-loan;
-    return `${navHead('Mortgage')}<div class="ps-body"><div class="sb">
+    return `<div class="hdr"><button class="bk" data-act="b:home">&lsaquo;</button><b>Mortgage</b></div><div class="ps-body"><div class="sb">
       <div class="lab">Calculate your mortgage</div>
       <div class="mort-calc">
         <div class="mort-row"><span class="mort-label">Property price</span><div class="mort-slider-wrap"><input type="range" class="mort-slider" min="500000" max="10000000" step="50000" value="${m.price}" data-act="b:mort:price"/><span class="mort-val">${money(m.price)}</span></div></div>
