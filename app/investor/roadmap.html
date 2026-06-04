@@ -777,7 +777,7 @@
     <div class="appshow">
       <div class="rev d2 app-copy">
         <h3 class="sub" style="color:var(--ink)">An app you can <b>actually try</b></h3>
-        <p class="lead" style="margin-top:18px">The Phase 1 app, rebuilt so you can tap through it from both sides. Renters and buyers verify once with UAE&nbsp;Pass, then rent a home or reserve an off-plan unit. Sellers and landlords get an owner dashboard, their portfolio, analytics, messages, maintenance and a buy side, all in one app.</p>
+        <p class="lead" style="margin-top:18px">You can try a basic demo of the. Renters and buyers verify with UAE Pass, then rent a home or reserve an off-plan unit. Sellers and landlords get a dashboard with their portfolio, analytics, messages maintenance and a buy side all in one app. For a more detailed demo please contact us.</p>
         <div class="callout"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><p>Identity checked against UAE&nbsp;Pass, contracts signed in-app, money moving bank to bank, with no agent commission anywhere in the flow.</p></div>
         <div class="persona-tabs">
           <button class="persobtn on" data-persona="tenant">Rent &amp; buy</button>
@@ -787,7 +787,7 @@
         <div class="phone">
           <div class="phone-screen" id="proto"></div>
         </div>
-        <div class="phone-hint" id="phoneHint">Tap through it &mdash; it&rsquo;s live</div>
+        <div class="phone-hint" id="phoneHint">Tap through it</div>
       </div>
     </div>
   </div>
@@ -869,7 +869,7 @@
       </div>
       <div class="player rev d3">
         <div class="icn"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01"/></svg></div>
-        <div><h4>Dubai REST · Property Finder · Bayut</h4><p>The government layer and the listing portals. Dubai-centric, with stitched-together services the user has to assemble alone.</p></div>
+        <div><h4>Dubai REST · Property Finder �� Bayut</h4><p>The government layer and the listing portals. Dubai-centric, with stitched-together services the user has to assemble alone.</p></div>
       </div>
     </div>
 
@@ -1625,7 +1625,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     persona=b.dataset.persona;
     document.querySelectorAll('.persobtn').forEach(x=>x.classList.toggle('on',x===b));
     if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs, tap around the dashboard';}
-    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.innerHTML='Tap through it &mdash; it&rsquo;s live';}
+    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.textContent='Tap through it';}
     renderApp();
   }));
 
