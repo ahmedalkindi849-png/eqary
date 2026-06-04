@@ -569,6 +569,67 @@
   .opill.d{background:#fdeceb;color:#d2564b}
   .rnpln{display:flex;gap:8px;background:#eef0fe;border:1px solid #d6d8fb;border-radius:11px;padding:11px;margin-top:10px;font-size:11.5px;color:#3b35a8;line-height:1.45}
   .rnpln svg{flex:none;margin-top:1px}
+  /* ===== mortgage calculator ===== */
+  .mort-calc{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;padding:16px;margin-bottom:16px}
+  .mort-row{margin-bottom:14px}
+  .mort-row:last-child{margin-bottom:0}
+  .mort-label{font-size:12px;font-weight:600;color:#1a1830;display:block;margin-bottom:8px}
+  .mort-slider-wrap{display:flex;align-items:center;gap:12px}
+  .mort-slider{flex:1;-webkit-appearance:none;appearance:none;height:6px;background:#e4e3f0;border-radius:3px;outline:none}
+  .mort-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:#4f46e5;border-radius:50%;cursor:pointer;box-shadow:0 2px 6px rgba(79,70,229,.3)}
+  .mort-slider::-moz-range-thumb{width:20px;height:20px;background:#4f46e5;border-radius:50%;cursor:pointer;border:none}
+  .mort-val{font-size:12px;font-weight:700;color:#4f46e5;min-width:100px;text-align:right}
+  .mort-result{background:#1b1830;border-radius:14px;padding:18px;color:#fff;text-align:center}
+  .mort-big{margin-bottom:14px}
+  .mort-big span{font-size:11px;color:#b9b6e0;display:block;margin-bottom:4px}
+  .mort-big b{font-size:28px;font-weight:800}
+  .mort-stats{display:flex;gap:8px}
+  .mort-stat{flex:1;background:rgba(255,255,255,.08);border-radius:10px;padding:10px 6px;text-align:center}
+  .mort-stat span{font-size:9px;color:#b9b6e0;display:block;margin-bottom:2px}
+  .mort-stat b{font-size:12px;font-weight:700}
+  .bank-info{flex:1;display:flex;flex-direction:column;gap:1px}
+  .bank-info b{font-size:13px;font-weight:600}
+  .bank-info span{font-size:11px;color:#6c6b86}
+  .mort-approval{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;padding:16px;margin:14px 0}
+  .appr-bank{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid rgba(20,18,50,.06);margin-bottom:12px}
+  .appr-bank b{font-size:14px;font-weight:600}
+  .appr-amount{text-align:center;padding:12px 0;background:#eef0fe;border-radius:10px;margin-bottom:12px}
+  .appr-amount span{font-size:11px;color:#6c6b86;display:block;margin-bottom:2px}
+  .appr-amount b{font-size:24px;font-weight:800;color:#4f46e5}
+  .appr-details{}
+  .appr-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(20,18,50,.06);font-size:12.5px;color:#6c6b86}
+  .appr-row:last-child{border-bottom:none}
+  .appr-row b{color:#1a1830;font-weight:600}
+  .mort-steps{margin-top:20px}
+  /* ===== document cards (MOU / SPA) ===== */
+  .doc-card{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;overflow:hidden}
+  .doc-card.spa{border-color:rgba(79,70,229,.2)}
+  .doc-header{display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8fc;border-bottom:1px solid rgba(20,18,50,.06)}
+  .doc-header b{font-size:13px;font-weight:700;display:block}
+  .doc-header span{font-size:11px;color:#6c6b86}
+  .doc-body{padding:4px 14px}
+  .doc-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(20,18,50,.06);font-size:12px;color:#6c6b86}
+  .doc-row:last-child{border-bottom:none}
+  .doc-row b{color:#1a1830;font-weight:600;text-align:right;max-width:55%}
+  .doc-footer{display:flex;align-items:center;gap:6px;padding:12px 14px;background:#f0fdf4;font-size:11px;font-weight:600;color:#16a34a}
+  .doc-preview{display:flex;align-items:center;gap:12px;background:#eef0fe;border:1px solid #d6d8fb;border-radius:12px;padding:13px;margin:14px 0}
+  .doc-preview b{font-size:12.5px;font-weight:600;display:block;color:#1a1830}
+  .doc-preview span{font-size:11px;color:#6c6b86}
+  .payment-plan{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;margin-top:14px;overflow:hidden}
+  .pp-title{font-size:12px;font-weight:700;color:#1a1830;padding:12px 14px;background:#f8f8fc;border-bottom:1px solid rgba(20,18,50,.06)}
+  .pp-row{display:flex;align-items:center;padding:11px 14px;border-bottom:1px solid rgba(20,18,50,.06);font-size:12px}
+  .pp-row:last-child{border-bottom:none}
+  .pp-pct{width:36px;height:22px;background:#4f46e5;color:#fff;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}
+  .pp-desc{flex:1;margin-left:10px;color:#6c6b86}
+  .pp-amt{font-weight:600;color:#1a1830}
+  .dev-info{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;margin-bottom:14px}
+  .dev-row{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(20,18,50,.06);font-size:12px;color:#6c6b86}
+  .dev-row:last-child{border-bottom:none}
+  .dev-row b{color:#1a1830;font-weight:600}
+  .ltag.offplan{background:#1b1830}
+  .ltag.compl{background:rgba(255,255,255,.9);color:#1b1830;border:1px solid rgba(20,18,50,.1)}
+  .pill2.off{background:#1b1830;color:#fff}
+  .pill2.comp{background:#eef0fe;color:#4f46e5}
   /* founder photos + edges + stakeholder */
   .avatar-img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 35%;display:block}
   .edges{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
@@ -1316,6 +1377,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   const money=n=>'AED '+n.toLocaleString('en-US');
   const bedsLabel=b=>b===0?'Studio':b;
   const saveFmt=n=>{ if(n>=100000) return 'AED '+Math.round(n/1000)+'K'; if(n>=1000) return 'AED '+(n/1000).toFixed(1).replace(/\.0$/,'')+'K'; return 'AED '+n; };
+  const pct=(rate)=>(rate*100).toFixed(2)+'%';
 
   /* ---- data ---- */
   const rentList=[
@@ -1324,12 +1386,20 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     {id:'r3',t:'Studio on Al Reem Island',loc:'Al Reem Island, Abu Dhabi',price:48000,beds:0,baths:1,sqft:'520',rnpl:false,c1:'#dcd4c4',c2:'#b6a884',about:'Efficient studio with a sea-facing balcony, covered parking and 24/7 security. Close to Reem Mall and the corniche.'}
   ];
   const buyList=[
-    {id:'s1',t:'Luxury 3BR in Downtown Dubai',loc:'Downtown, Dubai',price:2380000,beds:3,baths:3,sqft:'1,650',c1:'#cdc9f0',c2:'#9089d2',about:'High-floor apartment with Burj Khalifa views, premium finishes and two parking bays. Title deed verified with the DLD.'},
-    {id:'s2',t:'4BR Villa, Saadiyat',loc:'Saadiyat Island, Abu Dhabi',price:6200000,beds:4,baths:5,sqft:'4,100',c1:'#cadcd2',c2:'#8db49c',about:'Beachside villa with a private garden, a guest room and direct access to the community pool. Quiet, family-first neighbourhood.'},
-    {id:'s3',t:'2BR Apartment, Yas Island',loc:'Yas Island, Abu Dhabi',price:1850000,beds:2,baths:2,sqft:'1,180',c1:'#d7d3e6',c2:'#a39cc6',about:'Bright two-bed steps from Yas Bay and the marina, with resort amenities and a registered advertising permit.'}
+    {id:'s1',t:'Luxury 3BR in Downtown Dubai',loc:'Downtown, Dubai',price:2380000,beds:3,baths:3,sqft:'1,650',c1:'#cdc9f0',c2:'#9089d2',about:'High-floor apartment with Burj Khalifa views, premium finishes and two parking bays. Title deed verified with the DLD.',offplan:false},
+    {id:'s2',t:'4BR Villa, Saadiyat',loc:'Saadiyat Island, Abu Dhabi',price:6200000,beds:4,baths:5,sqft:'4,100',c1:'#cadcd2',c2:'#8db49c',about:'Beachside villa with a private garden, a guest room and direct access to the community pool. Quiet, family-first neighbourhood.',offplan:false},
+    {id:'o1',t:'Saadiyat Lagoons 3BR Villa',loc:'Saadiyat Island, Abu Dhabi',price:3200000,beds:3,baths:4,sqft:'3,200',c1:'#d0dcd5',c2:'#8eb4a2',about:'Off-plan villa in a gated lagoon community by Aldar. Payment plan available. Handover Q4 2027.',offplan:true,dev:'Aldar Properties',handover:'Q4 2027',completion:65},
+    {id:'o2',t:'The Arthouse 1BR',loc:'Al Maryah Island, Abu Dhabi',price:1850000,beds:1,baths:2,sqft:'950',c1:'#dbd5c8',c2:'#b8a98a',about:'Boutique off-plan residence in the arts district. Premium finishes, direct mall access. Payment plan 60/40.',offplan:true,dev:'Aldar Properties',handover:'Q2 2028',completion:40}
   ];
   const slots=['Today, 5:00 PM','Tomorrow, 11:00 AM','Tomorrow, 6:30 PM'];
   const banks=[{name:'Emirates NBD',ab:'NBD'},{name:'First Abu Dhabi Bank',ab:'FAB'},{name:'Abu Dhabi Commercial Bank',ab:'ADCB'}];
+  const mortgageBanks=[
+    {name:'Emirates NBD',ab:'NBD',rate:0.0399,maxLtv:80,minDown:20},
+    {name:'First Abu Dhabi Bank',ab:'FAB',rate:0.0425,maxLtv:85,minDown:15},
+    {name:'Abu Dhabi Commercial Bank',ab:'ADCB',rate:0.0449,maxLtv:80,minDown:20},
+    {name:'Mashreq Bank',ab:'MSQ',rate:0.0475,maxLtv:75,minDown:25},
+    {name:'Dubai Islamic Bank',ab:'DIB',rate:0.0389,maxLtv:80,minDown:20}
+  ];
   const landlordListings=[
     {id:'L1',t:'Penthouse, Palm Jumeirah',price:18500000,per:'',status:'Active',c1:'#cdc9f0',c2:'#9089d2'},
     {id:'L2',t:'Bright 2BR in JVC',price:110000,per:'/yr',status:'Active',c1:'#c7cdf2',c2:'#8e93d6'}
@@ -1376,7 +1446,10 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
 
   /* ---- state ---- */
   let persona='tenant';
-  const B={screen:'login',mode:'rent',verified:false,listing:null,slot:0,booked:false,applied:false,busy:false,escrow:true,esign:true,bank:null,dash:'roi',cl:{maid:false,pool:false,verified:false,created:false},offerTab:'received',offers:{}};
+  let history=[];
+  const B={screen:'login',mode:'rent',verified:false,listing:null,slot:0,booked:false,applied:false,busy:false,escrow:true,esign:true,bank:null,dash:'roi',cl:{maid:false,pool:false,verified:false,created:false},offerTab:'received',offers:{},
+    mort:{price:2000000,down:400000,years:25,selBank:null,preApproved:false,appSubmitted:false,appApproved:false},
+    buy:{mouGenerated:false,mouSigned:false,spaGenerated:false,spaSigned:false,escrowFunded:false}};
   const SS={tab:'portfolio',thread:null,buySel:null,maint:null,maintStatus:0,expressed:null,msgs:{}};
 
   function faceScan(cb){
@@ -1396,12 +1469,16 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function navBar(a){
     const n=(id,lab,svg)=>`<button class="nbtn ${a===id?'on':''}" data-act="b:nav:${id}"><svg viewBox="0 0 24 24">${svg}</svg>${lab}</button>`;
-    return `<div class="navbar">${n('explore','Explore','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>')}${n('saved','Saved','<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>')}${n('messages','Messages','<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>')}${n('profile','Profile','<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>')}</div>`;
+    return `<div class="navbar">${n('explore','Explore','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>')}${n('mortgage','Mortgage','<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/>')}${n('saved','Saved','<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>')}${n('profile','Profile','<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>')}</div>`;
   }
   function navHead(t){ return `<div class="apphead"><div class="brand"><b>${t}</b></div></div>`; }
   function lcard(l){
     const rent=B.mode==='rent';
-    return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${rent?'rent':'sale'}">${rent?'For Rent':'For Sale'}</span></span><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Verified${l.rnpl?' &middot; RNPL':''}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}</span><span class="pr">${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
+    const offplan=l.offplan;
+    const tagLabel=rent?'For Rent':(offplan?'Off-Plan':'For Sale');
+    const tagClass=rent?'rent':(offplan?'offplan':'sale');
+    const verifiedText=offplan?`Verified &middot; ${l.dev}`:(l.rnpl?'Verified &middot; RNPL':'Verified');
+    return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${tagClass}">${tagLabel}</span>${offplan?`<span class="ltag compl">${l.completion}% built</span>`:''}</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>${verifiedText}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}${offplan?' &middot; Handover '+l.handover:''}</span><span class="pr">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
   }
   function buyerLogin(){
     return `<div class="ps-body"><div class="ps-center"><div class="ps-logo"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33 L32 13 L54 33" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ps-h1">EQARY</div><p class="ps-sub">Buy, sell and rent UAE property, start to finish, from your phone.</p><button class="uaebtn" style="margin-top:10px" data-act="b:login"><span class="udot"></span>Continue with UAE Pass</button></div></div>`;
@@ -1411,6 +1488,73 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     return `${appHeader()}<div class="ps-body"><div class="sb">${list.map(lcard).join('')}</div></div>${navBar('explore')}`;
   }
   function buyerSaved(){ return `${navHead('Saved')}<div class="ps-body"><div class="empty"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>Tap the heart on any property to save it here.</div></div>${navBar('saved')}`; }
+  
+  /* ---- mortgage calculator & application ---- */
+  function calcMonthly(principal,rate,years){
+    const r=rate/12,n=years*12;
+    return principal*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  }
+  function buyerMortgage(){
+    const m=B.mort,loan=m.price-m.down,monthly=calcMonthly(loan,0.0425,m.years),total=monthly*m.years*12,interest=total-loan;
+    return `${navHead('Mortgage')}<div class="ps-body"><div class="sb">
+      <div class="lab">Calculate your mortgage</div>
+      <div class="mort-calc">
+        <div class="mort-row"><span class="mort-label">Property price</span><div class="mort-slider-wrap"><input type="range" class="mort-slider" min="500000" max="10000000" step="50000" value="${m.price}" data-act="b:mort:price"/><span class="mort-val">${money(m.price)}</span></div></div>
+        <div class="mort-row"><span class="mort-label">Down payment</span><div class="mort-slider-wrap"><input type="range" class="mort-slider" min="${Math.round(m.price*0.15)}" max="${Math.round(m.price*0.5)}" step="10000" value="${m.down}" data-act="b:mort:down"/><span class="mort-val">${money(m.down)} (${Math.round(m.down/m.price*100)}%)</span></div></div>
+        <div class="mort-row"><span class="mort-label">Loan term</span><div class="mort-slider-wrap"><input type="range" class="mort-slider" min="5" max="25" step="1" value="${m.years}" data-act="b:mort:years"/><span class="mort-val">${m.years} years</span></div></div>
+      </div>
+      <div class="mort-result">
+        <div class="mort-big"><span>Monthly payment</span><b>${money(Math.round(monthly))}</b></div>
+        <div class="mort-stats"><div class="mort-stat"><span>Loan amount</span><b>${money(loan)}</b></div><div class="mort-stat"><span>Total interest</span><b>${money(Math.round(interest))}</b></div><div class="mort-stat"><span>Total paid</span><b>${money(Math.round(total))}</b></div></div>
+      </div>
+      <div class="lab" style="margin-top:18px">Best rates from UAE banks</div>
+      ${mortgageBanks.map((bk,i)=>{const mo=calcMonthly(loan,bk.rate,m.years);return `<button class="bankr ${m.selBank===i?'sel':''}" data-act="b:mort:bank:${i}"><span class="blogo">${bk.ab}</span><span class="bank-info"><b>${bk.name}</b><span>${pct(bk.rate)} &middot; up to ${bk.maxLtv}% LTV &middot; ${money(Math.round(mo))}/mo</span></span><span class="rad">${m.selBank===i?'<span class="okc" style="width:18px;height:18px;font-size:11px">&#10003;</span>':''}</span></button>`;}).join('')}
+    </div></div><div class="ps-foot"><button class="ab ${m.selBank===null?'dis':''}" data-act="${m.selBank===null?'b:noop':'b:go:mortgageapply'}">Get pre-approved</button></div>`;
+  }
+  function buyerMortgageApply(){
+    const m=B.mort,bk=mortgageBanks[m.selBank],loan=m.price-m.down;
+    if(m.appApproved){
+      return `<div class="hdr"><button class="bk" data-act="b:go:mortgage">&lsaquo;</button><b>Pre-approval</b></div><div class="ps-body"><div class="sb">
+        <div class="busybox" style="padding-top:12px"><span class="okc big">&#10003;</span><span style="color:#16a34a;font-weight:700;font-size:14px">You are pre-approved</span></div>
+        <div class="mort-approval">
+          <div class="appr-bank"><span class="blogo">${bk.ab}</span><b>${bk.name}</b></div>
+          <div class="appr-amount"><span>Approved up to</span><b>${money(loan)}</b></div>
+          <div class="appr-details">
+            <div class="appr-row"><span>Interest rate</span><b>${pct(bk.rate)}</b></div>
+            <div class="appr-row"><span>Term</span><b>${m.years} years</b></div>
+            <div class="appr-row"><span>Monthly EMI</span><b>${money(Math.round(calcMonthly(loan,bk.rate,m.years)))}</b></div>
+            <div class="appr-row"><span>Valid for</span><b>90 days</b></div>
+          </div>
+        </div>
+        <p class="pp">Your pre-approval letter is in your document vault. Show it to sellers to strengthen your offers.</p>
+        <div class="okrow" style="margin-top:12px"><span class="okc">&#10003;</span> Connected to EQARY listings. See mortgage cost on every property.</div>
+      </div></div><div class="ps-foot"><button class="ab" data-act="b:go:home">Browse properties</button></div>`;
+    }
+    if(m.appSubmitted){
+      return `<div class="hdr"><button class="bk" data-act="b:go:mortgage">&lsaquo;</button><b>Pre-approval</b></div><div class="ps-body"><div class="sb">
+        <div class="busybox"><span class="spin"></span><span>Verifying your documents with ${bk.name}</span></div>
+        <div class="mort-steps">
+          <div class="mstepi done"><span class="md">&#10003;</span><span class="mt"><b>Identity verified</b><span>UAE Pass confirmed</span></span></div>
+          <div class="mstepi done"><span class="md">&#10003;</span><span class="mt"><b>Income verified</b><span>Salary certificate pulled</span></span></div>
+          <div class="mstepi cur"><span class="md"></span><span class="mt"><b>Credit check</b><span>Checking AECB score</span></span></div>
+          <div class="mstepi"><span class="md"></span><span class="mt"><b>Bank decision</b><span>Pending</span></span></div>
+        </div>
+      </div></div>`;
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:go:mortgage">&lsaquo;</button><b>Get pre-approved</b></div><div class="ps-body"><div class="sb">
+      <div class="pcard" style="padding:13px;margin-bottom:14px"><span class="blogo" style="width:40px;height:40px;font-size:13px">${bk.ab}</span><span><b style="font-size:14px">${bk.name}</b><span style="font-size:12px;color:#6c6b86">${pct(bk.rate)} fixed &middot; up to ${bk.maxLtv}% LTV</span></span></div>
+      <div class="summary">
+        <div class="srow"><span>Property price</span><b>${money(m.price)}</b></div>
+        <div class="srow"><span>Down payment (${Math.round(m.down/m.price*100)}%)</span><b>${money(m.down)}</b></div>
+        <div class="srow"><span>Loan amount</span><b>${money(loan)}</b></div>
+        <div class="srow"><span>Term</span><b>${m.years} years</b></div>
+        <div class="srow tot"><span>Monthly EMI</span><b>${money(Math.round(calcMonthly(loan,bk.rate,m.years)))}</b></div>
+      </div>
+      <div class="lab">What we will verify</div>
+      <div class="chips"><span class="chip">UAE Pass identity</span><span class="chip">Employer &amp; salary</span><span class="chip">AECB credit score</span><span class="chip">Existing liabilities</span></div>
+      <p class="pp" style="margin-top:14px">One tap with UAE Pass. We pull your salary certificate, run a soft credit check, and send everything to ${bk.name}. You will have a decision in minutes.</p>
+    </div></div><div class="ps-foot"><button class="ab" data-act="b:mort:submit">Submit with UAE Pass</button></div>`;
+  }
   function buyerMessages(){
     const cv=[['K','Khalid Al Rashidi','Happy to host a viewing this week.'],['N','Noor Al Marzouqi','The unit is RNPL-ready, yes.'],['E','EQARY Concierge','Your UAE Pass verification is complete.']];
     return `${navHead('Messages')}<div class="ps-body"><div class="sb">${cv.map(c=>`<div class="conv"><span class="ava">${c[0]}</span><span class="cm"><b>${c[1]}</b><span>${c[2]}</span></span></div>`).join('')}</div></div>${navBar('messages')}`;
@@ -1462,8 +1606,12 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>Settings</b></div><div class="ps-body"><div class="sb"><div class="lab">Preferences</div>${t('Push notifications',true)}${t('Biometric login',true)}${t('Arabic interface',false)}<div class="lab">Connected</div><div class="frow"><span class="fk">Bank</span><span class="fv">Emirates NBD</span></div><div class="frow"><span class="fk">UAE Pass</span><span class="fv" style="color:#16a34a">Verified</span></div></div></div>${navBar('profile')}`;
   }
   function buyerListing(){
-    const l=B.listing,rent=B.mode==='rent';
-    return `<div class="ps-body"><div class="dhero" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><button class="dback" data-act="b:back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></div><div class="sb"><div class="pillrow"><span class="pill2 v">&#10003; Verified</span>${rent&&l.rnpl?'<span class="pill2 r">RNPL Ready</span>':''}${!rent?'<span class="pill2 r">For Sale</span>':''}</div><div class="dtitle">${l.t}</div><div class="dloc">${l.loc}</div><div class="dprice">${money(l.price)}${rent?'<small>/year</small>':''}</div><div class="statrow"><div class="stat3"><b>${bedsLabel(l.beds)}</b><span>Bedrooms</span></div><div class="stat3"><b>${l.baths}</b><span>Bathrooms</span></div><div class="stat3"><b>${l.sqft}</b><span>Sq ft</span></div></div><div class="lab">About this property</div><p class="about">${l.about}</p><div class="save" style="margin-top:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} vs a 2% agent</div></div></div><div class="ps-foot"><button class="icobtn" data-act="b:noop"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button><button class="ab gho sm" data-act="b:viewing">Viewing</button><button class="ab sm" data-act="b:${rent?'apply':'offer'}">${rent?'Apply to rent':'Make an offer'}</button></div>`;
+    const l=B.listing,rent=B.mode==='rent',offplan=l.offplan;
+    const pills=rent?(l.rnpl?'<span class="pill2 v">&#10003; Verified</span><span class="pill2 r">RNPL Ready</span>':'<span class="pill2 v">&#10003; Verified</span>'):(offplan?`<span class="pill2 v">&#10003; ${l.dev}</span><span class="pill2 off">Off-Plan</span><span class="pill2 comp">${l.completion}% Complete</span>`:'<span class="pill2 v">&#10003; Verified</span><span class="pill2 r">Secondary</span>');
+    const extraInfo=offplan?`<div class="lab">Development details</div><div class="dev-info"><div class="dev-row"><span>Developer</span><b>${l.dev}</b></div><div class="dev-row"><span>Handover</span><b>${l.handover}</b></div><div class="dev-row"><span>Construction</span><b>${l.completion}% complete</b></div><div class="dev-row"><span>Payment plan</span><b>60/40 available</b></div></div>`:'';
+    const actionBtn=rent?'Apply to rent':(offplan?'Reserve unit':'Make an offer');
+    const actionAct=rent?'apply':(offplan?'spa':'offer');
+    return `<div class="ps-body"><div class="dhero" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><button class="dback" data-act="b:back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></div><div class="sb"><div class="pillrow">${pills}</div><div class="dtitle">${l.t}</div><div class="dloc">${l.loc}${offplan?' &middot; '+l.handover:''}</div><div class="dprice">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</div><div class="statrow"><div class="stat3"><b>${bedsLabel(l.beds)}</b><span>Bedrooms</span></div><div class="stat3"><b>${l.baths}</b><span>Bathrooms</span></div><div class="stat3"><b>${l.sqft}</b><span>Sq ft</span></div></div>${extraInfo}<div class="lab">About this property</div><p class="about">${l.about}</p><div class="save" style="margin-top:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} vs a 2% agent</div></div></div><div class="ps-foot">${!offplan?'<button class="icobtn" data-act="b:noop"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>':''}<button class="ab gho sm" data-act="b:viewing">${offplan?'View showroom':'Viewing'}</button><button class="ab sm" data-act="b:${actionAct}">${actionBtn}</button></div>`;
   }
   function buyerViewing(){
     if(B.booked){
@@ -1481,21 +1629,115 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   function buyerRentDone(){
     return `<div class="ps-body"><div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:25px;letter-spacing:0">You are in</div><p class="ps-sub">Lease signed with UAE Pass and registered. Keys and digital access are on the way.</p><button class="uaebtn" style="margin-top:8px" data-act="b:home">Back to home</button></div></div>`;
   }
+  /* ---- Secondary purchase: MOU flow ---- */
   function buyerOffer(){
-    const l=B.listing;
-    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Make an offer</b></div><div class="ps-body"><div class="sb"><div class="summary"><div class="srow"><span>Property</span><b>${l.t}</b></div><div class="srow"><span>Asking price</span><b>${money(l.price)}</b></div><div class="srow tot"><span>Your offer</span><b>${money(l.price)}</b></div></div><div class="togrow"><span class="tt"><b>Digital escrow account</b><span>Funds held safely until transfer</span></span><span class="tog ${B.escrow?'on':''}" data-act="b:tog:escrow"></span></div><div class="togrow"><span class="tt"><b>UAE Pass digital signature</b><span>Legally binding e-signature</span></span><span class="tog ${B.esign?'on':''}" data-act="b:tog:esign"></span></div><p class="pp">Next, connect your bank to fund escrow and confirm proof of funds. EQARY never holds the money.</p></div></div><div class="ps-foot"><button class="ab" data-act="b:tobank">Connect bank &amp; continue</button></div>`;
+    const l=B.listing,deposit=Math.round(l.price*0.1),fee=Math.round(l.price*0.01);
+    if(B.buy.mouGenerated&&!B.buy.mouSigned){
+      return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>MOU generated</b></div><div class="ps-body"><div class="sb">
+        <div class="doc-card">
+          <div class="doc-header"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#4f46e5" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><div><b>Memorandum of Understanding</b><span>Auto-generated by EQARY</span></div></div>
+          <div class="doc-body">
+            <div class="doc-row"><span>Document ID</span><b>MOU-2024-${Math.random().toString(36).substr(2,6).toUpperCase()}</b></div>
+            <div class="doc-row"><span>Property</span><b>${l.t}</b></div>
+            <div class="doc-row"><span>Location</span><b>${l.loc}</b></div>
+            <div class="doc-row"><span>Agreed price</span><b>${money(l.price)}</b></div>
+            <div class="doc-row"><span>Deposit (10%)</span><b>${money(deposit)}</b></div>
+            <div class="doc-row"><span>Completion</span><b>Within 60 days</b></div>
+            <div class="doc-row"><span>Buyer</span><b>Ahmed Al Marzouqi</b></div>
+            <div class="doc-row"><span>Seller</span><b>Khalid Al Rashidi</b></div>
+          </div>
+          <div class="doc-footer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>DLD compliant template</div>
+        </div>
+        <p class="pp" style="margin-top:14px">This MOU locks in the price and terms. Sign with UAE Pass to make it legally binding, then fund escrow to secure the property.</p>
+      </div></div><div class="ps-foot"><button class="ab" data-act="b:signmou">Sign MOU with UAE Pass</button></div>`;
+    }
+    if(B.buy.mouSigned){
+      return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>MOU signed</b></div><div class="ps-body"><div class="sb">
+        <div class="okrow"><span class="okc">&#10003;</span> MOU signed and sent to seller.</div>
+        <div class="summary" style="margin-top:14px">
+          <div class="srow"><span>Property</span><b>${l.t}</b></div>
+          <div class="srow"><span>Agreed price</span><b>${money(l.price)}</b></div>
+          <div class="srow"><span>Deposit required (10%)</span><b>${money(deposit)}</b></div>
+          <div class="srow"><span>EQARY platform fee</span><b>${money(fee)}</b></div>
+          <div class="srow tot"><span>Total to escrow</span><b>${money(deposit+fee)}</b></div>
+        </div>
+        <p class="pp" style="margin-top:14px">Fund the escrow account to secure the property. The deposit is held safely until title transfer at DLD.</p>
+      </div></div><div class="ps-foot"><button class="ab" data-act="b:tobank">Fund escrow &amp; continue</button></div>`;
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Make an offer</b></div><div class="ps-body"><div class="sb">
+      <div class="summary"><div class="srow"><span>Property</span><b>${l.t}</b></div><div class="srow"><span>Asking price</span><b>${money(l.price)}</b></div><div class="srow tot"><span>Your offer</span><b>${money(l.price)}</b></div></div>
+      <div class="togrow"><span class="tt"><b>Digital escrow account</b><span>Funds held safely until transfer</span></span><span class="tog ${B.escrow?'on':''}" data-act="b:tog:escrow"></span></div>
+      <div class="togrow"><span class="tt"><b>UAE Pass digital signature</b><span>Legally binding e-signature</span></span><span class="tog ${B.esign?'on':''}" data-act="b:tog:esign"></span></div>
+      <div class="doc-preview"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4f46e5" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><div><b>MOU will be auto-generated</b><span>DLD-compliant template with your offer terms</span></div></div>
+      <p class="pp">Next, EQARY generates a Memorandum of Understanding (MOU) with your offer. Sign it, fund escrow, and the seller is notified.</p>
+    </div></div><div class="ps-foot"><button class="ab" data-act="b:genmou">Generate MOU</button></div>`;
+  }
+  /* ---- Off-plan purchase: SPA flow ---- */
+  function buyerSPA(){
+    const l=B.listing,resFee=Math.round(l.price*0.05),platFee=Math.round(l.price*0.005);
+    if(B.buy.spaGenerated&&!B.buy.spaSigned){
+      return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>SPA generated</b></div><div class="ps-body"><div class="sb">
+        <div class="doc-card spa">
+          <div class="doc-header"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#4f46e5" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><div><b>Sale &amp; Purchase Agreement</b><span>Direct from ${l.dev}</span></div></div>
+          <div class="doc-body">
+            <div class="doc-row"><span>Document ID</span><b>SPA-${l.dev.split(' ')[0].toUpperCase()}-${Math.random().toString(36).substr(2,6).toUpperCase()}</b></div>
+            <div class="doc-row"><span>Project</span><b>${l.t}</b></div>
+            <div class="doc-row"><span>Developer</span><b>${l.dev}</b></div>
+            <div class="doc-row"><span>Unit price</span><b>${money(l.price)}</b></div>
+            <div class="doc-row"><span>Reservation (5%)</span><b>${money(resFee)}</b></div>
+            <div class="doc-row"><span>Payment plan</span><b>60/40 (60% during construction)</b></div>
+            <div class="doc-row"><span>Handover</span><b>${l.handover}</b></div>
+            <div class="doc-row"><span>Buyer</span><b>Ahmed Al Marzouqi</b></div>
+          </div>
+          <div class="doc-footer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>RERA registered &middot; Escrow protected</div>
+        </div>
+        <p class="pp" style="margin-top:14px">This SPA is the official contract from ${l.dev}. Sign with UAE Pass to reserve your unit.</p>
+      </div></div><div class="ps-foot"><button class="ab" data-act="b:signspa">Sign SPA with UAE Pass</button></div>`;
+    }
+    if(B.buy.spaSigned){
+      return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>SPA signed</b></div><div class="ps-body"><div class="sb">
+        <div class="okrow"><span class="okc">&#10003;</span> SPA signed. Unit reserved in your name.</div>
+        <div class="summary" style="margin-top:14px">
+          <div class="srow"><span>Unit</span><b>${l.t}</b></div>
+          <div class="srow"><span>Developer</span><b>${l.dev}</b></div>
+          <div class="srow"><span>Reservation fee (5%)</span><b>${money(resFee)}</b></div>
+          <div class="srow"><span>EQARY platform fee</span><b>${money(platFee)}</b></div>
+          <div class="srow tot"><span>Total due now</span><b>${money(resFee+platFee)}</b></div>
+        </div>
+        <div class="payment-plan">
+          <div class="pp-title">Payment schedule</div>
+          <div class="pp-row"><span class="pp-pct">5%</span><span class="pp-desc">Reservation (now)</span><span class="pp-amt">${money(resFee)}</span></div>
+          <div class="pp-row"><span class="pp-pct">15%</span><span class="pp-desc">Within 30 days</span><span class="pp-amt">${money(Math.round(l.price*0.15))}</span></div>
+          <div class="pp-row"><span class="pp-pct">40%</span><span class="pp-desc">During construction</span><span class="pp-amt">${money(Math.round(l.price*0.4))}</span></div>
+          <div class="pp-row"><span class="pp-pct">40%</span><span class="pp-desc">On handover</span><span class="pp-amt">${money(Math.round(l.price*0.4))}</span></div>
+        </div>
+      </div></div><div class="ps-foot"><button class="ab" data-act="b:tobankoffplan">Pay reservation &amp; continue</button></div>`;
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Reserve unit</b></div><div class="ps-body"><div class="sb">
+      <div class="pcard" style="margin-bottom:14px"><span class="pth" style="background:linear-gradient(150deg,${l.c1},${l.c2})"></span><span><b>${l.t}</b><span>${l.dev} &middot; ${l.handover}</span></span></div>
+      <div class="summary"><div class="srow"><span>Unit price</span><b>${money(l.price)}</b></div><div class="srow"><span>Reservation (5%)</span><b>${money(resFee)}</b></div><div class="srow tot"><span>Due today</span><b>${money(resFee)}</b></div></div>
+      <div class="doc-preview"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4f46e5" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><div><b>SPA from ${l.dev}</b><span>Official Sale &amp; Purchase Agreement</span></div></div>
+      <p class="pp">EQARY pulls the official SPA directly from ${l.dev}. Sign with UAE Pass and pay the reservation fee to secure your unit.</p>
+    </div></div><div class="ps-foot"><button class="ab" data-act="b:genspa">Generate SPA</button></div>`;
   }
   function buyerBank(){
-    return `<div class="hdr"><button class="bk" data-act="b:offer">&lsaquo;</button><b>Connect your bank</b></div><div class="ps-body"><div class="sb"><p class="pp">Authorise your own bank to fund the escrow deposit and confirm proof of funds. Open banking, bank to bank, EQARY is never in the money path.</p><div class="lab">Choose your bank</div>${banks.map((bk,i)=>`<button class="bankr ${B.bank===i?'sel':''}" data-act="b:bank:${i}"><span class="blogo">${bk.ab}</span>${bk.name}<span class="rad">${B.bank===i?'<span class="okc" style="width:18px;height:18px;font-size:11px">&#10003;</span>':''}</span></button>`).join('')}${B.busy?`<div class="busybox"><span class="spin"></span><span>Connecting securely to your bank</span></div>`:''}</div></div>${B.busy?'':`<div class="ps-foot"><button class="ab ${B.bank===null?'dis':''}" data-act="${B.bank===null?'b:noop':'b:authorise'}">Authorise with your bank</button></div>`}`;
+    const l=B.listing,isOffplan=l&&l.offplan;
+    const backAct=isOffplan?'b:spa':'b:offer';
+    return `<div class="hdr"><button class="bk" data-act="${backAct}">&lsaquo;</button><b>Connect your bank</b></div><div class="ps-body"><div class="sb"><p class="pp">Authorise your own bank to fund the escrow deposit and confirm proof of funds. Open banking, bank to bank, EQARY is never in the money path.</p><div class="lab">Choose your bank</div>${banks.map((bk,i)=>`<button class="bankr ${B.bank===i?'sel':''}" data-act="b:bank:${i}"><span class="blogo">${bk.ab}</span>${bk.name}<span class="rad">${B.bank===i?'<span class="okc" style="width:18px;height:18px;font-size:11px">&#10003;</span>':''}</span></button>`).join('')}${B.busy?`<div class="busybox"><span class="spin"></span><span>Connecting securely to your bank</span></div>`:''}</div></div>${B.busy?'':`<div class="ps-foot"><button class="ab ${B.bank===null?'dis':''}" data-act="${B.bank===null?'b:noop':'b:authorise'}">Authorise with your bank</button></div>`}`;
   }
   function buyerOfferDone(){
-    return `<div class="ps-body"><div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:23px;letter-spacing:0">Offer submitted</div><p class="ps-sub">Escrow funded, signed with UAE Pass, and the seller has been notified. You will get a response in-app.</p><button class="uaebtn" style="margin-top:8px" data-act="b:home">Back to home</button></div></div>`;
+    const l=B.listing,isOffplan=l&&l.offplan;
+    const title=isOffplan?'Unit reserved':'Offer submitted';
+    const msg=isOffplan?`Your unit at ${l.t} is reserved. SPA signed, payment confirmed. You will receive construction updates in-app.`:'Escrow funded, MOU signed with UAE Pass, and the seller has been notified. You will get a response in-app.';
+    return `<div class="ps-body"><div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:23px;letter-spacing:0">${title}</div><p class="ps-sub">${msg}</p><button class="uaebtn" style="margin-top:8px" data-act="b:home">Back to home</button></div></div>`;
   }
   function buyerView(){
     switch(B.screen){
       case 'login': return buyerLogin();
       case 'home': return buyerHome();
       case 'saved': return buyerSaved();
+      case 'mortgage': return buyerMortgage();
+      case 'mortgageapply': return buyerMortgageApply();
       case 'messages': return buyerMessages();
       case 'profile': return buyerProfile();
       case 'landlord': return buyerLandlord();
@@ -1510,6 +1752,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
       case 'apply': return buyerApply();
       case 'rentdone': return buyerRentDone();
       case 'offer': return buyerOffer();
+      case 'spa': return buyerSPA();
       case 'connectbank': return buyerBank();
       case 'offerdone': return buyerOfferDone();
     }
@@ -1522,32 +1765,48 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function buyerAction(act){
     const i=act.indexOf(':'), c=i<0?act:act.slice(0,i), a=i<0?'':act.slice(i+1);
+    const goTo=(scr,addHistory=true)=>{if(addHistory&&B.screen!==scr)history.push(B.screen);B.screen=scr;renderApp();};
+    const goBack=()=>{if(history.length>0){B.screen=history.pop();}else{B.screen='home';}B.busy=false;renderApp();};
+    const resetBuy=()=>{B.buy={mouGenerated:false,mouSigned:false,spaGenerated:false,spaSigned:false,escrowFunded:false};};
     switch(c){
       case 'noop': break;
-      case 'login': faceScan(()=>{B.verified=true;B.screen='home';renderApp();}); break;
+      case 'login': faceScan(()=>{B.verified=true;history=[];B.screen='home';renderApp();}); break;
       case 'mode': B.mode=a; renderApp(); break;
-      case 'nav': B.screen=(a==='explore'?'home':a); renderApp(); break;
-      case 'open': B.listing=rentList.concat(buyList).find(x=>x.id===a); B.booked=false; B.applied=false; B.busy=false; B.bank=null; B.escrow=true; B.esign=true; B.slot=0; B.screen='listing'; renderApp(); break;
-      case 'back': B.screen='listing'; B.busy=false; renderApp(); break;
-      case 'viewing': B.screen='viewing'; renderApp(); break;
+      case 'nav': history=[];B.screen=(a==='explore'?'home':a); renderApp(); break;
+      case 'open': B.listing=rentList.concat(buyList).find(x=>x.id===a); B.booked=false; B.applied=false; B.busy=false; B.bank=null; B.escrow=true; B.esign=true; B.slot=0; resetBuy(); goTo('listing'); break;
+      case 'back': goBack(); break;
+      case 'viewing': goTo('viewing'); break;
       case 'slot': B.slot=+a; renderApp(); break;
       case 'bookview': B.booked=true; renderApp(); break;
-      case 'apply': B.screen='apply'; B.busy=false; B.applied=false; renderApp(); break;
+      case 'apply': B.busy=false; B.applied=false; goTo('apply'); break;
       case 'submitapply': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.applied=true;renderApp();},1500); break;
-      case 'signlease': faceScan(()=>{B.screen='rentdone';renderApp();}); break;
-      case 'offer': B.screen='offer'; renderApp(); break;
+      case 'signlease': faceScan(()=>{history=[];B.screen='rentdone';renderApp();}); break;
+      case 'offer': resetBuy(); goTo('offer'); break;
+      case 'spa': resetBuy(); goTo('spa'); break;
+      case 'genmou': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.buy.mouGenerated=true;renderApp();},1200); break;
+      case 'signmou': faceScan(()=>{B.buy.mouSigned=true;renderApp();}); break;
+      case 'genspa': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.buy.spaGenerated=true;renderApp();},1200); break;
+      case 'signspa': faceScan(()=>{B.buy.spaSigned=true;renderApp();}); break;
       case 'tog': if(a==='escrow'){B.escrow=!B.escrow;}else{B.esign=!B.esign;} renderApp(); break;
-      case 'tobank': B.screen='connectbank'; B.busy=false; renderApp(); break;
+      case 'tobank': goTo('connectbank'); break;
+      case 'tobankoffplan': goTo('connectbank'); break;
       case 'bank': B.bank=+a; renderApp(); break;
-      case 'authorise': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.screen='offerdone';renderApp();},1500); break;
-      case 'home': B.screen='home'; B.busy=false; renderApp(); break;
-      case 'go': B.screen=a; renderApp(); break;
+      case 'authorise': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;history=[];B.screen='offerdone';renderApp();},1500); break;
+      case 'home': history=[]; B.screen='home'; B.busy=false; resetBuy(); renderApp(); break;
+      case 'go': goTo(a); break;
       case 'dash': B.dash=a; renderApp(); break;
       case 'cl': if(a==='maid'){B.cl.maid=!B.cl.maid;}else if(a==='pool'){B.cl.pool=!B.cl.pool;}else if(a==='verify'){B.cl.verified=true;}else if(a==='create'){B.cl.created=true;B.screen='mylistings';} renderApp(); break;
       case 'offtab': B.offerTab=a; renderApp(); break;
       case 'acc': B.offers[a]='a'; renderApp(); break;
       case 'dec': B.offers[a]='d'; renderApp(); break;
-      case 'signout': B.screen='login'; B.verified=false; renderApp(); break;
+      case 'signout': history=[]; B.screen='login'; B.verified=false; renderApp(); break;
+      case 'mort':
+        if(a==='price'){const v=+event.target.value;B.mort.price=v;B.mort.down=Math.max(B.mort.down,Math.round(v*0.15));renderApp();}
+        else if(a==='down'){B.mort.down=+event.target.value;renderApp();}
+        else if(a==='years'){B.mort.years=+event.target.value;renderApp();}
+        else if(a.startsWith('bank:')){B.mort.selBank=+a.split(':')[1];renderApp();}
+        else if(a==='submit'){B.mort.appSubmitted=true;renderApp();setTimeout(()=>{B.mort.appApproved=true;renderApp();},2500);}
+        break;
     }
   }
 
@@ -1620,12 +1879,19 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     if(act.slice(0,2)==='b:'){ buyerAction(act.slice(2)); return; }
   });
 
+  screen.addEventListener('input',e=>{
+    if(e.target.classList.contains('mort-slider')){
+      const act=e.target.dataset.act;
+      if(act&&act.slice(0,2)==='b:') buyerAction(act.slice(2));
+    }
+  });
+
   const hintEl=document.getElementById('phoneHint');
   document.querySelectorAll('.persobtn').forEach(b=>b.addEventListener('click',()=>{
     persona=b.dataset.persona;
     document.querySelectorAll('.persobtn').forEach(x=>x.classList.toggle('on',x===b));
     if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs, tap around the dashboard';}
-    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.textContent='Tap through it';}
+    else{history=[];B.screen='login';B.mode='rent';B.mort={price:2000000,down:400000,years:25,selBank:null,preApproved:false,appSubmitted:false,appApproved:false};if(hintEl)hintEl.textContent='Tap through it';}
     renderApp();
   }));
 
