@@ -9,9 +9,18 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url))
   }
 
+  // Protect the /investor route - check for valid access cookie
+  if (pathname === "/investor") {
+    const hasAccess = request.cookies.get("investor_access")?.value === "verified"
+    
+    if (!hasAccess) {
+      return NextResponse.redirect(new URL("/", request.url))
+    }
+  }
+
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ["/roadmap.html"],
+  matcher: ["/roadmap.html", "/investor"],
 }
