@@ -321,103 +321,254 @@
   .meet .mi{display:flex;align-items:center;gap:12px;color:#d3d6cf;font-size:1.05rem}
   .meet .mi svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.7}
 
-  /* ===== interactive prototype ===== */
+  /* ===== interactive prototype (EQARY app) ===== */
   .phone{position:relative;width:300px}
   .app-copy{align-self:center}
   .phone-col{display:flex;flex-direction:column;align-items:center;gap:14px}
   .phone-hint{font-size:.85rem;color:var(--ink-soft);letter-spacing:.01em}
-  .phone-screen{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f3efe8;z-index:2}
-
-  .ps{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f3efe8;color:#181a12;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;z-index:2}
-  .ps.dark{background:#1C2B5E;color:#ffffff}
+  .phone-screen{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f4f5f9;z-index:2}
+  .ps{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f4f5f9;color:#1a1830;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;z-index:2}
+  .ps.ind{background:#1b1830;color:#fff}
   .ps *{box-sizing:border-box}
-  .ps-top{flex:none;padding:14px 15px 4px}
-  .ps-body{flex:1;overflow-y:auto;padding:6px 15px 10px}
+  .ps-body{flex:1;overflow-y:auto}
   .ps-body::-webkit-scrollbar{width:0}
-  .ps-foot{flex:none;padding:8px 15px 16px;display:grid;gap:8px}
-  .ps-prog{display:flex;flex-direction:column;gap:6px}
-  .psbars{display:flex;gap:4px}
-  .psb{flex:1;height:4px;border-radius:3px;background:rgba(0,0,0,.1)}
-  .psb.on{background:#4CAF7F}
-  .psstep{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4CAF7F}
-  .ps-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-  .ps-back{border:none;background:none;font-size:26px;line-height:.8;cursor:pointer;color:inherit;width:20px;padding:0}
-  .ps-title{font-size:13px;font-weight:600}
-  .ps-center{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:20px 8px}
-  .ps-logo{width:64px;height:64px;border-radius:18px;background:linear-gradient(160deg,#243775,#1C2B5E);display:grid;place-items:center}
-  .ps-h1{font-size:30px;font-weight:300;letter-spacing:.1em}
-  .ps.dark .ps-h1{color:#fff}
-  .ps-sub{font-size:13px;line-height:1.5;color:#b9bdb5;max-width:24ch}
-  .ps-h2{font-size:19px;font-weight:300;line-height:1.15;margin:4px 0 8px}
-  .ps-h2 b{font-weight:700}
-  .ps-p{font-size:12.5px;line-height:1.5;color:#5d5f56;margin-bottom:12px}
-  .ps.dark .ps-p{color:#9aa098}
-  .ps-head2{font-size:19px;font-weight:600;margin:2px 0 12px;display:flex;justify-content:space-between;align-items:baseline}
-  .ps-head2 span{font-size:11px;font-weight:500;color:#8a8c82;letter-spacing:.03em}
-  .ab{border:none;border-radius:14px;padding:14px;font-family:inherit;font-size:14px;font-weight:600;color:#fff;background:#4CAF7F;cursor:pointer;width:100%;transition:transform .12s}
+  .sb{padding:14px 15px 14px}
+  .hdr{display:flex;align-items:center;gap:10px;padding:15px 15px 8px;background:#1b1830;color:#fff}
+  .hdr .bk{border:none;background:none;font-size:25px;line-height:.7;cursor:pointer;color:#fff;width:16px;padding:0}
+  .hdr b{font-size:15px;font-weight:700}
+  .lab{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9a99b3;margin:14px 0 9px}
+  .ps-center{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:24px 20px}
+  .ps-logo{width:66px;height:66px;border-radius:18px;background:linear-gradient(160deg,#2a2550,#4f46e5);display:grid;place-items:center}
+  .ps-h1{font-size:30px;font-weight:300;letter-spacing:.12em;color:#fff}
+  .ps-sub{font-size:13px;line-height:1.5;color:#b9b6e0;max-width:25ch}
+  .ps-h2{font-size:18px;font-weight:600;line-height:1.18;margin:4px 0 8px}
+  .ps-h2 b{font-weight:800}
+  .ps-p{font-size:12.5px;line-height:1.5;color:#6c6b86;margin-bottom:12px}
+  .ps-back{border:none;background:none;font-size:26px;line-height:.8;cursor:pointer;color:#1b1830;width:20px;padding:0}
+  .pp{font-size:12.5px;color:#6c6b86;line-height:1.5}
+  .ab{border:none;border-radius:13px;padding:14px;font-family:inherit;font-size:14px;font-weight:600;color:#fff;background:#4f46e5;cursor:pointer;width:100%;transition:transform .12s,background .2s}
   .ab:active{transform:scale(.98)}
-  .ab.dis{background:#cdd1c8;color:#7d8076;pointer-events:none}
-  .ab2{border:1px solid rgba(0,0,0,.15);border-radius:14px;padding:14px;font-family:inherit;font-size:14px;font-weight:600;color:#181a12;background:transparent;cursor:pointer;width:100%}
-  .ab2.light{border-color:rgba(255,255,255,.22);color:#fff}
-  .ps-list{display:grid;gap:10px;margin-top:4px}
-  .vrow{display:flex;align-items:center;gap:12px;border:1px solid rgba(0,0,0,.1);background:#fff;border-radius:14px;padding:13px;cursor:pointer;text-align:left;font-family:inherit;transition:.2s;width:100%}
-  .vrow.ok{border-color:#4CAF7F;background:#edfaf4}
-  .vrow:disabled{opacity:.7}
-  .vrow-i{flex:none;width:26px;height:26px;border-radius:8px;background:#eef0ea;display:grid;place-items:center;font-size:16px;color:#9a9d92;font-weight:600}
-  .vrow.ok .vrow-i{background:#4CAF7F;color:#fff}
-  .vrow-tx{display:flex;flex-direction:column}
-  .vrow-tx b{font-size:13.5px;font-weight:600}
-  .vrow-tx span{font-size:11.5px;color:#7d8076}
-  .lcard{display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.08);background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;font-family:inherit;width:100%;margin-bottom:12px}
-  .lcard.static{cursor:default;flex-direction:row;align-items:center;gap:12px;padding:10px}
-  .lphoto{display:block;height:96px;position:relative}
-  .lcard.static .lphoto{width:62px;height:62px;border-radius:12px;flex:none}
-  .lphoto.big{height:150px;border-radius:14px}
-  .vbadge{position:absolute;left:8px;top:8px;background:rgba(255,255,255,.92);color:#2D8A5E;font-size:10px;font-weight:700;padding:4px 8px;border-radius:8px}
-  .lmeta{display:flex;flex-direction:column;gap:2px;padding:11px 12px}
-  .lcard.static .lmeta{padding:0}
-  .lmeta b{font-size:14px;font-weight:600}
-  .lloc{font-size:11.5px;color:#7d8076}
-  .lprice{font-size:15px;font-weight:700;color:#2D8A5E;margin-top:2px}
-  .lprice small{font-size:11px;font-weight:500;color:#8a8c82}
-  .lprice.big{font-size:22px;margin:6px 0}
-  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-  .bdg{font-size:11px;font-weight:600;color:#2D8A5E;background:#edfaf4;border:1px solid #c5e8d8;border-radius:8px;padding:5px 9px}
-  .slot{display:flex;align-items:center;gap:11px;border:1px solid rgba(0,0,0,.1);background:#fff;border-radius:13px;padding:13px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;width:100%;text-align:left}
-  .slot .rad{width:18px;height:18px;border-radius:50%;border:2px solid #c2c5bb;flex:none}
-  .slot.sel{border-color:#4CAF7F;background:#edfaf4}
-  .slot.sel .rad{border-color:#4CAF7F;background:radial-gradient(circle,#4CAF7F 42%,transparent 46%)}
-  .okrow{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#2D8A5E;font-weight:600;margin-bottom:12px}
-  .okc{width:20px;height:20px;border-radius:50%;background:#4CAF7F;color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .ab:hover{background:#4338ca}
+  .ab.dis{background:#cdcde0;color:#83839c;pointer-events:none}
+  .ab.gho{background:#fff;color:#1b1830;border:1px solid rgba(20,18,50,.14)}
+  .ab.gho:hover{background:#eef0fe}
+  .ab.sm{padding:13px 10px;font-size:13px}
+  .icobtn{flex:none;width:48px;border-radius:13px;background:#fff;border:1px solid rgba(20,18,50,.14);display:grid;place-items:center;cursor:pointer}
+  .icobtn svg{width:18px;height:18px;stroke:#1b1830;fill:none;stroke-width:1.9}
+  .ps-foot{flex:none;padding:11px 15px 16px;display:flex;gap:8px;background:#fff;border-top:1px solid rgba(20,18,50,.06)}
+  .uaebtn{display:flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:13px;padding:14px 18px;font-family:inherit;font-size:14px;font-weight:600;color:#1b1830;background:#fff;cursor:pointer}
+  .uaebtn .udot{width:18px;height:18px;border-radius:5px;background:#4f46e5}
+  .apphead{background:#1b1830;color:#fff;padding:16px 15px 15px}
+  .apphead .brand{display:flex;align-items:center;justify-content:space-between}
+  .apphead .brand b{font-size:15px;font-weight:800;letter-spacing:.04em}
+  .apphead .tag{font-size:10.5px;color:#b9b6e0;margin-top:1px}
+  .apphead .bell{width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.1);display:grid;place-items:center}
+  .apphead .htitle{font-size:18px;font-weight:600;margin-top:13px}
+  .seg{display:flex;gap:6px;background:rgba(255,255,255,.08);border-radius:12px;padding:4px;margin-top:13px}
+  .segb{flex:1;border:none;background:none;cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:600;color:#cfcdee;padding:9px;border-radius:9px}
+  .segb.on{background:#fff;color:#1b1830}
+  .searchbar{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border-radius:11px;padding:11px 13px;margin-top:10px;color:#b9b6e0;font-size:12px}
+  .searchbar svg{width:16px;height:16px;stroke:#b9b6e0;fill:none;stroke-width:2}
+  .lc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(20,18,50,.06);box-shadow:0 6px 18px rgba(30,20,60,.06);margin-bottom:13px;cursor:pointer;width:100%;text-align:left;font-family:inherit;display:block;padding:0}
+  .lc .img{display:block;height:120px;position:relative}
+  .lc .tagrow{position:absolute;left:9px;top:9px;display:flex;gap:6px}
+  .ltag{font-size:10px;font-weight:700;padding:4px 8px;border-radius:7px;color:#fff}
+  .ltag.sale{background:#4f46e5}
+  .ltag.rent{background:#1b1830}
+  .heart{position:absolute;right:9px;top:9px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+  .heart svg{width:15px;height:15px;stroke:#1b1830;fill:none;stroke-width:1.8}
+  .lc .bd{display:block;padding:12px 13px 13px}
+  .vrf{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#16a34a;background:#e7f7ec;border-radius:6px;padding:3px 7px;margin-bottom:7px}
+  .lc .ttl{display:block;font-size:14px;font-weight:600;line-height:1.2}
+  .lc .loc{display:block;font-size:11.5px;color:#6c6b86;margin-top:2px}
+  .lc .pr{display:block;font-size:17px;font-weight:800;color:#1a1830;margin-top:8px}
+  .lc .pr small{font-size:11px;font-weight:600;color:#9a99b3}
+  .specs{display:flex;gap:14px;margin-top:9px;color:#6c6b86;font-size:11px}
+  .save{display:flex;align-items:center;gap:6px;margin-top:9px;font-size:11px;font-weight:700;color:#16a34a;background:#e7f7ec;border-radius:8px;padding:7px 10px}
+  .dhero{height:172px;position:relative}
+  .dback{position:absolute;left:10px;top:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;border:none;cursor:pointer}
+  .dback svg{width:17px;height:17px;stroke:#1b1830;fill:none;stroke-width:2.2}
+  .pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+  .pill2{font-size:10px;font-weight:700;border-radius:7px;padding:4px 8px}
+  .pill2.v{color:#16a34a;background:#e7f7ec}
+  .pill2.r{color:#4f46e5;background:#eef0fe}
+  .dtitle{font-size:18px;font-weight:700;line-height:1.18}
+  .dloc{font-size:12px;color:#6c6b86;margin-top:3px}
+  .dprice{font-size:22px;font-weight:800;margin-top:10px}
+  .dprice small{font-size:12px;font-weight:600;color:#9a99b3}
+  .statrow{display:flex;gap:8px;margin:13px 0}
+  .stat3{flex:1;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:11px 6px;text-align:center}
+  .stat3 b{font-size:15px;font-weight:700;display:block}
+  .stat3 span{font-size:10px;color:#6c6b86}
+  .about{font-size:12.5px;line-height:1.55;color:#56546e}
+  .slot{display:flex;align-items:center;gap:11px;border:1px solid rgba(20,18,50,.1);background:#fff;border-radius:13px;padding:13px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;width:100%;text-align:left;margin-bottom:9px}
+  .slot .rad{width:18px;height:18px;border-radius:50%;border:2px solid #c4c3d6;flex:none}
+  .slot.sel{border-color:#4f46e5;background:#eef0fe}
+  .slot.sel .rad{border-color:#4f46e5;background:radial-gradient(circle,#4f46e5 42%,transparent 46%)}
+  .keybox{background:#1b1830;color:#fff;border-radius:14px;padding:17px;text-align:center;margin-bottom:13px}
+  .keybox span{font-size:11px;color:#b9b6e0}
+  .keybox .code{font-size:27px;font-weight:800;letter-spacing:.2em;margin:5px 0}
+  .okrow{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#16a34a;font-weight:600;margin-bottom:12px}
+  .okc{width:20px;height:20px;border-radius:50%;background:#16a34a;color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
   .okc.big{width:46px;height:46px;font-size:24px}
-  .busybox{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:22px 10px;font-size:12.5px;color:#5d5f56}
-  .busybox.done{color:#2D8A5E;font-weight:600}
-  .contract{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:4px 14px;margin:6px 0 12px}
-  .crow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid rgba(0,0,0,.06);font-size:12.5px;color:#7d8076}
-  .crow:first-child{border-top:none}
-  .crow b{color:#181a12;font-weight:600;text-align:right}
-  .crow.tot b{color:#2D8A5E;font-size:16px}
-  .crow.tot span{font-weight:600;color:#181a12}
-  .spin{width:18px;height:18px;border:2px solid rgba(0,0,0,.15);border-top-color:#4CAF7F;border-radius:50%;display:inline-block;animation:psp .7s linear infinite}
-  .spin.big{width:32px;height:32px;border-width:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+  .chip{font-size:11px;font-weight:600;color:#4f46e5;background:#eef0fe;border-radius:8px;padding:6px 10px}
+  .pcard{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:10px;margin:10px 0}
+  .pcard .pth{width:50px;height:50px;border-radius:11px;flex:none}
+  .pcard b{font-size:13px;font-weight:600;display:block}
+  .pcard span{font-size:11px;color:#6c6b86}
+  .togrow{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:13px;margin-bottom:9px}
+  .togrow .tt b{font-size:13px;font-weight:600;display:block}
+  .togrow .tt span{font-size:11px;color:#6c6b86}
+  .tog{width:42px;height:25px;border-radius:999px;background:#d4d3e2;position:relative;flex:none;cursor:pointer;transition:.2s}
+  .tog::after{content:"";position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;transition:.2s}
+  .tog.on{background:#4f46e5}
+  .tog.on::after{left:20px}
+  .bankr{display:flex;align-items:center;gap:11px;border:1px solid rgba(20,18,50,.1);background:#fff;border-radius:13px;padding:13px;cursor:pointer;font-family:inherit;width:100%;text-align:left;margin-bottom:9px;font-size:13.5px;font-weight:600;color:#1a1830}
+  .bankr .blogo{width:34px;height:34px;border-radius:9px;background:#eef0fe;color:#4f46e5;display:grid;place-items:center;font-weight:800;font-size:11px;flex:none}
+  .bankr .rad{margin-left:auto;display:flex}
+  .bankr.sel{border-color:#4f46e5;background:#eef0fe}
+  .summary{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;padding:2px 14px;margin:6px 0 13px}
+  .srow{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid rgba(20,18,50,.06);font-size:12.5px;color:#6c6b86}
+  .srow:first-child{border-top:none}
+  .srow b{color:#1a1830;font-weight:700;text-align:right}
+  .srow.tot b{color:#4f46e5;font-size:16px}
+  .busybox{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:24px 12px;font-size:12.5px;color:#6c6b86}
+  .spin{width:20px;height:20px;border:2px solid rgba(79,70,229,.2);border-top-color:#4f46e5;border-radius:50%;display:inline-block;animation:psp .7s linear infinite}
   @keyframes psp{to{transform:rotate(360deg)}}
-  .bigcheck{width:74px;height:74px;border-radius:50%;background:#4CAF7F;display:grid;place-items:center;animation:pop .4s ease}
+  .bigcheck{width:76px;height:76px;border-radius:50%;background:#4f46e5;display:grid;place-items:center;animation:pop .4s ease}
   .bigcheck svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
   @keyframes pop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
-  .faceov{position:absolute;inset:0;background:rgba(28,43,94,.93);display:flex;align-items:center;justify-content:center;color:#fff;z-index:5}
+  .lphoto{display:block;height:96px;position:relative;border-radius:12px}
+  .lphoto.big{height:150px;border-radius:14px}
+  .navbar{flex:none;display:flex;background:#fff;border-top:1px solid rgba(20,18,50,.07)}
+  .nbtn{flex:1;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px 13px;color:#9a99b3;font-size:9px;font-weight:600}
+  .nbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .nbtn.on{color:#4f46e5}
+  .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;color:#9a99b3;padding:54px 24px;font-size:12.5px;line-height:1.5}
+  .empty svg{width:34px;height:34px;stroke:#c4c3d6;fill:none;stroke-width:1.5}
+  .faceov{position:absolute;inset:0;background:rgba(20,18,48,.95);display:flex;align-items:center;justify-content:center;color:#fff;z-index:5}
   .faceov .facebox{display:flex;flex-direction:column;align-items:center;gap:16px}
   .faceov span{font-size:13px;font-weight:600}
-  .facering{width:118px;height:118px;border-radius:28px;border:2px solid rgba(16,185,129,.5);display:grid;place-items:center;position:relative;overflow:hidden}
-  .facering svg{stroke:#4CAF7F;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  .facescan{position:absolute;left:0;right:0;height:3px;background:#4CAF7F;box-shadow:0 0 14px #4CAF7F;animation:scan 1.1s ease-in-out infinite}
+  .facering{width:118px;height:118px;border-radius:28px;border:2px solid rgba(124,116,240,.6);display:grid;place-items:center;position:relative;overflow:hidden}
+  .facering svg{stroke:#a5a0f5;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .facescan{position:absolute;left:0;right:0;height:3px;background:#7c74f0;box-shadow:0 0 14px #7c74f0;animation:scan 1.1s ease-in-out infinite}
   @keyframes scan{0%{top:8%}50%{top:88%}100%{top:8%}}
   .faceov.ok .facescan{display:none}
-  .ps-tabs{display:flex;gap:6px;background:rgba(0,0,0,.05);border-radius:12px;padding:4px;margin-bottom:12px}
-  .pst{flex:1;border:none;background:none;font-family:inherit;font-size:12.5px;font-weight:600;color:#7d8076;padding:9px;border-radius:9px;cursor:pointer}
-  .pst.on{background:#fff;color:#181a12;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-  .offtag{position:absolute;right:8px;top:8px;background:#2D8A5E;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:8px}
-  .lhand{font-size:11px;color:#8a8c82;margin-top:1px}
-  .uaeglyph{width:18px;height:18px;stroke:#4CAF7F;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  /* ===== seller app (indigo) ===== */
+  .sbody{padding:14px 15px 12px}
+  .ps-app-head{display:flex;align-items:center;justify-content:space-between;padding:2px 0 12px}
+  .ps-app-head b{font-size:16px;font-weight:700}
+  .ps-app-head .owner{font-size:9.5px;color:#4f46e5;font-weight:800;letter-spacing:.1em;border:1px solid rgba(79,70,229,.35);border-radius:6px;padding:3px 7px}
+  .ps-app-sub{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9a99b3;margin:8px 0 10px}
+  .ps-tabbar{flex:none;display:flex;border-top:1px solid rgba(20,18,50,.07);background:#fff}
+  .tbtn{flex:1;border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px 13px;color:#9a99b3;font-size:9px;font-weight:600}
+  .tbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .tbtn.on{color:#4f46e5}
+  .sstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:11px}
+  .sstat{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:11px 12px}
+  .sstat .v{font-size:17px;font-weight:800;color:#1a1830;line-height:1}
+  .sstat .v small{font-size:10px;color:#9a99b3;font-weight:600}
+  .sstat .k{font-size:10.5px;color:#6c6b86;margin-top:5px}
+  .schart{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:13px;margin-bottom:12px}
+  .schart .ct{font-size:11px;color:#6c6b86;font-weight:600;margin-bottom:11px;display:flex;justify-content:space-between}
+  .bars{display:flex;gap:7px;height:80px;align-items:flex-end}
+  .barcol{flex:1;height:100%;display:flex;flex-direction:column;gap:5px}
+  .bar{width:100%;flex:1;background:#ecebfb;border-radius:5px 5px 0 0;position:relative}
+  .bar i{position:absolute;left:0;right:0;bottom:0;background:#4f46e5;border-radius:5px 5px 0 0}
+  .blab{font-size:9px;color:#9a99b3;text-align:center}
+  .prop{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:10px;margin-bottom:9px;width:100%;text-align:left;font-family:inherit;cursor:pointer}
+  .prop .pth{width:46px;height:46px;border-radius:10px;flex:none}
+  .prop .pm{flex:1;min-width:0}
+  .prop .pm b{font-size:13px;font-weight:600;display:block}
+  .prop .pm span{font-size:11px;color:#6c6b86}
+  .pstatus{font-size:9.5px;font-weight:700;padding:4px 8px;border-radius:7px;flex:none}
+  .pstatus.occ{background:#e7f7ec;color:#16a34a}
+  .pstatus.vac{background:#fdeceb;color:#d2564b}
+  .pstatus.lst{background:#eef0fe;color:#4f46e5}
+  .ybadge{font-size:12px;font-weight:800;color:#4f46e5;background:#eef0fe;border-radius:8px;padding:5px 9px;flex:none}
+  .conv{display:flex;gap:11px;align-items:center;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:11px;margin-bottom:9px;cursor:pointer;width:100%;text-align:left;font-family:inherit}
+  .conv .ava{width:38px;height:38px;border-radius:50%;background:#eef0fe;color:#4f46e5;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+  .conv .cm{flex:1;min-width:0}
+  .conv .cm b{font-size:13px;font-weight:600;display:block}
+  .conv .cm span{font-size:11px;color:#6c6b86;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .conv .dot{width:8px;height:8px;border-radius:50%;background:#4f46e5;flex:none}
+  .thread{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .bub{max-width:82%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.4}
+  .bub.them{align-self:flex-start;background:#fff;border:1px solid rgba(20,18,50,.07);border-bottom-left-radius:5px}
+  .bub.me{align-self:flex-end;background:#4f46e5;color:#fff;border-bottom-right-radius:5px}
+  .quicks{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .qchip{border:1px solid #d0cfee;background:#fff;color:#4f46e5;border-radius:999px;padding:8px 13px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  .mcat{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+  .mcatb{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:14px;cursor:pointer;font-family:inherit;text-align:left}
+  .mcatb .ic2{width:34px;height:34px;border-radius:9px;background:#eef0fe;display:grid;place-items:center;margin-bottom:9px}
+  .mcatb .ic2 svg{width:18px;height:18px;stroke:#4f46e5;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .mcatb b{font-size:13px;font-weight:600;display:block}
+  .mcatb span{font-size:10.5px;color:#6c6b86}
+  .mprov{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:12px 14px;margin:4px 0 14px}
+  .mprov b{font-size:13px;font-weight:600;display:block}
+  .mprov span{font-size:11px;color:#6c6b86}
+  .mstep{display:flex;flex-direction:column}
+  .mstepi{display:flex;gap:11px;align-items:flex-start;padding-bottom:16px;position:relative}
+  .mstepi::before{content:"";position:absolute;left:9px;top:21px;bottom:-3px;width:2px;background:#e4e3f0}
+  .mstepi:last-child::before{display:none}
+  .mstepi .md{width:20px;height:20px;border-radius:50%;border:2px solid #c8c7da;background:#fff;flex:none;display:grid;place-items:center;font-size:11px;color:#fff}
+  .mstepi.done .md{background:#4f46e5;border-color:#4f46e5}
+  .mstepi.cur .md{border-color:#4f46e5}
+  .mstepi .mt b{font-size:12.5px;font-weight:600;display:block}
+  .mstepi .mt span{font-size:10.5px;color:#6c6b86}
+  /* ===== landlord hub (in profile) ===== */
+  .statline{display:flex;gap:8px;margin:12px 0 4px}
+  .slcard{flex:1;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:11px 6px;text-align:center}
+  .slcard b{font-size:15px;font-weight:800;display:block}
+  .slcard span{font-size:9.5px;color:#6c6b86}
+  .prow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:13px;margin-bottom:8px;cursor:pointer;width:100%;text-align:left;font-family:inherit}
+  .prow .pi{width:32px;height:32px;border-radius:9px;background:#eef0fe;display:grid;place-items:center;flex:none}
+  .prow .pi svg{width:17px;height:17px;stroke:#4f46e5;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .prow .pl{flex:1;font-size:13.5px;font-weight:600}
+  .prow .pc{color:#c4c3d6;font-size:18px}
+  .prow.danger .pi{background:#fdeceb}
+  .prow.danger .pi svg{stroke:#d2564b}
+  .prow.danger .pl{color:#d2564b}
+  .dtabs{display:flex;gap:6px;background:#ecebf6;border-radius:11px;padding:4px;margin:10px 0 12px}
+  .dtab{flex:1;border:none;background:none;font-family:inherit;font-size:12px;font-weight:600;color:#6c6b86;padding:8px;border-radius:8px;cursor:pointer}
+  .dtab.on{background:#fff;color:#1b1830;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .roic{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;padding:13px;margin-bottom:11px}
+  .roic .rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+  .roic .rh b{font-size:13.5px;font-weight:700}
+  .roic .ny{font-size:11px;font-weight:800;color:#16a34a;background:#e7f7ec;border-radius:7px;padding:4px 8px}
+  .brk{display:flex;justify-content:space-between;font-size:12px;padding:5px 0;color:#6c6b86}
+  .brk b{color:#1a1830;font-weight:600}
+  .brk.neg b{color:#d2564b}
+  .brk.net{border-top:1px solid rgba(20,18,50,.08);margin-top:5px;padding-top:9px}
+  .brk.net b{color:#4f46e5;font-size:14px}
+  .vlog{display:flex;gap:11px;align-items:center;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:11px;margin-bottom:9px}
+  .vlog .vk{width:38px;height:38px;border-radius:10px;background:#eef0fe;display:grid;place-items:center;flex:none}
+  .vlog .vk svg{width:18px;height:18px;stroke:#4f46e5;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .vlog .vm{flex:1;min-width:0}
+  .vlog .vm b{font-size:13px;font-weight:600;display:block}
+  .vlog .vm span{font-size:11px;color:#6c6b86}
+  .vstatus{font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:6px;flex:none}
+  .vstatus.in{background:#e7f7ec;color:#16a34a}
+  .vstatus.no{background:#fdeceb;color:#d2564b}
+  .frow{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:12px 13px;margin-bottom:8px;font-size:13px}
+  .frow .fk{color:#6c6b86}
+  .frow .fv{font-weight:600}
+  .vcard{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:13px;padding:13px;margin-bottom:9px}
+  .ocard{background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:14px;padding:13px;margin-bottom:10px}
+  .ocard .ot{font-size:13.5px;font-weight:700}
+  .ocard .os{font-size:11.5px;color:#6c6b86;margin-top:2px}
+  .ocard .oa{font-size:16px;font-weight:800;color:#4f46e5;margin-top:7px}
+  .obtns{display:flex;gap:8px;margin-top:11px}
+  .ob{flex:1;border-radius:11px;padding:11px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none}
+  .ob.acc{background:#4f46e5;color:#fff}
+  .ob.dec{background:#fff;border:1px solid rgba(20,18,50,.14);color:#1b1830}
+  .opill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:7px;padding:5px 9px;margin-top:9px}
+  .opill.p{background:#fff4e0;color:#9a7016}
+  .opill.a{background:#e7f7ec;color:#16a34a}
+  .opill.d{background:#fdeceb;color:#d2564b}
+  .rnpln{display:flex;gap:8px;background:#eef0fe;border:1px solid #d6d8fb;border-radius:11px;padding:11px;margin-top:10px;font-size:11.5px;color:#3b35a8;line-height:1.45}
+  .rnpln svg{flex:none;margin-top:1px}
   /* founder photos + edges + stakeholder */
   .avatar-img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 35%;display:block}
   .edges{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
@@ -630,7 +781,6 @@
         <div class="callout"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><p>Identity checked against UAE&nbsp;Pass, contracts signed in-app, money moving bank to bank, with no agent commission anywhere in the flow.</p></div>
         <div class="persona-tabs">
           <button class="persobtn on" data-persona="tenant">Rent &amp; buy</button>
-          <button class="persobtn" data-persona="seller">Sell &amp; manage</button>
         </div>
       </div>
       <div class="rev d1 phone-col">
@@ -1163,189 +1313,245 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
 (function(){
   const screen=document.getElementById('proto');
   if(!screen) return;
-
-  const listings=[
-    {id:'l1',t:'2-bed apartment',loc:'Saadiyat Island',price:145000,size:'1,240 sq ft',c1:'#cdd9d2',c2:'#94aaa0'},
-    {id:'l2',t:'Studio',loc:'Al Reem Island',price:62000,size:'520 sq ft',c1:'#dcd4c3',c2:'#b1a684'},
-    {id:'l3',t:'1-bed apartment',loc:'Yas Island',price:98000,size:'780 sq ft',c1:'#c7d1dd',c2:'#94a4bb'}
-  ];
-  const slots=['Today · 5:00 PM','Tomorrow · 11:00 AM','Tomorrow · 6:30 PM'];
-  const banks=['Emirates NBD','First Abu Dhabi Bank','ADCB'];
   const money=n=>'AED '+n.toLocaleString('en-US');
+  const bedsLabel=b=>b===0?'Studio':b;
+  const saveFmt=n=>{ if(n>=100000) return 'AED '+Math.round(n/1000)+'K'; if(n>=1000) return 'AED '+(n/1000).toFixed(1).replace(/\.0$/,'')+'K'; return 'AED '+n; };
 
-  let S;
-  const offplans=[
-    {id:'o1',off:true,t:'Saadiyat Lagoons · 3-bed villa',loc:'Saadiyat',dev:'Aldar',price:3200000,handover:'Q4 2027',c1:'#cfd9d1',c2:'#8fa79a'},
-    {id:'o2',off:true,t:'The Arthouse · 1-bed',loc:'Al Maryah',dev:'Aldar',price:1850000,handover:'Q2 2028',c1:'#dad3c3',c2:'#aa9f80'},
-    {id:'o3',off:true,t:'Reportage Hills · townhouse',loc:'Dubailand',dev:'Reportage',price:2400000,handover:'Q1 2028',c1:'#c8d1dd',c2:'#92a3ba'}
+  /* ---- data ---- */
+  const rentList=[
+    {id:'r1',t:'Bright 2BR in JVC',loc:'District 10, JVC, Dubai',price:85000,beds:2,baths:2,sqft:'1,100',rnpl:true,c1:'#c7cdf2',c2:'#8e93d6',about:'Light-filled two-bedroom with a fitted kitchen, balcony and shared pool. A short walk to Circle Mall, schools and parks. Chiller-free and ready to move in.'},
+    {id:'r2',t:'1BR Apartment, Business Bay',loc:'Business Bay, Dubai',price:78000,beds:1,baths:1,sqft:'760',rnpl:true,c1:'#cbd9d2',c2:'#8fb0a0',about:'Modern one-bed with canal views, floor-to-ceiling windows and a gym in the tower. Steps from the metro and Downtown.'},
+    {id:'r3',t:'Studio on Al Reem Island',loc:'Al Reem Island, Abu Dhabi',price:48000,beds:0,baths:1,sqft:'520',rnpl:false,c1:'#dcd4c4',c2:'#b6a884',about:'Efficient studio with a sea-facing balcony, covered parking and 24/7 security. Close to Reem Mall and the corniche.'}
   ];
-  const reset=()=>{S={screen:'start',mode:'rent',track:'rent',v:{id:false},listing:null,slot:0,bank:null,busy:false,bankApproved:false,signed:false,paid:false};};
-  reset();
+  const buyList=[
+    {id:'s1',t:'Luxury 3BR in Downtown Dubai',loc:'Downtown, Dubai',price:2380000,beds:3,baths:3,sqft:'1,650',c1:'#cdc9f0',c2:'#9089d2',about:'High-floor apartment with Burj Khalifa views, premium finishes and two parking bays. Title deed verified with the DLD.'},
+    {id:'s2',t:'4BR Villa, Saadiyat',loc:'Saadiyat Island, Abu Dhabi',price:6200000,beds:4,baths:5,sqft:'4,100',c1:'#cadcd2',c2:'#8db49c',about:'Beachside villa with a private garden, a guest room and direct access to the community pool. Quiet, family-first neighbourhood.'},
+    {id:'s3',t:'2BR Apartment, Yas Island',loc:'Yas Island, Abu Dhabi',price:1850000,beds:2,baths:2,sqft:'1,180',c1:'#d7d3e6',c2:'#a39cc6',about:'Bright two-bed steps from Yas Bay and the marina, with resort amenities and a registered advertising permit.'}
+  ];
+  const slots=['Today, 5:00 PM','Tomorrow, 11:00 AM','Tomorrow, 6:30 PM'];
+  const banks=[{name:'Emirates NBD',ab:'NBD'},{name:'First Abu Dhabi Bank',ab:'FAB'},{name:'Abu Dhabi Commercial Bank',ab:'ADCB'}];
+  const landlordListings=[
+    {id:'L1',t:'Penthouse, Palm Jumeirah',price:18500000,per:'',status:'Active',c1:'#cdc9f0',c2:'#9089d2'},
+    {id:'L2',t:'Bright 2BR in JVC',price:110000,per:'/yr',status:'Active',c1:'#c7cdf2',c2:'#8e93d6'}
+  ];
+  const roiProps=[
+    {t:'Bright 2BR in JVC',val:2200000,gross:110000,service:13200,maint:7000,mgmt:5500},
+    {t:'Studio, Al Reem',val:850000,gross:62000,service:7400,maint:4200,mgmt:3100}
+  ];
+  const viewingLogs=[
+    {who:'Layla H.',prop:'Studio, Al Reem',when:'Today, 5:10 PM',key:'4827',ok:true},
+    {who:'Omar K.',prop:'Bright 2BR, JVC',when:'Yesterday, 11:30 AM',key:'2391',ok:true},
+    {who:'Sara M.',prop:'Bright 2BR, JVC',when:'Mon, 6:40 PM',key:'7702',ok:false}
+  ];
+  const recvOffers=[
+    {id:'o1',who:'Mariam A.',prop:'Penthouse, Palm Jumeirah',amount:18000000,rent:false},
+    {id:'o2',who:'Khalid R.',prop:'Bright 2BR in JVC (rent)',amount:108000,rent:true}
+  ];
+  const sentOffers=[{who:'You',prop:'4BR Villa, Saadiyat',amount:6200000}];
 
-  let persona='tenant';
-  const SS={tab:'portfolio',thread:null,buySel:null,maint:null,maintStatus:0,expressed:null,msgs:{}};
-  const activeProp='2-bed · Saadiyat';
+  const activeProp='2-bed, Saadiyat';
   const sProps=[
-    {id:'p1',t:'2-bed · Saadiyat',status:'occ',rent:145000,tenant:'Omar K.',c1:'#cdd9d2',c2:'#94aaa0'},
-    {id:'p2',t:'Studio · Al Reem',status:'lst',rent:62000,tenant:'3 applicants',c1:'#dad3c3',c2:'#aa9f80'},
-    {id:'p3',t:'1-bed · Yas',status:'vac',rent:98000,tenant:'Vacant',c1:'#c8d1dd',c2:'#92a3ba'}
+    {id:'p1',t:'2-bed, Saadiyat',status:'occ',rent:145000,tenant:'Omar K.',c1:'#cdd9d2',c2:'#94aaa0'},
+    {id:'p2',t:'Studio, Al Reem',status:'lst',rent:62000,tenant:'3 applicants',c1:'#dad3c3',c2:'#aa9f80'},
+    {id:'p3',t:'1-bed, Yas',status:'vac',rent:98000,tenant:'Vacant',c1:'#c8d1dd',c2:'#92a3ba'}
   ];
   const sConvs=[
     {id:'c1',who:'Omar K.',ini:'O',last:'March rent paid &#10003;',unread:false,base:[['them','Salam, just paid March rent through the app.'],['me','Got it, thanks Omar. Receipt is in your vault.']]},
     {id:'c2',who:'Layla H.',ini:'L',last:'Can I view Saturday?',unread:true,base:[['them','Hi! Could I self-view the Al Reem studio on Saturday?']]},
     {id:'c3',who:'EQARY Concierge',ini:'E',last:'Payout AED 36,250 sent',unread:false,base:[['them','Your payout of AED 36,250 has been sent to your IBAN.']]}
   ];
-  const sQuick=['Approve viewing','Send tenancy contract','Thanks 👍'];
+  const sQuick=['Approve viewing','Send tenancy contract','Thanks!'];
   const mcats=[
-    {id:'plumb',t:'Plumbing',d:'Leaks, fittings',prov:'AquaFix · 4.8★',est:'~AED 250'},
-    {id:'ac',t:'AC & cooling',d:'Service, repair',prov:'CoolCare · 4.7★',est:'~AED 320'},
-    {id:'elec',t:'Electrical',d:'Wiring, fixtures',prov:'VoltPro · 4.9★',est:'~AED 200'},
-    {id:'clean',t:'Cleaning',d:'Deep clean',prov:'Justmop · 4.8★',est:'~AED 180'}
+    {id:'plumb',t:'Plumbing',d:'Leaks, fittings',prov:'AquaFix, 4.8 stars',est:'~AED 250'},
+    {id:'ac',t:'AC & cooling',d:'Service, repair',prov:'CoolCare, 4.7 stars',est:'~AED 320'},
+    {id:'elec',t:'Electrical',d:'Wiring, fixtures',prov:'VoltPro, 4.9 stars',est:'~AED 200'},
+    {id:'clean',t:'Cleaning',d:'Deep clean',prov:'Justmop, 4.8 stars',est:'~AED 180'}
   ];
   const mstages=['Logged','Approved','Contractor dispatched','Completed'];
   const sBuy=[
-    {id:'b1',t:'Saadiyat Lagoons · villa',dev:'Aldar · off-plan',price:3200000,yld:'6.8%',c1:'#cfd9d1',c2:'#8fa79a'},
-    {id:'b2',t:'Al Reem · 1-bed',dev:'Secondary',price:1150000,yld:'7.4%',c1:'#dad3c3',c2:'#aa9f80'},
-    {id:'b3',t:'Yas · 2-bed',dev:'Aldar · off-plan',price:1850000,yld:'6.5%',c1:'#c8d1dd',c2:'#92a3ba'}
+    {id:'b1',t:'Saadiyat Lagoons villa',dev:'Aldar, off-plan',price:3200000,yld:'6.8%',c1:'#cfd9d1',c2:'#8fa79a'},
+    {id:'b2',t:'Al Reem 1-bed',dev:'Secondary',price:1150000,yld:'7.4%',c1:'#dad3c3',c2:'#aa9f80'},
+    {id:'b3',t:'Yas 2-bed',dev:'Aldar, off-plan',price:1850000,yld:'6.5%',c1:'#c8d1dd',c2:'#92a3ba'}
   ];
 
-  function progress(){
-    const off=S.track==='offplan';
-    const idx=off?{verify:0,home:1,offlisting:1,sign:3,pay:4,done:4}:{verify:0,home:1,listing:1,viewing:1,apply:1,bank:2,sign:3,pay:4,done:4};
-    const names=off?['Verify','Browse','','Reserve','Pay']:['Verify','Find','Confirm','Sign','Pay'];
-    const i=idx[S.screen]; if(i===undefined) return '';
-    let bars=''; for(let k=0;k<5;k++) bars+=`<span class="psb ${k<=i?'on':''}"></span>`;
-    return `<div class="ps-prog"><div class="psbars">${bars}</div><div class="psstep">${names[i]||'Reserve'}</div></div>`;
-  }
-  const head=t=>`<div class="ps-head"><button class="ps-back" data-act="back">&lsaquo;</button><span class="ps-title">${t||''}</span><span style="width:20px"></span></div>`;
+  /* ---- state ---- */
+  let persona='tenant';
+  const B={screen:'login',mode:'rent',verified:false,listing:null,slot:0,booked:false,applied:false,busy:false,escrow:true,esign:true,bank:null,dash:'roi',cl:{maid:false,pool:false,verified:false,created:false},offerTab:'received',offers:{}};
+  const SS={tab:'portfolio',thread:null,buySel:null,maint:null,maintStatus:0,expressed:null,msgs:{}};
 
-  function view(){
-    switch(S.screen){
-      case 'start': return {dark:true,
-        body:`<div class="ps-center">
-          <div class="ps-logo"><svg viewBox="0 0 64 64" width="40" height="40"><path d="M10 34 L32 14 L54 34" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="ps-h1">EQARY</div>
-          <p class="ps-sub">Rent a home or reserve an off-plan unit, start to finish from the app.</p>
-        </div>`,
-        foot:`<button class="ab" data-act="go:verify">Get started</button>`};
-      case 'verify':{
-        const done=S.v.id;
-        const ic=S.v.id?'&#10003;':(S.busy==='id'?'<span class="spin"></span>':'<svg class="uaeglyph" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 012-2h2M16 4h2a2 2 0 012 2v2M20 16v2a2 2 0 01-2 2h-2M8 20H6a2 2 0 01-2-2v-2"/><circle cx="9" cy="11" r=".8"/><circle cx="15" cy="11" r=".8"/><path d="M9 14.5s1 1 3 1 3-1 3-1"/></svg>');
-        return {top:progress(),
-          body:`<div class="ps-h2">Verify once, rent <b>anywhere on EQARY</b></div>
-            <p class="ps-p">One tap with UAE&nbsp;Pass. Your identity, credit and income are read straight from source, nothing to type.</p>
-            <div class="ps-list"><button class="vrow ${S.v.id?'ok':''}" data-act="verify:id:face" ${S.busy?'disabled':''}><span class="vrow-i">${ic}</span><span class="vrow-tx"><b>Sign in with UAE Pass</b><span>${S.v.id?'Verified · identity, credit &amp; income':'Government ID · biometric'}</span></span></button></div>
-            ${S.v.id?`<div class="okrow" style="margin-top:14px"><span class="okc">&#10003;</span> You're verified. Identity, credit and income confirmed.</div>`:''}`,
-          foot:`<button class="ab ${done?'':'dis'}" data-act="${done?'go:home':''}">${done?'Continue':'Verify with UAE Pass to continue'}</button>`};
-      }
-      case 'home':{
-        const set=S.mode==='offplan'?offplans:listings;
-        return {top:progress(),
-          body:`<div class="ps-tabs"><button class="pst ${S.mode!=='offplan'?'on':''}" data-act="mode:rent">Rent</button><button class="pst ${S.mode==='offplan'?'on':''}" data-act="mode:offplan">Buy off-plan</button></div>
-            ${set.map(l=> l.off
-              ? `<button class="lcard" data-act="open:${l.id}"><span class="lphoto" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified developer</span><span class="offtag">Off-plan</span></span><span class="lmeta"><b>${l.t}</b><span class="lloc">${l.loc} · ${l.dev}</span><span class="lprice">From ${money(l.price)}</span><span class="lhand">Handover ${l.handover}</span></span></button>`
-              : `<button class="lcard" data-act="open:${l.id}"><span class="lphoto" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified owner</span></span><span class="lmeta"><b>${l.t}</b><span class="lloc">${l.loc} · ${l.size}</span><span class="lprice">${money(l.price)}<small>/year</small></span></span></button>`
-            ).join('')}`};
-      }
-      case 'listing':{const l=S.listing; return {top:progress(),
-        body:`${head('')}
-          <span class="lphoto big" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified owner</span></span>
-          <div class="ps-h2" style="margin-top:14px">${l.t}</div>
-          <p class="ps-p" style="margin-bottom:4px">${l.loc} · ${l.size}</p>
-          <div class="lprice big">${money(l.price)}<small>/year</small></div>
-          <div class="badges"><span class="bdg">&#10003; Income verified</span><span class="bdg">&#10003; Ownership checked</span><span class="bdg">Smart-lock viewing</span></div>`,
-        foot:`<button class="ab2" data-act="go:viewing">Book a viewing</button><button class="ab" data-act="go:apply">Apply to rent</button>`};}
-      case 'offlisting':{const l=S.listing; return {top:progress(),
-        body:`${head('')}
-          <span class="lphoto big" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="vbadge">&#10003; Verified developer</span><span class="offtag">Off-plan</span></span>
-          <div class="ps-h2" style="margin-top:14px">${l.t}</div>
-          <p class="ps-p" style="margin-bottom:4px">${l.loc} · ${l.dev} · Handover ${l.handover}</p>
-          <div class="lprice big">From ${money(l.price)}</div>
-          <div class="badges"><span class="bdg">&#10003; You're pre-qualified</span><span class="bdg">Verified inventory</span><span class="bdg">Direct from developer</span></div>`,
-        foot:`<button class="ab" data-act="reserve">Reserve this unit</button>`};}
-      case 'viewing': return {top:progress(),
-        body:`${head('Self-guided viewing')}
-          <p class="ps-p">EQARY issues a time-limited smart-lock code for the door. No agent, no waiting around.</p>
-          <div class="ps-list">${slots.map((s,i)=>`<button class="slot ${S.slot===i?'sel':''}" data-act="slot:${i}"><span class="rad"></span>${s}</button>`).join('')}</div>`,
-        foot:`<button class="ab" data-act="go:apply">Confirm viewing</button>`};
-      case 'apply': return {top:progress(),
-        body:`${head('Apply to rent')}
-          <div class="okrow"><span class="okc">&#10003;</span> You, fully verified, ready to apply.</div>
-          <div class="lcard static"><span class="lphoto" style="background:linear-gradient(150deg,${S.listing.c1},${S.listing.c2})"></span><span class="lmeta"><b>${S.listing.t}</b><span class="lloc">${S.listing.loc}</span><span class="lprice">${money(S.listing.price)}<small>/year</small></span></span></div>
-          ${S.busy?`<div class="busybox"><span class="spin big"></span><span>Sending your application to the landlord…</span></div>`:`<p class="ps-p">Your verified profile, identity, income and credit, goes to the landlord in one tap.</p>`}`,
-        foot:S.busy?'':`<button class="ab" data-act="send">Send application</button>`};
-      case 'bank':{const ok=S.bankApproved; return {top:progress(),
-        body:`${head('Connect your bank')}
-          <div class="okrow"><span class="okc">&#10003;</span> Landlord approved your application.</div>
-          <div class="ps-h2">Confirm the funds <b>first</b></div>
-          <p class="ps-p">You authorise your own bank. EQARY never sees your balance or touches the money.</p>
-          ${ok?`<div class="busybox done"><span class="okc big">&#10003;</span><span>Bank approved. Direct-debit mandate set up.</span></div>`:
-            `<div class="ps-list">${banks.map((b,i)=>`<button class="slot ${S.bank===i?'sel':''}" data-act="bank:${i}"><span class="rad"></span>${b}</button>`).join('')}</div>${S.busy?`<div class="busybox"><span class="spin"></span><span>Talking to your bank…</span></div>`:''}`}`,
-        foot:ok?`<button class="ab" data-act="go:sign">Continue to signing</button>`:(S.busy?'':`<button class="ab ${S.bank===null?'dis':''}" data-act="${S.bank===null?'':'authorise'}">Authorise with your bank</button>`)};}
-      case 'sign':{const s=S.signed,off=S.track==='offplan';
-        const contract=off?`<div class="crow"><span>Unit</span><b>${S.listing.t}</b></div><div class="crow"><span>Developer</span><b>${S.listing.dev}</b></div><div class="crow"><span>Price</span><b>From ${money(S.listing.price)}</b></div><div class="crow"><span>Document</span><b>Reservation + SPA</b></div>`:`<div class="crow"><span>Property</span><b>${S.listing.t}</b></div><div class="crow"><span>Location</span><b>${S.listing.loc}</b></div><div class="crow"><span>Annual rent</span><b>${money(S.listing.price)}</b></div><div class="crow"><span>Registration</span><b>Tawtheeq on signing</b></div>`;
-        return {top:progress(),
-        body:`${head(off?'Reserve the unit':'Sign the lease')}
-          <div class="ps-h2">${off?'Reservation &amp; <b>SPA</b>':'Your tenancy <b>contract</b>'}</div>
-          <div class="contract">${contract}</div>
-          ${s?`<div class="busybox done"><span class="okc big">&#10003;</span><span>${off?'Reservation signed. Unit held for you.':'Signed &amp; registered. Copy on its way.'}</span></div>`:(S.busy?`<div class="busybox"><span class="spin"></span><span>Opening UAE Pass…</span></div>`:`<p class="ps-p">Sign in-app with UAE&nbsp;Pass. Legally binding${off?'':', auto-registered'}.</p>`)}`,
-        foot:s?`<button class="ab" data-act="go:pay">Continue to payment</button>`:(S.busy?'':`<button class="ab" data-act="sign">Sign with UAE Pass</button>`)};}
-      case 'pay':{const l=S.listing,off=S.track==='offplan';let rows;
-        if(off){const resfee=Math.round(l.price*0.05),pf=Math.round(l.price*0.001),tot=resfee+pf;rows=`<div class="crow"><span>Reservation deposit (5%)</span><b>${money(resfee)}</b></div><div class="crow"><span>EQARY platform fee</span><b>${money(pf)}</b></div><div class="crow tot"><span>Total today</span><b>${money(tot)}</b></div>`;}
-        else{const q=Math.round(l.price/4),dep=Math.round(l.price*0.05),fee=Math.round(l.price*0.01),tot=q+dep+fee;rows=`<div class="crow"><span>First quarter rent</span><b>${money(q)}</b></div><div class="crow"><span>Security deposit</span><b>${money(dep)}</b></div><div class="crow"><span>EQARY platform fee</span><b>${money(fee)}</b></div><div class="crow tot"><span>Total today</span><b>${money(tot)}</b></div>`;}
-        return {top:progress(),
-        body:`${head(off?'Pay the reservation':'Pay bank to bank')}
-          <div class="okrow"><span class="okc">&#10003;</span> ${off?'Reservation signed.':'Lease signed and registered.'}</div>
-          <div class="contract">${rows}</div>
-          ${S.busy?`<div class="busybox"><span class="spin"></span><span>Moving funds, bank to bank…</span></div>`:`<p class="ps-p">Money moves straight to the ${off?'developer':'landlord'}'s IBAN. The platform fee splits off mid-air.</p>`}`,
-        foot:S.busy?'':`<button class="ab" data-act="pay">Move funds &amp; finish</button>`};}
-      case 'done':{const off=S.track==='offplan'; return {dark:true,
-        body:`<div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:24px;letter-spacing:0">${off?'Unit reserved':'You&rsquo;re in'}</div><p class="ps-sub">${off?'Your unit is reserved and the developer has been notified. The SPA sits in your document vault.':'Lease active, rent paid, keys on the way. The whole thing done in the app, in minutes.'}</p></div>`,
-        foot:`<button class="ab2 light" data-act="restart">Run it again</button>`};}
-    }
-  }
-  function render(){
-    const v=view();
-    screen.className='ps'+(v.dark?' dark':'');
-    screen.innerHTML=`${v.top?`<div class="ps-top">${v.top}</div>`:''}<div class="ps-body">${v.body||''}</div>${v.foot?`<div class="ps-foot">${v.foot}</div>`:''}`;
-  }
   function faceScan(cb){
     const ov=document.createElement('div');ov.className='faceov';
-    ov.innerHTML=`<div class="facebox"><div class="facering"><div class="facescan"></div><svg viewBox="0 0 24 24" width="42" height="42"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="9" cy="11" r=".6"/><circle cx="15" cy="11" r=".6"/><path d="M9 15s1 1 3 1 3-1 3-1"/></svg></div><span>UAE Pass · Face ID</span></div>`;
+    ov.innerHTML=`<div class="facebox"><div class="facering"><div class="facescan"></div><svg viewBox="0 0 24 24" width="42" height="42"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="9" cy="11" r=".6"/><circle cx="15" cy="11" r=".6"/><path d="M9 15s1 1 3 1 3-1 3-1"/></svg></div><span>UAE Pass, Face ID</span></div>`;
     screen.appendChild(ov);
-    setTimeout(()=>{ov.classList.add('ok');ov.querySelector('span').textContent='Verified';},1100);
-    setTimeout(()=>{ov.remove();cb();},1700);
+    setTimeout(()=>{ov.classList.add('ok');ov.querySelector('span').textContent='Verified';},1050);
+    setTimeout(()=>{ov.remove();cb();},1650);
   }
-  function backTo(){const off=S.track==='offplan';const m=off?{offlisting:'home',sign:'offlisting',pay:'sign'}:{listing:'home',viewing:'listing',apply:'listing',bank:'apply',sign:'bank',pay:'sign'};return m[S.screen];}
 
-  screen.addEventListener('click',e=>{
-    const btn=e.target.closest('[data-act]'); if(!btn) return;
-    const act=btn.dataset.act; if(!act) return;
-    if(act.slice(0,2)==='s:'){sellerAction(act.split(':').slice(1));return;}
-    const [cmd,arg,opt]=act.split(':');
-    switch(cmd){
-      case 'go': S.busy=false; S.bankApproved=false; S.signed=false; S.paid=false; S.screen=arg; render(); break;
-      case 'back':{const b=backTo();if(b){S.busy=false;S.screen=b;render();}break;}
-      case 'verify':{
-        if(S.v[arg]||S.busy) return; S.busy=arg; render();
-        const fin=()=>{S.busy=false;S.v[arg]=true;render();};
-        opt==='face'?faceScan(fin):setTimeout(fin,750); break;
-      }
-      case 'open':{const all=[...listings,...offplans];S.listing=all.find(l=>l.id===arg);S.track=S.listing.off?'offplan':'rent';S.screen=S.listing.off?'offlisting':'listing';render();break;}
-      case 'mode': S.mode=arg; render(); break;
-      case 'reserve': S.busy=false;S.signed=false;S.paid=false;S.screen='sign';render(); break;
-      case 'slot': S.slot=+arg; render(); break;
-      case 'bank': if(!S.busy){S.bank=+arg;render();} break;
-      case 'send': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.screen='bank';render();},1300); break;
-      case 'authorise': if(S.bank===null) return; S.busy=true; render(); setTimeout(()=>{S.busy=false;S.bankApproved=true;render();},1300); break;
-      case 'sign': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.signed=true;render();},1300); break;
-      case 'pay': S.busy=true; render(); setTimeout(()=>{S.busy=false;S.paid=true;S.screen='done';render();},1400); break;
-      case 'restart': reset(); render(); break;
+  /* ---- buyer / renter app ---- */
+  function appHeader(){
+    return `<div class="apphead"><div class="brand"><div><b>EQARY</b><div class="tag">Properties in the UAE</div></div><span class="bell"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="1.8"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></span></div>
+      <div class="htitle">Find your dream home</div>
+      <div class="seg"><button class="segb ${B.mode==='buy'?'on':''}" data-act="b:mode:buy">To Buy</button><button class="segb ${B.mode==='rent'?'on':''}" data-act="b:mode:rent">To Rent</button></div>
+      <div class="searchbar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Search by city, area or title</div></div>`;
+  }
+  function navBar(a){
+    const n=(id,lab,svg)=>`<button class="nbtn ${a===id?'on':''}" data-act="b:nav:${id}"><svg viewBox="0 0 24 24">${svg}</svg>${lab}</button>`;
+    return `<div class="navbar">${n('explore','Explore','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>')}${n('saved','Saved','<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>')}${n('messages','Messages','<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>')}${n('profile','Profile','<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>')}</div>`;
+  }
+  function navHead(t){ return `<div class="apphead"><div class="brand"><b>${t}</b></div></div>`; }
+  function lcard(l){
+    const rent=B.mode==='rent';
+    return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${rent?'rent':'sale'}">${rent?'For Rent':'For Sale'}</span></span><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Verified${l.rnpl?' &middot; RNPL':''}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}</span><span class="pr">${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
+  }
+  function buyerLogin(){
+    return `<div class="ps-body"><div class="ps-center"><div class="ps-logo"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33 L32 13 L54 33" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ps-h1">EQARY</div><p class="ps-sub">Buy, sell and rent UAE property, start to finish, from your phone.</p><button class="uaebtn" style="margin-top:10px" data-act="b:login"><span class="udot"></span>Continue with UAE Pass</button></div></div>`;
+  }
+  function buyerHome(){
+    const list=B.mode==='rent'?rentList:buyList;
+    return `${appHeader()}<div class="ps-body"><div class="sb">${list.map(lcard).join('')}</div></div>${navBar('explore')}`;
+  }
+  function buyerSaved(){ return `${navHead('Saved')}<div class="ps-body"><div class="empty"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>Tap the heart on any property to save it here.</div></div>${navBar('saved')}`; }
+  function buyerMessages(){
+    const cv=[['K','Khalid Al Rashidi','Happy to host a viewing this week.'],['N','Noor Al Marzouqi','The unit is RNPL-ready, yes.'],['E','EQARY Concierge','Your UAE Pass verification is complete.']];
+    return `${navHead('Messages')}<div class="ps-body"><div class="sb">${cv.map(c=>`<div class="conv"><span class="ava">${c[0]}</span><span class="cm"><b>${c[1]}</b><span>${c[2]}</span></span></div>`).join('')}</div></div>${navBar('messages')}`;
+  }
+  function buyerProfile(){
+    const row=(act,svg,label,extra)=>`<button class="prow ${extra||''}" data-act="${act}"><span class="pi"><svg viewBox="0 0 24 24">${svg}</svg></span><span class="pl">${label}</span><span class="pc">&rsaquo;</span></button>`;
+    return `${navHead('Profile')}<div class="ps-body"><div class="sb"><div class="pcard" style="padding:13px"><span style="width:48px;height:48px;background:#eef0fe;color:#4f46e5;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none">A</span><span><b style="font-size:14px">Ahmed Al Marzouqi</b><span style="color:#16a34a;font-weight:600">&#10003; UAE Pass verified</span></span></div><div class="statline"><div class="slcard"><b>2</b><span>Listings</span></div><div class="slcard"><b>2</b><span>Offers</span></div><div class="slcard"><b>5</b><span>Viewings</span></div></div><div class="lab">Landlord</div>${row('b:go:landlord','<path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 4-5"/>','Landlord Dashboard')}${row('b:go:mylistings','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>','My Listings')}${row('b:go:myoffers','<path d="M9 11l3 3 7-7"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>','My Offers')}<div class="lab">Account</div>${row('b:go:savedprops','<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>','Saved Properties')}${row('b:go:savedsearches','<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>','Saved Searches')}${row('b:nav:messages','<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>','Messages')}${row('b:go:settings','<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>','Settings')}${row('b:signout','<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>','Sign Out','danger')}</div></div>${navBar('profile')}`;
+  }
+  function buyerLandlord(){
+    const roi=B.dash==='roi';
+    let body;
+    if(roi){
+      let tNet=0,tVal=0;
+      const cards=roiProps.map(p=>{const net=p.gross-p.service-p.maint-p.mgmt;tNet+=net;tVal+=p.val;const gy=(p.gross/p.val*100).toFixed(1),ny=(net/p.val*100).toFixed(1);return `<div class="roic"><div class="rh"><b>${p.t}</b><span class="ny">${ny}% net</span></div><div class="brk"><span>Gross annual rent</span><b>${money(p.gross)}</b></div><div class="brk neg"><span>Service charges</span><b>-${money(p.service)}</b></div><div class="brk neg"><span>Maintenance</span><b>-${money(p.maint)}</b></div><div class="brk neg"><span>Management</span><b>-${money(p.mgmt)}</b></div><div class="brk net"><span>Net annual income</span><b>${money(net)}</b></div><div class="brk"><span>Gross yield ${gy}%</span><span>Net yield ${ny}%</span></div></div>`;}).join('');
+      const avgY=(tNet/tVal*100).toFixed(1);
+      body=`<div class="statline"><div class="slcard"><b>${money(tNet)}</b><span>Net income / yr</span></div><div class="slcard"><b>${avgY}%</b><span>Avg net yield</span></div></div>${cards}`;
+    } else {
+      body=viewingLogs.map(v=>`<div class="vlog"><span class="vk"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span><span class="vm"><b>${v.who} &middot; ${v.prop}</b><span>${v.when} &middot; key ${v.key}</span></span><span class="vstatus ${v.ok?'in':'no'}">${v.ok?'Entered':'No-show'}</span></div>`).join('')+`<p class="pp" style="margin-top:4px">Every self-guided viewing is logged here when a tenant opens the smart lock with their digital key.</p>`;
     }
-  });
-  /* ---- seller dashboard app ---- */
-  function renderApp(){ persona==='seller'?renderSeller():render(); }
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>Landlord Dashboard</b></div><div class="ps-body"><div class="sb"><p class="pp">Portfolio ROI and viewing logs.</p><div class="dtabs"><button class="dtab ${roi?'on':''}" data-act="b:dash:roi">ROI Tracker</button><button class="dtab ${roi?'':'on'}" data-act="b:dash:logs">Viewing Logs</button></div>${body}</div></div>${navBar('profile')}`;
+  }
+  function buyerMyListings(){
+    const list=(B.cl.created?[{t:'2BR Apartment, Business Bay',price:95000,per:'/yr',status:'Active',c1:'#cbd9d2',c2:'#8fb0a0'}]:[]).concat(landlordListings);
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>My Listings</b></div><div class="ps-body"><div class="sb">${B.cl.created?`<div class="okrow"><span class="okc">&#10003;</span> New listing published.</div>`:''}${list.map(l=>`<div class="prop"><span class="pth" style="background:linear-gradient(150deg,${l.c1},${l.c2})"></span><span class="pm"><b>${l.t}</b><span>${money(l.price)}${l.per}</span></span><span class="pstatus occ">${l.status}</span></div>`).join('')}</div></div><div class="ps-foot"><button class="ab" data-act="b:go:createlisting">Create new listing</button></div>`;
+  }
+  function buyerCreateListing(){
+    const v=B.cl.verified;
+    return `<div class="hdr"><button class="bk" data-act="b:go:mylistings">&lsaquo;</button><b>Create listing</b></div><div class="ps-body"><div class="sb"><div class="lab">Property</div><div class="frow"><span class="fk">City</span><span class="fv">Dubai</span></div><div class="frow"><span class="fk">Area</span><span class="fv">Business Bay</span></div><div class="frow"><span class="fk">Bedrooms</span><span class="fv">2</span></div><div class="frow"><span class="fk">Bathrooms</span><span class="fv">2</span></div><div class="frow"><span class="fk">Size</span><span class="fv">1,050 sq ft</span></div><div class="togrow"><span class="tt"><b>Maid's room</b></span><span class="tog ${B.cl.maid?'on':''}" data-act="b:cl:maid"></span></div><div class="togrow"><span class="tt"><b>Swimming pool</b></span><span class="tog ${B.cl.pool?'on':''}" data-act="b:cl:pool"></span></div><div class="lab">Verification</div><div class="vcard"><div class="brk"><span>Title deed no.</span><b>TD-2024-002341</b></div>${v?`<div class="okrow" style="margin:9px 0 0"><span class="okc">&#10003;</span> Verified with DLD &middot; permit issued</div>`:`<button class="ab sm" style="margin-top:10px" data-act="b:cl:verify">Verify ownership with DLD</button>`}</div><p class="pp">Listings go live only after the title deed checks against DLD / ADREC and an advertising permit is issued, so no fake listings.</p></div></div><div class="ps-foot"><button class="ab ${v?'':'dis'}" data-act="${v?'b:cl:create':'b:noop'}">Publish listing</button></div>`;
+  }
+  function buyerMyOffers(){
+    const recv=B.offerTab==='received';
+    let body;
+    if(recv){
+      body=recvOffers.map(o=>{const st=B.offers[o.id];let foot;if(st==='a'){foot=`<span class="opill a">Accepted</span>`+(o.rent?`<div class="rnpln"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M13 2L4 14h7l-1 8 10-12h-7z"/></svg><span>RNPL re-approved. Tenancy contract generated and sent for UAE Pass signature.</span></div>`:`<div class="rnpln"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>MOU generated. Buyer notified to fund escrow.</span></div>`);}else if(st==='d'){foot=`<span class="opill d">Declined</span>`;}else{foot=`<span class="opill p">Pending</span><div class="obtns"><button class="ob dec" data-act="b:dec:${o.id}">Decline</button><button class="ob acc" data-act="b:acc:${o.id}">Accept</button></div>`;}return `<div class="ocard"><div class="ot">${o.prop}</div><div class="os">From ${o.who}</div><div class="oa">${money(o.amount)}</div>${foot}</div>`;}).join('');
+    } else {
+      body=sentOffers.map(o=>`<div class="ocard"><div class="ot">${o.prop}</div><div class="os">Your offer</div><div class="oa">${money(o.amount)}</div><span class="opill p">Pending</span></div>`).join('');
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>My Offers</b></div><div class="ps-body"><div class="sb"><div class="dtabs"><button class="dtab ${recv?'on':''}" data-act="b:offtab:received">Received</button><button class="dtab ${recv?'':'on'}" data-act="b:offtab:sent">Sent</button></div>${body}</div></div>${navBar('profile')}`;
+  }
+  function buyerSavedProps(){
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>Saved Properties</b></div><div class="ps-body"><div class="sb"><div class="prop"><span class="pth" style="background:linear-gradient(150deg,#cdc9f0,#9089d2)"></span><span class="pm"><b>Luxury 3BR, Downtown</b><span>${money(2380000)}</span></span><span class="pstatus lst">Saved</span></div><div class="prop"><span class="pth" style="background:linear-gradient(150deg,#c7cdf2,#8e93d6)"></span><span class="pm"><b>Bright 2BR, JVC</b><span>${money(85000)}/yr</span></span><span class="pstatus lst">Saved</span></div></div></div>${navBar('profile')}`;
+  }
+  function buyerSavedSearches(){
+    const s=[['2BR to rent &middot; JVC','Under AED 95k/yr &middot; 4 new'],['Villas to buy &middot; Saadiyat','AED 5-7M &middot; 2 new']];
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>Saved Searches</b></div><div class="ps-body"><div class="sb">${s.map(x=>`<div class="prow"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span class="pl">${x[0]}<span style="display:block;font-size:11px;color:#6c6b86;font-weight:500">${x[1]}</span></span><span class="pc">&rsaquo;</span></div>`).join('')}</div></div>${navBar('profile')}`;
+  }
+  function buyerSettings(){
+    const t=(lab,on)=>`<div class="togrow"><span class="tt"><b>${lab}</b></span><span class="tog ${on?'on':''}"></span></div>`;
+    return `<div class="hdr"><button class="bk" data-act="b:go:profile">&lsaquo;</button><b>Settings</b></div><div class="ps-body"><div class="sb"><div class="lab">Preferences</div>${t('Push notifications',true)}${t('Biometric login',true)}${t('Arabic interface',false)}<div class="lab">Connected</div><div class="frow"><span class="fk">Bank</span><span class="fv">Emirates NBD</span></div><div class="frow"><span class="fk">UAE Pass</span><span class="fv" style="color:#16a34a">Verified</span></div></div></div>${navBar('profile')}`;
+  }
+  function buyerListing(){
+    const l=B.listing,rent=B.mode==='rent';
+    return `<div class="ps-body"><div class="dhero" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><button class="dback" data-act="b:back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></div><div class="sb"><div class="pillrow"><span class="pill2 v">&#10003; Verified</span>${rent&&l.rnpl?'<span class="pill2 r">RNPL Ready</span>':''}${!rent?'<span class="pill2 r">For Sale</span>':''}</div><div class="dtitle">${l.t}</div><div class="dloc">${l.loc}</div><div class="dprice">${money(l.price)}${rent?'<small>/year</small>':''}</div><div class="statrow"><div class="stat3"><b>${bedsLabel(l.beds)}</b><span>Bedrooms</span></div><div class="stat3"><b>${l.baths}</b><span>Bathrooms</span></div><div class="stat3"><b>${l.sqft}</b><span>Sq ft</span></div></div><div class="lab">About this property</div><p class="about">${l.about}</p><div class="save" style="margin-top:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} vs a 2% agent</div></div></div><div class="ps-foot"><button class="icobtn" data-act="b:noop"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button><button class="ab gho sm" data-act="b:viewing">Viewing</button><button class="ab sm" data-act="b:${rent?'apply':'offer'}">${rent?'Apply to rent':'Make an offer'}</button></div>`;
+  }
+  function buyerViewing(){
+    if(B.booked){
+      return `<div class="hdr"><button class="bk" data-act="b:viewing">&lsaquo;</button><b>Viewing booked</b></div><div class="ps-body"><div class="sb"><div class="keybox"><span>Your digital key</span><div class="code">4827</div><span>Valid ${slots[B.slot]}</span></div><div class="okrow"><span class="okc">&#10003;</span> Self-guided viewing confirmed.</div><p class="pp">Use the code at the smart lock during your slot. No agent, no waiting. We will remind you an hour before.</p></div></div><div class="ps-foot"><button class="ab" data-act="b:back">Back to property</button></div>`;
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Book a viewing</b></div><div class="ps-body"><div class="sb"><p class="pp">Pick a time. EQARY issues a time-limited smart-lock code so you can view on your own, no agent needed.</p><div class="lab">Available slots</div>${slots.map((s,i)=>`<button class="slot ${B.slot===i?'sel':''}" data-act="b:slot:${i}"><span class="rad"></span>${s}</button>`).join('')}</div></div><div class="ps-foot"><button class="ab" data-act="b:bookview">Confirm viewing</button></div>`;
+  }
+  function buyerApply(){
+    const l=B.listing;
+    if(B.applied){
+      return `<div class="hdr"><b>Application sent</b></div><div class="ps-body"><div class="sb"><div class="busybox" style="padding-top:6px"><span class="okc big">&#10003;</span><span style="color:#16a34a;font-weight:700;font-size:13.5px">Landlord approved your application</span></div><div class="pcard"><span class="pth" style="background:linear-gradient(150deg,${l.c1},${l.c2})"></span><span><b>${l.t}</b><span>${l.loc}</span></span></div><p class="pp">Sign the tenancy contract with UAE Pass and it is auto-registered with Ejari / Tawtheeq.</p></div></div><div class="ps-foot"><button class="ab" data-act="b:signlease">Sign tenancy contract</button></div>`;
+    }
+    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Apply to rent</b></div><div class="ps-body"><div class="sb"><div class="okrow"><span class="okc">&#10003;</span> You are verified through UAE Pass.</div><div class="chips"><span class="chip">Identity</span><span class="chip">Income</span><span class="chip">AECB credit</span></div><div class="pcard"><span class="pth" style="background:linear-gradient(150deg,${l.c1},${l.c2})"></span><span><b>${l.t}</b><span>${money(l.price)}/year</span></span></div>${B.busy?`<div class="busybox"><span class="spin"></span><span>Sending your application to the landlord</span></div>`:`<p class="pp">Your verified profile, identity, income and credit, goes to the landlord in one tap.</p>`}</div></div>${B.busy?'':`<div class="ps-foot"><button class="ab" data-act="b:submitapply">Submit application</button></div>`}`;
+  }
+  function buyerRentDone(){
+    return `<div class="ps-body"><div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:25px;letter-spacing:0">You are in</div><p class="ps-sub">Lease signed with UAE Pass and registered. Keys and digital access are on the way.</p><button class="uaebtn" style="margin-top:8px" data-act="b:home">Back to home</button></div></div>`;
+  }
+  function buyerOffer(){
+    const l=B.listing;
+    return `<div class="hdr"><button class="bk" data-act="b:back">&lsaquo;</button><b>Make an offer</b></div><div class="ps-body"><div class="sb"><div class="summary"><div class="srow"><span>Property</span><b>${l.t}</b></div><div class="srow"><span>Asking price</span><b>${money(l.price)}</b></div><div class="srow tot"><span>Your offer</span><b>${money(l.price)}</b></div></div><div class="togrow"><span class="tt"><b>Digital escrow account</b><span>Funds held safely until transfer</span></span><span class="tog ${B.escrow?'on':''}" data-act="b:tog:escrow"></span></div><div class="togrow"><span class="tt"><b>UAE Pass digital signature</b><span>Legally binding e-signature</span></span><span class="tog ${B.esign?'on':''}" data-act="b:tog:esign"></span></div><p class="pp">Next, connect your bank to fund escrow and confirm proof of funds. EQARY never holds the money.</p></div></div><div class="ps-foot"><button class="ab" data-act="b:tobank">Connect bank &amp; continue</button></div>`;
+  }
+  function buyerBank(){
+    return `<div class="hdr"><button class="bk" data-act="b:offer">&lsaquo;</button><b>Connect your bank</b></div><div class="ps-body"><div class="sb"><p class="pp">Authorise your own bank to fund the escrow deposit and confirm proof of funds. Open banking, bank to bank, EQARY is never in the money path.</p><div class="lab">Choose your bank</div>${banks.map((bk,i)=>`<button class="bankr ${B.bank===i?'sel':''}" data-act="b:bank:${i}"><span class="blogo">${bk.ab}</span>${bk.name}<span class="rad">${B.bank===i?'<span class="okc" style="width:18px;height:18px;font-size:11px">&#10003;</span>':''}</span></button>`).join('')}${B.busy?`<div class="busybox"><span class="spin"></span><span>Connecting securely to your bank</span></div>`:''}</div></div>${B.busy?'':`<div class="ps-foot"><button class="ab ${B.bank===null?'dis':''}" data-act="${B.bank===null?'b:noop':'b:authorise'}">Authorise with your bank</button></div>`}`;
+  }
+  function buyerOfferDone(){
+    return `<div class="ps-body"><div class="ps-center"><div class="bigcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div class="ps-h1" style="font-size:23px;letter-spacing:0">Offer submitted</div><p class="ps-sub">Escrow funded, signed with UAE Pass, and the seller has been notified. You will get a response in-app.</p><button class="uaebtn" style="margin-top:8px" data-act="b:home">Back to home</button></div></div>`;
+  }
+  function buyerView(){
+    switch(B.screen){
+      case 'login': return buyerLogin();
+      case 'home': return buyerHome();
+      case 'saved': return buyerSaved();
+      case 'messages': return buyerMessages();
+      case 'profile': return buyerProfile();
+      case 'landlord': return buyerLandlord();
+      case 'mylistings': return buyerMyListings();
+      case 'createlisting': return buyerCreateListing();
+      case 'myoffers': return buyerMyOffers();
+      case 'savedprops': return buyerSavedProps();
+      case 'savedsearches': return buyerSavedSearches();
+      case 'settings': return buyerSettings();
+      case 'listing': return buyerListing();
+      case 'viewing': return buyerViewing();
+      case 'apply': return buyerApply();
+      case 'rentdone': return buyerRentDone();
+      case 'offer': return buyerOffer();
+      case 'connectbank': return buyerBank();
+      case 'offerdone': return buyerOfferDone();
+    }
+    return '';
+  }
+  function renderBuyer(){
+    const dark=['login','rentdone','offerdone'].indexOf(B.screen)>-1;
+    screen.className='ps'+(dark?' ind':'');
+    screen.innerHTML=buyerView();
+  }
+  function buyerAction(act){
+    const i=act.indexOf(':'), c=i<0?act:act.slice(0,i), a=i<0?'':act.slice(i+1);
+    switch(c){
+      case 'noop': break;
+      case 'login': faceScan(()=>{B.verified=true;B.screen='home';renderApp();}); break;
+      case 'mode': B.mode=a; renderApp(); break;
+      case 'nav': B.screen=(a==='explore'?'home':a); renderApp(); break;
+      case 'open': B.listing=rentList.concat(buyList).find(x=>x.id===a); B.booked=false; B.applied=false; B.busy=false; B.bank=null; B.escrow=true; B.esign=true; B.slot=0; B.screen='listing'; renderApp(); break;
+      case 'back': B.screen='listing'; B.busy=false; renderApp(); break;
+      case 'viewing': B.screen='viewing'; renderApp(); break;
+      case 'slot': B.slot=+a; renderApp(); break;
+      case 'bookview': B.booked=true; renderApp(); break;
+      case 'apply': B.screen='apply'; B.busy=false; B.applied=false; renderApp(); break;
+      case 'submitapply': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.applied=true;renderApp();},1500); break;
+      case 'signlease': faceScan(()=>{B.screen='rentdone';renderApp();}); break;
+      case 'offer': B.screen='offer'; renderApp(); break;
+      case 'tog': if(a==='escrow'){B.escrow=!B.escrow;}else{B.esign=!B.esign;} renderApp(); break;
+      case 'tobank': B.screen='connectbank'; B.busy=false; renderApp(); break;
+      case 'bank': B.bank=+a; renderApp(); break;
+      case 'authorise': B.busy=true; renderApp(); setTimeout(()=>{B.busy=false;B.screen='offerdone';renderApp();},1500); break;
+      case 'home': B.screen='home'; B.busy=false; renderApp(); break;
+      case 'go': B.screen=a; renderApp(); break;
+      case 'dash': B.dash=a; renderApp(); break;
+      case 'cl': if(a==='maid'){B.cl.maid=!B.cl.maid;}else if(a==='pool'){B.cl.pool=!B.cl.pool;}else if(a==='verify'){B.cl.verified=true;}else if(a==='create'){B.cl.created=true;B.screen='mylistings';} renderApp(); break;
+      case 'offtab': B.offerTab=a; renderApp(); break;
+      case 'acc': B.offers[a]='a'; renderApp(); break;
+      case 'dec': B.offers[a]='d'; renderApp(); break;
+      case 'signout': B.screen='login'; B.verified=false; renderApp(); break;
+    }
+  }
 
+  /* ---- seller / landlord dashboard ---- */
   function tabbar(){
     const t=(id,lab,svg)=>`<button class="tbtn ${SS.tab===id?'on':''}" data-act="s:tab:${id}"><svg viewBox="0 0 24 24">${svg}</svg>${lab}</button>`;
     return `<div class="ps-tabbar">${t('portfolio','Portfolio','<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>')}${t('messages','Messages','<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>')}${t('maint','Maintenance','<path d="M14 7l3 3M18 2l4 4-3 3-4-4z"/><path d="M3 21l4-1 9-9-3-3-9 9z"/>')}${t('buy','Buy','<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/>')}</div>`;
@@ -1361,27 +1567,14 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function sPortfolio(){
     const bars=[62,70,73,80,77,90],m=['Oct','Nov','Dec','Jan','Feb','Mar'];
-    return `<div class="ps-app-head"><b>Your portfolio</b><span class="owner">OWNER</span></div>
-      <div class="sstats">
-        <div class="sstat"><div class="v">AED 4.2<small>M</small></div><div class="k">Portfolio value</div></div>
-        <div class="sstat"><div class="v">AED 205<small>K/yr</small></div><div class="k">Contracted rent</div></div>
-        <div class="sstat"><div class="v">92<small>%</small></div><div class="k">Occupancy</div></div>
-        <div class="sstat"><div class="v">6.4<small>%</small></div><div class="k">Net yield</div></div>
-      </div>
-      <div class="schart"><div class="ct"><span>Rent collected</span><span>last 6 months</span></div>
-        <div class="bars">${bars.map((h,i)=>`<div class="barcol"><div class="bar"><i style="height:${h}%"></i></div><span class="blab">${m[i]}</span></div>`).join('')}</div></div>
-      <div class="ps-app-sub">Properties</div>
-      ${sProps.map(p=>`<button class="prop" data-act="s:noop"><span class="pth" style="background:linear-gradient(150deg,${p.c1},${p.c2})"></span><span class="pm"><b>${p.t}</b><span>${p.tenant} · ${money(p.rent)}/yr</span></span><span class="pstatus ${p.status}">${p.status==='occ'?'Occupied':p.status==='lst'?'Listed':'Vacant'}</span></button>`).join('')}`;
+    return `<div class="ps-app-head"><b>Your portfolio</b><span class="owner">OWNER</span></div><div class="sstats"><div class="sstat"><div class="v">AED 4.2<small>M</small></div><div class="k">Portfolio value</div></div><div class="sstat"><div class="v">AED 205<small>K/yr</small></div><div class="k">Contracted rent</div></div><div class="sstat"><div class="v">92<small>%</small></div><div class="k">Occupancy</div></div><div class="sstat"><div class="v">6.4<small>%</small></div><div class="k">Net yield</div></div></div><div class="schart"><div class="ct"><span>Rent collected</span><span>last 6 months</span></div><div class="bars">${bars.map((h,i)=>`<div class="barcol"><div class="bar"><i style="height:${h}%"></i></div><span class="blab">${m[i]}</span></div>`).join('')}</div></div><div class="ps-app-sub">Properties</div>${sProps.map(p=>`<button class="prop" data-act="s:noop"><span class="pth" style="background:linear-gradient(150deg,${p.c1},${p.c2})"></span><span class="pm"><b>${p.t}</b><span>${p.tenant} &middot; ${money(p.rent)}/yr</span></span><span class="pstatus ${p.status}">${p.status==='occ'?'Occupied':p.status==='lst'?'Listed':'Vacant'}</span></button>`).join('')}`;
   }
   function sMessages(){
-    return `<div class="ps-app-head"><b>Messages</b><span class="owner">OWNER</span></div>
-      ${sConvs.map(c=>`<button class="conv" data-act="s:thread:${c.id}"><span class="ava">${c.ini}</span><span class="cm"><b>${c.who}</b><span>${c.last}</span></span>${c.unread?'<span class="dot"></span>':''}</button>`).join('')}`;
+    return `<div class="ps-app-head"><b>Messages</b><span class="owner">OWNER</span></div>${sConvs.map(c=>`<button class="conv" data-act="s:thread:${c.id}"><span class="ava">${c.ini}</span><span class="cm"><b>${c.who}</b><span>${c.last}</span></span>${c.unread?'<span class="dot"></span>':''}</button>`).join('')}`;
   }
   function sThread(){
-    const c=sConvs.find(x=>x.id===SS.thread),extra=SS.msgs[c.id]||[],all=[...c.base,...extra];
-    return `<div class="ps-app-head"><button class="ps-back" data-act="s:back">&lsaquo;</button><b style="font-size:14px">${c.who}</b><span style="width:18px"></span></div>
-      <div class="thread">${all.map(mm=>`<div class="bub ${mm[0]}">${mm[1]}</div>`).join('')}</div>
-      <div class="quicks">${sQuick.map((q,i)=>`<button class="qchip" data-act="s:send:${i}">${q}</button>`).join('')}</div>`;
+    const c=sConvs.find(x=>x.id===SS.thread),extra=SS.msgs[c.id]||[],all=c.base.concat(extra);
+    return `<div class="ps-app-head"><button class="ps-back" data-act="s:back">&lsaquo;</button><b style="font-size:14px">${c.who}</b><span style="width:18px"></span></div><div class="thread">${all.map(mm=>`<div class="bub ${mm[0]}">${mm[1]}</div>`).join('')}</div><div class="quicks">${sQuick.map((q,i)=>`<button class="qchip" data-act="s:send:${i}">${q}</button>`).join('')}</div>`;
   }
   function micon(id){
     const m={plumb:'<path d="M12 2s5 6 5 11a5 5 0 01-10 0c0-5 5-11 5-11z"/>',ac:'<rect x="3" y="6" width="18" height="9" rx="2"/><path d="M7 19v2M12 19v2M17 19v2"/>',elec:'<path d="M13 2L4 14h7l-1 8 10-12h-7z"/>',clean:'<path d="M4 21h7M6 21v-4M5 13h6l2-8 5 1-1 4-7 3z"/>'};
@@ -1390,28 +1583,16 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   function sMaint(){
     if(SS.maint){
       const c=mcats.find(x=>x.id===SS.maint);
-      return `<div class="ps-app-head"><button class="ps-back" data-act="s:maintreset">&lsaquo;</button><b style="font-size:14px">${c.t}</b><span style="width:18px"></span></div>
-        <div class="mprov"><b>${c.prov}</b><span>${c.est} · ${activeProp}</span></div>
-        <div class="mstep">${mstages.map((s,i)=>{const st=i<SS.maintStatus?'done':(i===SS.maintStatus?'cur':'');return `<div class="mstepi ${st}"><span class="md">${i<SS.maintStatus?'&#10003;':''}</span><span class="mt"><b>${s}</b><span>${i<SS.maintStatus?'Done':(i===SS.maintStatus?'In progress':'Pending')}</span></span></div>`;}).join('')}</div>
-        ${SS.maintStatus>=mstages.length?`<div class="okrow"><span class="okc">&#10003;</span> Job complete, logged to ${activeProp}.</div>`:''}`;
+      return `<div class="ps-app-head"><button class="ps-back" data-act="s:maintreset">&lsaquo;</button><b style="font-size:14px">${c.t}</b><span style="width:18px"></span></div><div class="mprov"><b>${c.prov}</b><span>${c.est} &middot; ${activeProp}</span></div><div class="mstep">${mstages.map((s,i)=>{const st=i<SS.maintStatus?'done':(i===SS.maintStatus?'cur':'');return `<div class="mstepi ${st}"><span class="md">${i<SS.maintStatus?'&#10003;':''}</span><span class="mt"><b>${s}</b><span>${i<SS.maintStatus?'Done':(i===SS.maintStatus?'In progress':'Pending')}</span></span></div>`;}).join('')}</div>${SS.maintStatus>=mstages.length?`<div class="okrow"><span class="okc">&#10003;</span> Job complete, logged to ${activeProp}.</div>`:''}`;
     }
-    return `<div class="ps-app-head"><b>Maintenance</b><span class="owner">OWNER</span></div>
-      <p class="ps-p">Log a job, EQARY dispatches a vetted crew and tracks it to done.</p>
-      <div class="mcat">${mcats.map(c=>`<button class="mcatb" data-act="s:maint:${c.id}"><span class="ic2"><svg viewBox="0 0 24 24">${micon(c.id)}</svg></span><b>${c.t}</b><span>${c.d}</span></button>`).join('')}</div>`;
+    return `<div class="ps-app-head"><b>Maintenance</b><span class="owner">OWNER</span></div><p class="pp" style="margin-bottom:12px">Log a job, EQARY dispatches a vetted crew and tracks it to done.</p><div class="mcat">${mcats.map(c=>`<button class="mcatb" data-act="s:maint:${c.id}"><span class="ic2"><svg viewBox="0 0 24 24">${micon(c.id)}</svg></span><b>${c.t}</b><span>${c.d}</span></button>`).join('')}</div>`;
   }
   function sBuyList(){
-    return `<div class="ps-app-head"><b>Grow your portfolio</b><span class="owner">INVEST</span></div>
-      <p class="ps-p">Owners buy here too, off-plan and secondary, scored by yield.</p>
-      ${sBuy.map(b=>`<button class="prop" data-act="s:buy:${b.id}"><span class="pth" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span><span class="pm"><b>${b.t}</b><span>${b.dev} · ${money(b.price)}</span></span><span class="ybadge">${b.yld}</span></button>`).join('')}`;
+    return `<div class="ps-app-head"><b>Grow your portfolio</b><span class="owner">INVEST</span></div><p class="pp" style="margin-bottom:12px">Owners buy here too, off-plan and secondary, scored by yield.</p>${sBuy.map(b=>`<button class="prop" data-act="s:buy:${b.id}"><span class="pth" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span><span class="pm"><b>${b.t}</b><span>${b.dev} &middot; ${money(b.price)}</span></span><span class="ybadge">${b.yld}</span></button>`).join('')}`;
   }
   function sBuyDetail(){
     const b=sBuy.find(x=>x.id===SS.buySel);
-    return `<div class="ps-app-head"><button class="ps-back" data-act="s:buyback">&lsaquo;</button><b style="font-size:14px">${b.t}</b><span style="width:18px"></span></div>
-      <span class="lphoto big" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span>
-      <div class="ps-h2" style="margin-top:12px;font-size:17px">${b.t}</div>
-      <p class="ps-p" style="margin-bottom:8px">${b.dev}</p>
-      <div class="sstats"><div class="sstat"><div class="v">${money(b.price)}</div><div class="k">Price</div></div><div class="sstat"><div class="v">${b.yld}</div><div class="k">Projected net yield</div></div></div>
-      ${SS.expressed===b.id?`<div class="okrow" style="margin-top:12px"><span class="okc">&#10003;</span> Interest sent. EQARY will line up the reservation.</div>`:`<button class="ab" style="margin-top:12px" data-act="s:express:${b.id}">Express interest</button>`}`;
+    return `<div class="ps-app-head"><button class="ps-back" data-act="s:buyback">&lsaquo;</button><b style="font-size:14px">${b.t}</b><span style="width:18px"></span></div><span class="lphoto big" style="background:linear-gradient(150deg,${b.c1},${b.c2})"></span><div class="ps-h2" style="margin-top:12px;font-size:17px">${b.t}</div><p class="ps-p" style="margin-bottom:8px">${b.dev}</p><div class="sstats"><div class="sstat"><div class="v">${money(b.price)}</div><div class="k">Price</div></div><div class="sstat"><div class="v">${b.yld}</div><div class="k">Projected net yield</div></div></div>${SS.expressed===b.id?`<div class="okrow" style="margin-top:12px"><span class="okc">&#10003;</span> Interest sent. EQARY will line up the reservation.</div>`:`<button class="ab" style="margin-top:12px" data-act="s:express:${b.id}">Express interest</button>`}`;
   }
   function maintRun(){
     if(persona!=='seller'||SS.tab!=='maint'||SS.maint==null) return;
@@ -1430,13 +1611,21 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     else if(a==='express'){SS.expressed=b;renderApp();}
   }
 
-  /* persona switch */
+  function renderApp(){ persona==='seller'?renderSeller():renderBuyer(); }
+
+  screen.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-act]'); if(!btn) return;
+    const act=btn.dataset.act; if(!act) return;
+    if(act.slice(0,2)==='s:'){ sellerAction(act.split(':').slice(1)); return; }
+    if(act.slice(0,2)==='b:'){ buyerAction(act.slice(2)); return; }
+  });
+
   const hintEl=document.getElementById('phoneHint');
   document.querySelectorAll('.persobtn').forEach(b=>b.addEventListener('click',()=>{
     persona=b.dataset.persona;
     document.querySelectorAll('.persobtn').forEach(x=>x.classList.toggle('on',x===b));
-    if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs — tap around the dashboard';}
-    else{reset();if(hintEl)hintEl.innerHTML='Tap through it &mdash; it&rsquo;s live';}
+    if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs, tap around the dashboard';}
+    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.innerHTML='Tap through it &mdash; it&rsquo;s live';}
     renderApp();
   }));
 
