@@ -375,7 +375,10 @@
   .ltag{font-size:10px;font-weight:700;padding:4px 8px;border-radius:7px;color:#fff}
   .ltag.sale{background:#4f46e5}
   .ltag.rent{background:#1b1830}
-  .heart{position:absolute;right:9px;top:9px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+  .heart{position:absolute;right:9px;top:9px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;transition:transform .15s}
+  .heart:active{transform:scale(.9)}
+  .heart svg{width:14px;height:14px;fill:none;stroke:#9998aa;stroke-width:2}
+  .heart.on svg{fill:#ef4444;stroke:#ef4444}
   .heart svg{width:15px;height:15px;stroke:#1b1830;fill:none;stroke-width:1.8}
   .lc .bd{display:block;padding:12px 13px 13px}
   .vrf{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#16a34a;background:#e7f7ec;border-radius:6px;padding:3px 7px;margin-bottom:7px}
@@ -630,6 +633,14 @@
   .ltag.compl{background:rgba(255,255,255,.9);color:#1b1830;border:1px solid rgba(20,18,50,.1)}
   .pill2.off{background:#1b1830;color:#fff}
   .pill2.comp{background:#eef0fe;color:#4f46e5}
+  /* ===== saved property cards ===== */
+  .scard{display:flex;align-items:center;gap:12px;width:100%;background:#fff;border:1px solid rgba(20,18,50,.07);border-radius:12px;padding:10px;margin-bottom:10px;text-align:left;position:relative}
+  .sthumb{width:60px;height:60px;border-radius:10px;flex:none}
+  .sinfo{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .sinfo b{font-size:13px;font-weight:600;color:#1a1830;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sinfo span{font-size:11px;color:#6c6b86;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sinfo .sprice{font-size:12px;font-weight:700;color:#4f46e5}
+  .scard .heart{position:relative;right:auto;top:auto;flex:none}
   /* founder photos + edges + stakeholder */
   .avatar-img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 35%;display:block}
   .edges{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
@@ -1447,6 +1458,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   /* ---- state ---- */
   let persona='tenant';
   let history=[];
+  let saved=[];
   const B={screen:'login',mode:'rent',verified:false,listing:null,slot:0,booked:false,applied:false,busy:false,escrow:true,esign:true,bank:null,dash:'roi',cl:{maid:false,pool:false,verified:false,created:false},offerTab:'received',offers:{},
     mort:{price:2000000,down:400000,years:25,selBank:null,preApproved:false,appSubmitted:false,appApproved:false},
     buy:{mouGenerated:false,mouSigned:false,spaGenerated:false,spaSigned:false,escrowFunded:false}};
@@ -1478,7 +1490,8 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     const tagLabel=rent?'For Rent':(offplan?'Off-Plan':'For Sale');
     const tagClass=rent?'rent':(offplan?'offplan':'sale');
     const verifiedText=offplan?`Verified &middot; ${l.dev}`:(l.rnpl?'Verified &middot; RNPL':'Verified');
-    return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${tagClass}">${tagLabel}</span>${offplan?`<span class="ltag compl">${l.completion}% built</span>`:''}</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>${verifiedText}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}${offplan?' &middot; Handover '+l.handover:''}</span><span class="pr">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
+    const isSaved=saved.includes(l.id);
+    return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${tagClass}">${tagLabel}</span>${offplan?`<span class="ltag compl">${l.completion}% built</span>`:''}</span><span class="heart ${isSaved?'on':''}" data-act="b:fav:${l.id}"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>${verifiedText}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}${offplan?' &middot; Handover '+l.handover:''}</span><span class="pr">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
   }
   function buyerLogin(){
     return `<div class="ps-body"><div class="ps-center"><div class="ps-logo"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33 L32 13 L54 33" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ps-h1">EQARY</div><p class="ps-sub">Buy, sell and rent UAE property, start to finish, from your phone.</p><button class="uaebtn" style="margin-top:10px" data-act="b:login"><span class="udot"></span>Continue with UAE Pass</button></div></div>`;
@@ -1487,7 +1500,14 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     const list=B.mode==='rent'?rentList:buyList;
     return `${appHeader()}<div class="ps-body"><div class="sb">${list.map(lcard).join('')}</div></div>${navBar('explore')}`;
   }
-  function buyerSaved(){ return `${navHead('Saved')}<div class="ps-body"><div class="empty"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>Tap the heart on any property to save it here.</div></div>${navBar('saved')}`; }
+  function buyerSaved(){ 
+    const allProps=rentList.concat(buyList);
+    const savedProps=saved.map(id=>allProps.find(p=>p.id===id)).filter(Boolean);
+    if(savedProps.length===0){
+      return `${navHead('Saved')}<div class="ps-body"><div class="empty"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg>Tap the heart on any property to save it here.</div></div>${navBar('saved')}`;
+    }
+    return `${navHead('Saved')}<div class="ps-body"><div class="sb"><div class="lab">${savedProps.length} saved propert${savedProps.length===1?'y':'ies'}</div>${savedProps.map(l=>`<button class="scard" data-act="b:open:${l.id}"><span class="sthumb" style="background:linear-gradient(150deg,${l.c1},${l.c2})"></span><span class="sinfo"><b>${l.t}</b><span>${l.loc}</span><span class="sprice">${money(l.price)}${l.id.startsWith('r')?'/yr':''}</span></span><span class="heart on" data-act="b:fav:${l.id}"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></span></button>`).join('')}</div></div>${navBar('saved')}`;
+  }
   
   /* ---- mortgage calculator & application ---- */
   function calcMonthly(principal,rate,years){
@@ -1607,11 +1627,12 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function buyerListing(){
     const l=B.listing,rent=B.mode==='rent',offplan=l.offplan;
+    const isSaved=saved.includes(l.id);
     const pills=rent?(l.rnpl?'<span class="pill2 v">&#10003; Verified</span><span class="pill2 r">RNPL Ready</span>':'<span class="pill2 v">&#10003; Verified</span>'):(offplan?`<span class="pill2 v">&#10003; ${l.dev}</span><span class="pill2 off">Off-Plan</span><span class="pill2 comp">${l.completion}% Complete</span>`:'<span class="pill2 v">&#10003; Verified</span><span class="pill2 r">Secondary</span>');
     const extraInfo=offplan?`<div class="lab">Development details</div><div class="dev-info"><div class="dev-row"><span>Developer</span><b>${l.dev}</b></div><div class="dev-row"><span>Handover</span><b>${l.handover}</b></div><div class="dev-row"><span>Construction</span><b>${l.completion}% complete</b></div><div class="dev-row"><span>Payment plan</span><b>60/40 available</b></div></div>`:'';
     const actionBtn=rent?'Apply to rent':(offplan?'Reserve unit':'Make an offer');
     const actionAct=rent?'apply':(offplan?'spa':'offer');
-    return `<div class="ps-body"><div class="dhero" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><button class="dback" data-act="b:back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="heart"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></div><div class="sb"><div class="pillrow">${pills}</div><div class="dtitle">${l.t}</div><div class="dloc">${l.loc}${offplan?' &middot; '+l.handover:''}</div><div class="dprice">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</div><div class="statrow"><div class="stat3"><b>${bedsLabel(l.beds)}</b><span>Bedrooms</span></div><div class="stat3"><b>${l.baths}</b><span>Bathrooms</span></div><div class="stat3"><b>${l.sqft}</b><span>Sq ft</span></div></div>${extraInfo}<div class="lab">About this property</div><p class="about">${l.about}</p><div class="save" style="margin-top:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} vs a 2% agent</div></div></div><div class="ps-foot">${!offplan?'<button class="icobtn" data-act="b:noop"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>':''}<button class="ab gho sm" data-act="b:viewing">${offplan?'View showroom':'Viewing'}</button><button class="ab sm" data-act="b:${actionAct}">${actionBtn}</button></div>`;
+    return `<div class="ps-body"><div class="dhero" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><button class="dback" data-act="b:back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><span class="heart ${isSaved?'on':''}" data-act="b:fav:${l.id}"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span></div><div class="sb"><div class="pillrow">${pills}</div><div class="dtitle">${l.t}</div><div class="dloc">${l.loc}${offplan?' &middot; '+l.handover:''}</div><div class="dprice">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</div><div class="statrow"><div class="stat3"><b>${bedsLabel(l.beds)}</b><span>Bedrooms</span></div><div class="stat3"><b>${l.baths}</b><span>Bathrooms</span></div><div class="stat3"><b>${l.sqft}</b><span>Sq ft</span></div></div>${extraInfo}<div class="lab">About this property</div><p class="about">${l.about}</p><div class="save" style="margin-top:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} vs a 2% agent</div></div></div><div class="ps-foot">${!offplan?'<button class="icobtn" data-act="b:noop"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>':''}<button class="ab gho sm" data-act="b:viewing">${offplan?'View showroom':'Viewing'}</button><button class="ab sm" data-act="b:${actionAct}">${actionBtn}</button></div>`;
   }
   function buyerViewing(){
     if(B.booked){
@@ -1770,6 +1791,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     const resetBuy=()=>{B.buy={mouGenerated:false,mouSigned:false,spaGenerated:false,spaSigned:false,escrowFunded:false};};
     switch(c){
       case 'noop': break;
+      case 'fav': if(saved.includes(a)){saved=saved.filter(x=>x!==a);}else{saved.push(a);} renderApp(); break;
       case 'login': faceScan(()=>{B.verified=true;history=[];B.screen='home';renderApp();}); break;
       case 'mode': B.mode=a; renderApp(); break;
       case 'nav': history=[];B.screen=(a==='explore'?'home':a); renderApp(); break;
@@ -1875,6 +1897,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   screen.addEventListener('click',e=>{
     const btn=e.target.closest('[data-act]'); if(!btn) return;
     const act=btn.dataset.act; if(!act) return;
+    if(act.startsWith('b:fav:')) e.stopPropagation();
     if(act.slice(0,2)==='s:'){ sellerAction(act.split(':').slice(1)); return; }
     if(act.slice(0,2)==='b:'){ buyerAction(act.slice(2)); return; }
   });
