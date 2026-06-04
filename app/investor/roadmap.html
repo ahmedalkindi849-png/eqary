@@ -971,7 +971,7 @@
       </div>
 
       <div class="mm-stage">
-        <svg id="mm-map" viewBox="0 0 1900 1900" role="img" aria-label="Eqary ecosystem mind map"></svg>
+        <svg id="mm-map" viewBox="0 0 2100 2100" role="img" aria-label="Eqary ecosystem mind map"></svg>
       </div>
 
       <div class="mm-legend" id="mm-legend"></div>
@@ -1024,8 +1024,8 @@
 <script>
 (function(){
   const SVGNS = "http://www.w3.org/2000/svg";
-  const CX = 950, CY = 950;
-  const R_HUB = 380, R_LEAF_IN = 650, R_LEAF_OUT = 820;
+  const CX = 1050, CY = 1050;
+  const R_HUB = 420, R_LEAF_IN = 720, R_LEAF_OUT = 920;
   const START = -90;
 
   const mmClusters = [
@@ -1080,19 +1080,19 @@
       const[lx,ly]=pol(CX,CY,r,la);
       const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.8,"stroke-opacity":.4,"stroke-linecap":"round"});
       linkLayer.appendChild(ll);allLinks.push({l:ll,cluster:i});
-      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",18,16,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
+      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",24,22,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
     });
-    makeBubble(hx,hy,cl.name,cl.color,"#fff",20,18,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
+    makeBubble(hx,hy,cl.name,cl.color,"#fff",28,26,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
   });
 
   // center node
   const cg=el("g",{class:"mm-node"});
-  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:84,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":3});
+  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:100,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":4});
   cc.style.filter="drop-shadow(0 12px 30px rgba(0,0,0,.5))";
   cg.appendChild(cc);
-  const ct=el("text",{x:CX,y:CY-6,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":28,"font-weight":700,"letter-spacing":"0.02em"});
+  const ct=el("text",{x:CX,y:CY-8,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":36,"font-weight":700,"letter-spacing":"0.02em"});
   ct.textContent="EQARY";cg.appendChild(ct);
-  const cs=el("text",{x:CX,y:CY+20,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":10,"font-weight":700,"letter-spacing":"0.18em"});
+  const cs=el("text",{x:CX,y:CY+24,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":13,"font-weight":700,"letter-spacing":"0.18em"});
   cs.textContent="ORCHESTRATION";cg.appendChild(cs);
   cg.addEventListener("click",(e)=>{e.stopPropagation();showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg);});
   cg.addEventListener("mouseenter",()=>showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg,true));
