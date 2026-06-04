@@ -36,8 +36,8 @@ export function InvestorAccessModal({ isOpen, onClose }: InvestorAccessModalProp
       if (code.trim() === INVESTOR_CODE) {
         // Set a cookie to allow access through middleware
         document.cookie = "investor_access=verified; path=/; max-age=3600; SameSite=Strict"
-        // Redirect to the roadmap site
-        window.location.href = "/roadmap.html"
+        // Redirect to the protected investor route
+        window.location.href = "/investor"
       } else {
         setError("Invalid access code. Please try again.")
         setVerifying(false)
