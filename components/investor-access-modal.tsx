@@ -34,6 +34,8 @@ export function InvestorAccessModal({ isOpen, onClose }: InvestorAccessModalProp
     // Small delay to show verifying state
     setTimeout(() => {
       if (code.trim() === INVESTOR_CODE) {
+        // Set a cookie to allow access through middleware
+        document.cookie = "investor_access=verified; path=/; max-age=3600; SameSite=Strict"
         // Redirect to the roadmap site
         window.location.href = "/roadmap.html"
       } else {
