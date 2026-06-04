@@ -787,7 +787,7 @@
         <div class="phone">
           <div class="phone-screen" id="proto"></div>
         </div>
-        <div class="phone-hint" id="phoneHint">Tap through it &mdash; it&rsquo;s live</div>
+        <div class="phone-hint" id="phoneHint">Tap through it</div>
       </div>
     </div>
   </div>
@@ -1625,7 +1625,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     persona=b.dataset.persona;
     document.querySelectorAll('.persobtn').forEach(x=>x.classList.toggle('on',x===b));
     if(persona==='seller'){SS.tab='portfolio';SS.thread=null;SS.buySel=null;SS.maint=null;SS.maintStatus=0;if(hintEl)hintEl.textContent='Four tabs, tap around the dashboard';}
-    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.innerHTML='Tap through it &mdash; it&rsquo;s live';}
+    else{B.screen='login';B.mode='rent';if(hintEl)hintEl.textContent='Tap through it';}
     renderApp();
   }));
 
