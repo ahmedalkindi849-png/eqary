@@ -150,12 +150,10 @@
     padding:calc(var(--bar-h) + 30px) clamp(20px,5vw,40px) 60px;position:relative;overflow:hidden;
   }
   .hero-bg{position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(120% 90% at 75% 20%, rgba(199,150,80,.22), transparent 55%),
-      linear-gradient(180deg,#1C2B5E 0%,#162252 60%,#1C2B5E 100%);
+    background:#1C2B5E;
   }
   .hero-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(115deg,transparent 30%,rgba(214,170,110,.10) 46%,rgba(214,170,110,.16) 50%,rgba(214,170,110,.06) 56%,transparent 72%);
+    background:none;
     mix-blend-mode:screen;
   }
   .hero .wrap{position:relative;z-index:2;width:100%}
@@ -749,7 +747,7 @@
 </header>
 
 <!-- ============ 01 PROBLEM ============ -->
-<section id="s01" data-bg="cream" data-num="01" data-name="The problem">
+<section id="s01" data-bg="dark" data-num="01" data-name="The problem">
   <div class="wrap">
     <div class="badge rev"><span class="n">01</span><span class="div"></span><span>The problem</span></div>
     <h2 class="display rev">The whole thing was built around <b>the agent</b></h2>
@@ -813,15 +811,12 @@
     </div>
 
     <div class="meet rev d3">
-      <span class="mi"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Always up for a coffee</span>
-      <span class="mi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Always happy to meet in person</span>
-
     </div>
   </div>
 </section>
 
 <!-- ============ 03 WHAT WE BUILD ============ -->
-<section id="s03" data-bg="cream" data-num="03" data-name="What we build">
+<section id="s03" data-bg="dark" data-num="03" data-name="What we build">
   <div class="wrap">
     <div class="badge rev"><span class="n">03</span><span class="div"></span><span>What we build</span></div>
     <h2 class="display rev">We don't just list properties. <b>We settle them.</b></h2>
@@ -864,55 +859,8 @@
     </div>
   </div>
 </section>
-
-<!-- ============ 04 PHASE 1 SCOPE ============ -->
-<section id="s04" data-bg="dark" data-num="04" data-name="Phase 1 scope">
-  <div class="wrap">
-    <div class="badge rev"><span class="n">04</span><span class="div"></span><span>Phase one</span></div>
-    <h2 class="display rev">Phase 1, and what <b>it has to prove</b></h2>
-    <p class="lead rev d1">Phase 1 is the foundation the rest of EQARY sits on. One job: let someone rent a home or reserve an off-plan unit entirely in the app, with government-verified identity, digital contracts and bank-to-bank payment built in from day one. Win rentals and off-plan, stand up the trust layer, and start generating the transaction data the later phases depend on.</p>
-
-    <div class="cards c2">
-      <div class="card rev d1">
-        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
-        <h4>Rent with no agent and no cheque</h4>
-        <p>A tenant finds a home, gets verified, signs the lease with UAE&nbsp;Pass and pays the landlord directly. No agent in the middle, no post-dated cheques.</p>
-        <span class="tag">Tenants &amp; landlords</span>
-      </div>
-      <div class="card rev d2">
-        <div class="icn"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-        <h4>List only what you own</h4>
-        <p>A landlord can only list once the property clears the ADREC ownership check, then screens an already-verified tenant and is paid straight to their account. Fake listings die at the source.</p>
-        <span class="tag">Landlords</span>
-      </div>
-      <div class="card rev d1">
-        <div class="icn"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
-        <h4>Reserve off-plan, pre-qualified</h4>
-        <p>A buyer reserves a unit from a verified developer, already identity-checked and income-qualified, and the developer gets a warm, ready lead routed in real time.</p>
-        <span class="tag">Buyers &amp; developers</span>
-      </div>
-      <div class="card rev d2">
-        <div class="icn"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/></svg></div>
-        <h4>Money moves, EQARY never holds it</h4>
-        <p>Rent, deposits and reservation fees move bank to bank and split mid-air, so EQARY is never in the money path. That keeps the licensing footprint light at launch.</p>
-        <span class="tag">Payments</span>
-      </div>
-    </div>
-
-    <div class="callout rev d1"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><p><b style="color:#fff">First definition of done:</b> 500 verified landlord listings, 50 verified developer listings, and 1,000 transactions processed end to end, live in Abu&nbsp;Dhabi with Dubai ready to switch on.</p></div>
-
-    <div class="pills rev d2">
-      <span class="pill">UAE Pass</span><span class="pill">KYC / AML</span><span class="pill">AECB Credit</span>
-      <span class="pill">Open Banking</span><span class="pill">Lean</span><span class="pill">Tarabut</span>
-      <span class="pill">Bank-to-Bank</span><span class="pill">Account-to-Account</span><span class="pill">E-Signature</span>
-      <span class="pill">Digital Contracts</span><span class="pill">Tawtheeq / Ejari</span><span class="pill">ADREC / DARI</span>
-      <span class="pill">Smart-Lock Access</span><span class="pill">Allocation Engine</span>
-    </div>
-  </div>
-</section>
-
 <!-- ============ 05 MARKET ============ -->
-<section id="s05" data-bg="cream" data-num="05" data-name="The market">
+<section id="s05" data-bg="dark" data-num="05" data-name="The market">
   <div class="wrap">
     <div class="badge rev"><span class="n">05</span><span class="div"></span><span>The market</span></div>
     <h2 class="display rev">The UAE market, and where <b>EQARY fits</b></h2>
@@ -954,7 +902,7 @@
 </section>
 
 <!-- ============ 06 BUSINESS MODEL ============ -->
-<section id="s06" data-bg="dark2" data-num="06" data-name="Business model">
+<section id="s06" data-bg="dark" data-num="06" data-name="Business model">
   <div class="wrap">
     <div class="badge rev"><span class="n">06</span><span class="div"></span><span>Business model</span></div>
     <h2 class="display rev">How <b>EQARY makes money</b></h2>
@@ -987,10 +935,6 @@
     <p class="lead rev d1">EQARY is an orchestration layer that coordinates the transaction across regulated providers. Money moves bank to bank, with the platform fee split off in the same movement, so EQARY never holds it. That keeps the licensing footprint light, with the exact perimeter confirmed by counsel.</p>
 
     <div class="arch rev d1">
-      <div class="reg-strip">
-        <span class="l">CBUAE + ADGM</span>
-        <span class="r">Audit trail · AML / KYC · PDPL · ADGM sandbox gates RNPL</span>
-      </div>
       <div class="arch-lbl">Client surfaces</div>
       <div class="surfaces">
         <div class="abox"><b>Mobile app</b><span>iOS + Android · React Native</span></div>
@@ -1002,30 +946,6 @@
         <b>EQARY orchestration core</b>
         <span>Identity · Listings · Viewings · Transactions · Payment orchestration · Notifications · Compliance</span>
         <span class="host">Hosted on Azure UAE North / G42</span>
-      </div>
-      <div class="arch-lbl">Regulated providers · integration adapters</div>
-      <div class="providers">
-        <div class="pgroup gov">
-          <div class="h">Government</div>
-          <div class="row"><b>UAE Pass</b><span>Identity + biometric auth + e-sign</span></div>
-          <div class="row"><b>ADREC / DARI</b><span>Ownership + property data</span></div>
-          <div class="row"><b>Tawtheeq / Ejari</b><span>Tenancy registration</span></div>
-          <div class="row"><b>Madhmoun / Trakheesi</b><span>Listing permits</span></div>
-        </div>
-        <div class="pgroup bank">
-          <div class="h">Banking &amp; payment rails</div>
-          <div class="row"><b>Lean / Tarabut</b><span>Open banking · income + A2A payment</span></div>
-          <div class="row"><b>AECB</b><span>Credit check</span></div>
-          <div class="row"><b>UAEDDS</b><span>Direct debit mandates</span></div>
-          <div class="row"><b>RNPL partner</b><span>Fast follow · gated by ADGM sandbox</span></div>
-        </div>
-        <div class="pgroup svc">
-          <div class="h">Services</div>
-          <div class="row"><b>Smart-lock access</b><span>Time-limited self-view codes</span></div>
-          <div class="row"><b>Document vault</b><span>Encrypted, customer-managed keys</span></div>
-          <div class="row"><b>KYC / AML</b><span>Screening + monitoring</span></div>
-          <div class="row"><b>Push / SMS / email</b><span>Notifications</span></div>
-        </div>
       </div>
       <div class="arch-lbl">Money flow · bank to bank (EQARY never holds funds)</div>
       <div class="money">
@@ -1049,7 +969,7 @@
       </div>
 
       <div class="mm-stage">
-        <svg id="mm-map" viewBox="0 0 1600 1500" role="img" aria-label="Eqary ecosystem mind map"></svg>
+        <svg id="mm-map" viewBox="0 0 2100 2100" role="img" aria-label="Eqary ecosystem mind map"></svg>
       </div>
 
       <div class="mm-legend" id="mm-legend"></div>
@@ -1102,21 +1022,15 @@
 <script>
 (function(){
   const SVGNS = "http://www.w3.org/2000/svg";
-  const CX = 800, CY = 750;
-  const R_HUB = 305, R_LEAF_IN = 520, R_LEAF_OUT = 645;
+  const CX = 1050, CY = 1050;
+  const R_HUB = 420, R_LEAF_IN = 720, R_LEAF_OUT = 920;
   const START = -90;
 
   const mmClusters = [
-    {name:"Identity & Verification",color:"#4CAF7F",desc:"The trust substrate. A user is verified before they can transact, and that verification carries across the whole journey.",leaves:[{n:"UAE Pass",d:"Federal single sign-on, biometric auth and legally binding e-signatures."},{n:"AECB",d:"Al Etihad Credit Bureau — the UAE's only regulated credit bureau. Scores tenants and buyers."},{n:"KYC / AML",d:"Global KYC/AML vendors with UAE coverage. Fallback for first-time foreign buyers."}]},
-    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."}]},
-    {name:"Permits & Tenancy",color:"#2D6FA8",desc:"The legality gates. An advertising permit is checked before a listing publishes, and the tenancy auto-registers the moment the lease is signed.",leaves:[{n:"Madhmoun",d:"Abu Dhabi advertising-permit system. Validated before an AD listing goes live."},{n:"Trakheesi",d:"Dubai advertising-permit system."},{n:"Tawtheeq",d:"Abu Dhabi tenancy registration. Auto-triggered via API on a UAE Pass-signed lease."},{n:"Ejari",d:"Dubai tenancy registration. Mandatory for all Dubai leases."}]},
-    {name:"Payments & Open Banking",color:"#2D8A5E",desc:"The financial core. Money moves bank-to-bank through regulated rails. Eqary never holds funds.",leaves:[{n:"Lean Technologies",d:"Open Banking A2A payments and income verification. Central Bank-regulated."},{n:"Tarabut Gateway",d:"Open Finance alternative to Lean. Provides redundancy on the payment rail."},{n:"UAEDDS",d:"The Central Bank's Direct Debit System. Replaces post-dated cheques for recurring rent."},{n:"Visa Direct",d:"Instant landlord payouts plus a cross-border rail for foreign buyers."},{n:"Checkout.com",d:"Card fallback for small premium-service fees only."}]},
-    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Huspy / Holo",d:"Mortgage platforms as an alternative to integrating each bank directly."}]},
-    {name:"Financing — RNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"RNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative RNPL provider. Pays the landlord upfront, collects monthly."}]},
-    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."}]},
-    {name:"Smart Locks",color:"#A03060",desc:"Time-limited access codes let a buyer or tenant view a property without an agent present.",leaves:[{n:"Latch",d:"Smart-lock provider for landlord-controlled, time-limited self-viewing codes."},{n:"KeyNest",d:"Key-exchange / lockbox network for self-viewing access."},{n:"igloohome",d:"Offline-capable smart locks issuing time-bound PIN codes."}]},
-    {name:"Ecosystem Services",color:"#7A3A8F",desc:"Adjacent services monetised at near-zero marginal cost — providers pay Eqary per qualified lead.",leaves:[{n:"Bayzat / Sukoon",d:"Embedded home insurance at handover. Commission per policy sold."},{n:"Justmop / Matic",d:"Pay-per-booking cleaning and maintenance."},{n:"DEWA / SEWA / ADDC",d:"Utility activation at move-in via direct APIs."},{n:"Movers & Furniture",d:"Per-move lead generation and affiliate revenue."}]},
-    {name:"Infrastructure",color:"#3D6070",desc:"UAE-resident hosting, messaging, and the regulators whose sandboxes unlock novel products.",leaves:[{n:"Azure UAE / G42",d:"UAE-resident hosting and encrypted document vault."},{n:"Push / SMS / Email",d:"Multi-channel notifications across viewing, application, payment and contract events."},{n:"Central Bank UAE",d:"Regulates Open Finance, escrow and direct debit."},{n:"ADGM / DIFC",d:"Innovation Testing Licence sandboxes — path to launch RNPL."}]},
+    {name:"Government Registries",color:"#1C2B5E",desc:"The ownership truth layer. A landlord or seller is cross-checked against the title record before a listing can go live — killing fake listings at the source.",leaves:[{n:"ADREC",d:"Abu Dhabi Real Estate Centre. Title deed & ownership register."},{n:"DARI",d:"ADREC's title portal. Live ownership confirmation and digital title transfer."},{n:"DLD",d:"Dubai Land Department. Dubai title deeds, transactions and RTO registration."},{n:"RERA",d:"Dubai's regulator. Publishes the standard MOU forms Eqary auto-fills."},{n:"Madhmoun",d:"Abu Dhabi advertising-permit system. Validated before an AD listing goes live."},{n:"Trakheesi",d:"Dubai advertising-permit system for property listings."},{n:"Tawtheeq",d:"Abu Dhabi tenancy registration. Auto-triggered via API on a UAE Pass-signed lease."}]},
+    {name:"Banks & Mortgage",color:"#3B4FA8",desc:"The financed-transaction layer (Phase 2b). Multi-bank origination submits one application to several lenders.",leaves:[{n:"FAB",d:"First Abu Dhabi Bank — primary mortgage partner."},{n:"ADCB",d:"Secondary mortgage partner with strong Abu Dhabi penetration."},{n:"ADIB",d:"Sharia-compliant financing partner."},{n:"Emirates NBD",d:"Dubai-anchored mortgage partner."},{n:"Mashreq",d:"Major UAE bank with competitive mortgage rates."},{n:"RAK Bank",d:"Northern Emirates mortgage partner."}]},
+    {name:"Financing — BNPL",color:"#C8893A",desc:"Rent Now, Pay Later. A partner fronts the landlord a full year's rent; the tenant repays monthly.",leaves:[{n:"Rently",d:"BNPL/rental-finance infrastructure partner for the Phase 1 rent-loan facility."},{n:"Keyper",d:"Alternative BNPL provider. Pays the landlord upfront, collects monthly."}]},
+    {name:"Developers — Off-Plan",color:"#B05A30",desc:"Verified off-plan inventory published direct to pre-qualified buyers — no agent, fixed pricing.",leaves:[{n:"Aldar",d:"Major UAE developer. Verified inventory and RTO partner in Phase 3."},{n:"Modon",d:"Verified developer inventory direct to qualified buyers."},{n:"Eagle Hills",d:"Verified developer inventory; potential RTO unit partner."},{n:"MAF Properties",d:"Verified off-plan listings."},{n:"Reportage",d:"High-volume off-plan developer feeding the buyer pipeline."},{n:"Emaar",d:"Dubai's largest developer. Premium off-plan inventory."},{n:"DAMAC",d:"Luxury developer with strong off-plan portfolio."},{n:"Sobha",d:"Premium developer known for quality construction."},{n:"Bloom",d:"Abu Dhabi-based developer with diverse portfolio."}]},
   ];
 
   const svgEl = document.getElementById("mm-map");
@@ -1156,27 +1070,27 @@
     const l1=el("line",{class:"mm-link",x1:CX,y1:CY,x2:hx,y2:hy,stroke:cl.color,"stroke-width":3,"stroke-opacity":.6,"stroke-linecap":"round"});
     linkLayer.appendChild(l1);allLinks.push({l:l1,cluster:i});
     const n=cl.leaves.length;
-    const spread=Math.min(30,7+n*4);
+    const spread=Math.min(42,10+n*5);
     cl.leaves.forEach((lf,j)=>{
       const t=n===1?0:(j/(n-1))-0.5;
       const la=ang+t*spread;
       const r=(j%2===0)?R_LEAF_IN:R_LEAF_OUT;
       const[lx,ly]=pol(CX,CY,r,la);
-      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.5,"stroke-opacity":.35,"stroke-linecap":"round"});
+      const ll=el("line",{class:"mm-link",x1:hx,y1:hy,x2:lx,y2:ly,stroke:cl.color,"stroke-width":1.8,"stroke-opacity":.4,"stroke-linecap":"round"});
       linkLayer.appendChild(ll);allLinks.push({l:ll,cluster:i});
-      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",12,11,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
+      makeBubble(lx,ly,lf.n,"rgba(28,43,94,.85)","#fff",24,22,"600",{tag:cl.name,color:cl.color,title:lf.n,desc:lf.d,cluster:i});
     });
-    makeBubble(hx,hy,cl.name,cl.color,"#fff",14,13,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
+    makeBubble(hx,hy,cl.name,cl.color,"#fff",28,26,"700",{tag:"Capability cluster",color:cl.color,title:cl.name,desc:cl.desc,cluster:i});
   });
 
   // center node
   const cg=el("g",{class:"mm-node"});
-  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:84,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":3});
+  const cc=el("circle",{class:"mm-bub",cx:CX,cy:CY,r:100,fill:"#1C2B5E",stroke:"#4CAF7F","stroke-width":4});
   cc.style.filter="drop-shadow(0 12px 30px rgba(0,0,0,.5))";
   cg.appendChild(cc);
-  const ct=el("text",{x:CX,y:CY-6,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":28,"font-weight":700,"letter-spacing":"0.02em"});
+  const ct=el("text",{x:CX,y:CY-8,"text-anchor":"middle","dominant-baseline":"central",fill:"#fff","font-family":"Fraunces, serif","font-size":36,"font-weight":700,"letter-spacing":"0.02em"});
   ct.textContent="EQARY";cg.appendChild(ct);
-  const cs=el("text",{x:CX,y:CY+20,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":10,"font-weight":700,"letter-spacing":"0.18em"});
+  const cs=el("text",{x:CX,y:CY+24,"text-anchor":"middle","dominant-baseline":"central",fill:"#4CAF7F","font-size":13,"font-weight":700,"letter-spacing":"0.18em"});
   cs.textContent="ORCHESTRATION";cg.appendChild(cs);
   cg.addEventListener("click",(e)=>{e.stopPropagation();showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg);});
   cg.addEventListener("mouseenter",()=>showMMCard({tag:"Core platform",color:"#4CAF7F",title:"EQARY",desc:"The orchestration layer that connects buyers, sellers, landlords, tenants and developers directly — coordinating verification, contracts and bank-to-bank payment without ever holding money.",cluster:-1},cg,true));
@@ -1214,7 +1128,7 @@
 </script>
 
 <!-- ============ 08 ROADMAP ============ -->
-<section id="s08" data-bg="dark2" data-num="08" data-name="Roadmap">
+<section id="s08" data-bg="dark" data-num="08" data-name="Roadmap">
   <div class="wrap">
     <div class="badge rev"><span class="n">08</span><span class="div"></span><span>Roadmap</span></div>
     <h2 class="display rev">The plan, <b>phase by phase</b></h2>
@@ -1230,20 +1144,6 @@
         <button class="rm-node" data-i="4"><span class="dot">4</span><span class="nlabel">Q1/Q2 2029<br>Intelligence</span></button>
       </div>
       <div class="rm-panel" id="rmPanel"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 09 WHY NOW ============ -->
-<section id="s09" data-bg="cream" data-num="09" data-name="Why now">
-  <div class="wrap">
-    <div class="badge rev"><span class="n">09</span><span class="div"></span><span>Why now</span></div>
-    <h2 class="display rev">Why now, <b>the 2026 landscape</b></h2>
-    <p class="lead rev d1">UAE Pass, Open Finance and the government registries only became usable this way in the last two years. The timing is the moat.</p>
-    <div class="cards c3">
-      <div class="card rev d1"><div class="icn"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div><h4>Government push</h4><p>Abu&nbsp;Dhabi 2030 calls for a paperless economy, and the registries are opening their APIs to match.</p></div>
-      <div class="card rev d2"><div class="icn"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div><h4>Consumer demand</h4><p>UAE buyers expect a digital experience everywhere. Property is the last holdout.</p></div>
-      <div class="card rev d3"><div class="icn"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v4M7 18a3 3 0 016 0M11 11l-4 4M13 11l4 4"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h4>Infrastructure ready</h4><p>UAE&nbsp;Pass, Open Finance, DLD and Ejari APIs are all live now. The rails finally exist.</p></div>
     </div>
   </div>
 </section>
@@ -1516,7 +1416,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
   }
   function buyerMortgage(){
     const m=B.mort,loan=m.price-m.down,monthly=calcMonthly(loan,0.0425,m.years),total=monthly*m.years*12,interest=total-loan;
-    return `${navHead('Mortgage')}<div class="ps-body"><div class="sb">
+    return `<div class="hdr"><button class="bk" data-act="b:home">&lsaquo;</button><b>Mortgage</b></div><div class="ps-body"><div class="sb">
       <div class="lab">Calculate your mortgage</div>
       <div class="mort-calc">
         <div class="mort-row"><span class="mort-label">Property price</span><div class="mort-slider-wrap"><input type="range" class="mort-slider" min="500000" max="10000000" step="50000" value="${m.price}" data-act="b:mort:price"/><span class="mort-val">${money(m.price)}</span></div></div>
