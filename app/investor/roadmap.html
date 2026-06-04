@@ -150,12 +150,10 @@
     padding:calc(var(--bar-h) + 30px) clamp(20px,5vw,40px) 60px;position:relative;overflow:hidden;
   }
   .hero-bg{position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(120% 90% at 75% 20%, rgba(199,150,80,.22), transparent 55%),
-      linear-gradient(180deg,#1C2B5E 0%,#162252 60%,#1C2B5E 100%);
+    background:#1C2B5E;
   }
   .hero-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(115deg,transparent 30%,rgba(214,170,110,.10) 46%,rgba(214,170,110,.16) 50%,rgba(214,170,110,.06) 56%,transparent 72%);
+    background:none;
     mix-blend-mode:screen;
   }
   .hero .wrap{position:relative;z-index:2;width:100%}
