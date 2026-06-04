@@ -73,7 +73,7 @@ export function InvestorAccessModal({ isOpen, onClose }: InvestorAccessModalProp
           Investor Access
         </h2>
         <p className="text-sm text-muted-foreground mb-6 text-center">
-          Enter your access code to view the EQARY investor roadmap.
+          Enter your access code to view the EQARY investor overview.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -106,7 +106,7 @@ export function InvestorAccessModal({ isOpen, onClose }: InvestorAccessModalProp
             disabled={verifying || !code.trim()}
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12"
           >
-            {verifying ? "Verifying..." : "View Roadmap"}
+            {verifying ? "Verifying..." : "View Overview"}
           </Button>
         </form>
       </div>
