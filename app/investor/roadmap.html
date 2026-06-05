@@ -156,8 +156,8 @@
     background:none;
     mix-blend-mode:screen;
   }
-  .hero-video-wrap{position:absolute;top:0;right:0;height:100%;width:42%;z-index:1;pointer-events:none}
-  .hero-video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-video-wrap{position:absolute;top:0;right:0;height:100%;width:42%;z-index:1;pointer-events:none;overflow:hidden}
+  .hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:100%;aspect-ratio:16/9;min-width:100%;border:0;display:block;pointer-events:none}
   .hero-video-wrap::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#1C2B5E 0%,rgba(28,43,94,.85) 22%,rgba(28,43,94,.15) 60%,transparent 100%)}
   .hero-video-wrap::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(28,43,94,.45) 0%,transparent 18%,transparent 82%,rgba(28,43,94,.45) 100%)}
   @media(max-width:860px){.hero-video-wrap{display:none}}
@@ -761,9 +761,7 @@
 <header class="hero" id="s00" data-num="01" data-name="Overview">
   <div class="hero-bg"></div>
   <div class="hero-video-wrap" aria-hidden="true">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="/hero-loop.mp4" type="video/mp4">
-    </video>
+    <iframe class="hero-video" src="https://www.youtube-nocookie.com/embed/AuSm1jj-nuE?autoplay=1&mute=1&loop=1&playlist=AuSm1jj-nuE&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0" title="" frameborder="0" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
   </div>
     <div class="hero-greet"></div>
   <div class="wrap">
