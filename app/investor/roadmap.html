@@ -1275,11 +1275,12 @@ const phases=[
    body:'Rentals and off-plan launch together. The verification, payment and trust layer, ADREC, DARI, UAE Pass, Tawtheeq, Ejari, goes live from day one. Bank-to-bank rails operational, and tenant credit profiling begins, all without a Central Bank escrow licence.',
    list:['Rental marketplace','Off-plan listings','UAE Pass + KYC + AECB','A2A payments','Mid-air split'],
    rev:'Flat completion fee · developer listing fees · RNPL referral fee',
-   proto:'/phase1-proto.html'},
+   proto:'/phase1-proto.html',photo:'/al-reem-marina.webp'},
   {phase:'Phase 2a',date:'Q3 2027',title:'Secondary Market Launch',
    body:'Second-hand transactions open on the verified user base. It launches with the lighter half, listings, matching, negotiation and cash transactions, reaching roughly 87% of the Abu Dhabi market without any dependency on escrow licensing.',
    list:['Seller onboarding','Deed verification','RERA-standard MOU','Cash title transfer'],
-   rev:'Closing transaction fee · ecosystem lead generation'},
+   rev:'Closing transaction fee · ecosystem lead generation',
+   proto:'/phase2a-proto.html',photo:'/secondary-villa.webp'},
   {phase:'Phase 2b',date:'Q1/Q2 2028',title:'Mortgage & Escrow Integration',
    body:'The heavier financial layer. Regulated escrow for buyer deposits and end-to-end mortgage-financed transactions, with multi-bank origination. Positioned after the cash launch because bank and escrow partnerships carry the longest lead times.',
    list:['Escrow integration','Multi-bank mortgage','Liability Letter reads','Document orchestration'],
@@ -1296,17 +1297,18 @@ const phases=[
 const panel=document.getElementById('rmPanel');
 const nodes=[...document.querySelectorAll('.rm-node')];
 const prog=document.getElementById('rmProg');
-function fitProto(box){
+function fitProto(box,photo){
   if(!box) return;
   const ifr=box.querySelector('iframe');
   let tries=0;
   let imgTries=0;
   function fillPhoto(){
+    if(!photo) return;
     imgTries++;
     let doc;try{doc=ifr.contentDocument||ifr.contentWindow.document;}catch(e){doc=null;}
-    const slot=doc&&doc.querySelector&&doc.querySelector('image-slot#eq-alreem, image-slot');
+    const slot=doc&&doc.querySelector&&doc.querySelector('image-slot');
     if(slot){
-      if(slot.getAttribute('src')!=='/al-reem-marina.webp') slot.setAttribute('src','/al-reem-marina.webp');
+      if(slot.getAttribute('src')!==photo) slot.setAttribute('src',photo);
       if(imgTries<60) setTimeout(fillPhoto,500);
     }else if(imgTries<60){
       setTimeout(fillPhoto,250);
@@ -1353,7 +1355,7 @@ function renderPhase(i){
   </div>`;
   const media=p.proto?`<div class="ph-proto"><iframe src="${p.proto}" loading="lazy" title="Eqary app prototype" scrolling="no"></iframe></div>`:'';
   panel.innerHTML=`<div class="rm-fade ${p.proto?'has-video':''}">${text}${media}</div>`;
-  if(p.proto) fitProto(panel.querySelector('.ph-proto'));
+  if(p.proto) fitProto(panel.querySelector('.ph-proto'),p.photo);
   nodes.forEach((n,k)=>n.classList.toggle('active',k===i));
   const mobile=matchMedia('(max-width:680px)').matches;
   const pct=i/(phases.length-1)*100;
