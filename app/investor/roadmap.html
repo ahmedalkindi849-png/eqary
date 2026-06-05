@@ -273,12 +273,11 @@
   .rm-fade.has-video{display:flex;gap:clamp(24px,4vw,48px);align-items:stretch}
   .rm-fade.has-video .ph-text{flex:1;min-width:0}
   .rm-fade.has-video .ph-body{margin-bottom:22px}
-  .ph-video{flex:0 0 auto;width:clamp(168px,18vw,205px);align-self:stretch;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0b1128;box-shadow:0 18px 44px rgba(0,0,0,.4)}
-  .ph-video video{width:100%;height:100%;min-height:368px;object-fit:cover;object-position:52% center;display:block}
+  .ph-video{flex:0 0 auto;width:clamp(170px,18vw,210px);aspect-ratio:0.47;align-self:center;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0b1128;box-shadow:0 18px 44px rgba(0,0,0,.4)}
+  .ph-video video{width:100%;height:100%;object-fit:cover;object-position:54% 62%;transform:scale(1.5);transform-origin:54% 62%;display:block}
   @media(max-width:760px){
     .rm-fade.has-video{flex-direction:column}
-    .ph-video{width:100%;max-width:240px;align-self:center}
-    .ph-video video{min-height:0;aspect-ratio:0.5}
+    .ph-video{width:100%;max-width:230px;align-self:center}
   }
   @keyframes rmf{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
