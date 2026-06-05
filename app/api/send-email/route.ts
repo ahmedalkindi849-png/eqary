@@ -25,12 +25,13 @@ export async function POST(request: NextRequest) {
     // Initialize Resend client on request
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    // Send email to verified inbox (eqaryae@gmail.com)
+    // Send email to verified inbox (contact@eqary.ae)
     // Note: On Resend's free tier, we can only send to the verified account email.
     // The user's contact email is included in the body so you can manually reply to them.
     const result = await resend.emails.send({
       from: 'EQARY <onboarding@resend.dev>',
-      to: ['eqaryae@gmail.com'],
+      to: ['contact@eqary.ae'],
+      replyTo: email,
       subject: `New App Access Request from ${name}`,
       html: `
         <h2>New App Access Request</h2>
