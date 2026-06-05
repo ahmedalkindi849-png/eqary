@@ -1,8 +1,8 @@
 const stats = [
   {
-    value: "0%",
-    label: "Commission",
-    description: "Zero brokerage fees"
+    value: "Low",
+    label: "Fees",
+    description: "Low, transparent fees"
   },
   {
     value: "24hrs",
