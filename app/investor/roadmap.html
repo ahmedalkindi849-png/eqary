@@ -320,9 +320,21 @@
   .meet .mi svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.7}
 
   /* ===== interactive prototype (EQARY app) ===== */
-  .phone{position:relative;width:300px}
+  .phone{position:relative;width:300px;z-index:2}
   .app-copy{align-self:center}
   .phone-col{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .phone-showcase{position:relative;width:100%;max-width:700px;display:flex;justify-content:center;align-items:center;padding:40px 0}
+  .skyline-bg{position:absolute;width:280px;height:380px;object-fit:cover;border-radius:24px;opacity:0.85;z-index:0}
+  .skyline-left{left:0;top:20px;clip-path:polygon(0 0, 80% 0, 100% 100%, 0 100%)}
+  .skyline-right{right:0;top:20px;clip-path:polygon(20% 0, 100% 0, 100% 100%, 0 100%)}
+  .feature-card{position:absolute;background:rgba(40,45,55,0.92);border-radius:14px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start;z-index:3;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.08)}
+  .fc-top-right{top:30px;right:20px}
+  .fc-bottom-left{bottom:60px;left:20px}
+  .fc-icon{width:36px;height:36px;background:rgba(76,175,127,0.15);border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+  .fc-text{display:flex;flex-direction:column;gap:2px}
+  .fc-text b{font-size:14px;font-weight:600;color:#fff}
+  .fc-text span{font-size:12px;color:rgba(255,255,255,0.6)}
+  .dashed-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
   .phone-hint{font-size:.85rem;color:var(--ink-soft);letter-spacing:.01em}
   .phone-screen{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f4f5f9;z-index:2}
   .ps{position:absolute;inset:11px;border-radius:32px;overflow:hidden;background:#f4f5f9;color:#1a1830;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;z-index:2}
@@ -336,6 +348,9 @@
   .hdr b{font-size:15px;font-weight:700}
   .lab{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9a99b3;margin:14px 0 9px}
   .ps-center{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:24px 20px}
+  .login-bg{position:relative;background:url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-M1VhBRxvgCOrnC1mHng05bX7CZ4Ks6.png') center/cover no-repeat}
+  .login-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,43,94,0.3) 0%,rgba(28,43,94,0.7) 60%,rgba(28,43,94,0.95) 100%)}
+  .login-bg .ps-center{position:relative;z-index:1}
   .ps-logo{width:66px;height:66px;border-radius:18px;background:linear-gradient(160deg,#2a2550,#4f46e5);display:grid;place-items:center}
   .ps-h1{font-size:30px;font-weight:300;letter-spacing:.12em;color:#fff}
   .ps-sub{font-size:13px;line-height:1.5;color:#b9b6e0;max-width:25ch}
@@ -851,8 +866,24 @@
         </div>
       </div>
       <div class="rev d1 phone-col">
-        <div class="phone">
-          <div class="phone-screen" id="proto"></div>
+        <div class="phone-showcase">
+          <img class="skyline-bg skyline-left" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-M1VhBRxvgCOrnC1mHng05bX7CZ4Ks6.png" alt="" />
+          <img class="skyline-bg skyline-right" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-M1VhBRxvgCOrnC1mHng05bX7CZ4Ks6.png" alt="" />
+          <div class="feature-card fc-top-right">
+            <div class="fc-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4CAF7F" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+            <div class="fc-text"><b>UAE Pass verified</b><span>Government ID and e-signature.</span></div>
+          </div>
+          <div class="feature-card fc-bottom-left">
+            <div class="fc-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#4CAF7F" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg></div>
+            <div class="fc-text"><b>Bank to bank</b><span>No cheque, no agent.</span></div>
+          </div>
+          <svg class="dashed-lines" viewBox="0 0 600 400" preserveAspectRatio="none">
+            <path d="M 480 80 Q 380 120 300 180" stroke="#4CAF7F" stroke-width="2" stroke-dasharray="6 4" fill="none" opacity="0.6"/>
+            <path d="M 120 320 Q 200 280 300 220" stroke="#4CAF7F" stroke-width="2" stroke-dasharray="6 4" fill="none" opacity="0.6"/>
+          </svg>
+          <div class="phone">
+            <div class="phone-screen" id="proto"></div>
+          </div>
         </div>
         <div class="phone-hint" id="phoneHint">Tap through it</div>
       </div>
@@ -1394,7 +1425,7 @@ addEventListener('resize',()=>renderPhase(nodes.findIndex(n=>n.classList.contain
     return `<button class="lc" data-act="b:open:${l.id}"><span class="img" style="background:linear-gradient(150deg,${l.c1},${l.c2})"><span class="tagrow"><span class="ltag ${tagClass}">${tagLabel}</span>${offplan?`<span class="ltag compl">${l.completion}% built</span>`:''}</span><span class="heart ${isSaved?'on':''}" data-act="b:fav:${l.id}"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></span></span><span class="bd"><span class="vrf"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#16a34a" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>${verifiedText}</span><span class="ttl">${l.t}</span><span class="loc">${l.loc}${offplan?' &middot; Handover '+l.handover:''}</span><span class="pr">${offplan?'From ':''}${money(l.price)}${rent?'<small>/year</small>':''}</span><span class="specs"><span>${bedsLabel(l.beds)} bd</span><span>${l.baths} ba</span><span>${l.sqft} sqft</span></span><span class="save"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#16a34a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Save ${saveFmt(rent?Math.round(l.price*0.05):Math.round(l.price*0.02))} in commission</span></span></button>`;
   }
   function buyerLogin(){
-    return `<div class="ps-body"><div class="ps-center"><div class="ps-logo"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33 L32 13 L54 33" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ps-h1">EQARY</div><p class="ps-sub">Buy, sell and rent UAE property, start to finish, from your phone.</p><button class="uaebtn" style="margin-top:10px" data-act="b:login"><span class="udot"></span>Continue with UAE Pass</button></div></div>`;
+    return `<div class="ps-body login-bg"><div class="ps-center"><div class="ps-logo"><svg viewBox="0 0 64 64" width="36" height="36"><path d="M16 30 L32 16 L48 30 L48 50 L16 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33 L32 13 L54 33" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 50 L27 39 L37 39 L37 50" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ps-h1">EQARY</div><p class="ps-sub">Buy, sell and rent UAE property, start to finish, from your phone.</p><button class="uaebtn" style="margin-top:10px" data-act="b:login"><span class="udot"></span>Continue with UAE Pass</button></div></div>`;
   }
   function buyerHome(){
     const list=B.mode==='rent'?rentList:buyList;
