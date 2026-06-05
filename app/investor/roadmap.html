@@ -156,6 +156,11 @@
     background:none;
     mix-blend-mode:screen;
   }
+  .hero-video-wrap{position:absolute;top:0;right:0;height:100%;width:42%;z-index:1;pointer-events:none}
+  .hero-video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-video-wrap::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#1C2B5E 0%,rgba(28,43,94,.85) 22%,rgba(28,43,94,.15) 60%,transparent 100%)}
+  .hero-video-wrap::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(28,43,94,.45) 0%,transparent 18%,transparent 82%,rgba(28,43,94,.45) 100%)}
+  @media(max-width:860px){.hero-video-wrap{display:none}}
   .hero .wrap{position:relative;z-index:2;width:100%}
   .hero-greet{position:absolute;top:calc(var(--bar-h) + 4px);right:clamp(20px,5vw,40px);z-index:3;color:var(--accent-bright);font-size:1.25rem}
   .hero h1{font-weight:300;letter-spacing:-.025em;line-height:1.02;font-size:clamp(2.7rem,8vw,5.6rem);color:#f5f3ee;margin-bottom:30px;max-width:16ch}
@@ -755,6 +760,11 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="s00" data-num="01" data-name="Overview">
   <div class="hero-bg"></div>
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="/hero-loop.mp4" type="video/mp4">
+    </video>
+  </div>
     <div class="hero-greet"></div>
   <div class="wrap">
     <h1>Buying, selling and renting UAE property, <b>without the agent's cut</b></h1>
