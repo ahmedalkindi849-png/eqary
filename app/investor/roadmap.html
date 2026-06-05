@@ -1293,28 +1293,39 @@ const phases=[
    proto:'/phase3-proto.html',photo:'/rent-to-own-bedroom.webp'},
   {phase:'Phase 4',date:'Q1/Q2 2029',title:'Intelligence Layer & Ecosystem',
    body:'EQARY turns from marketplace into infrastructure. A pricing engine fed by two-plus years of completed transactions, an investor dashboard with real switching costs, and adjacent-service lead generation monetising every deal at near-zero marginal cost.',
-   list:['Valuation engine','Investor dashboard','Data subscriptions','Adjacent verticals'],
-   rev:'SaaS subscriptions · data subscriptions · per-lead ecosystem revenue'}
+  list:['Valuation engine','Investor dashboard','Data subscriptions','Adjacent verticals'],
+  rev:'SaaS subscriptions · data subscriptions · per-lead ecosystem revenue',
+  proto:'/phase4-proto.html',imgMap:[['furn-sofa','/lounge-sofa.png'],['furn-lamp','/tiffany-lamp.png']]}
 ];
 const panel=document.getElementById('rmPanel');
 const nodes=[...document.querySelectorAll('.rm-node')];
 const prog=document.getElementById('rmProg');
-function fitProto(box,photo){
+function fitProto(box,photo,imgMap){
   if(!box) return;
   const ifr=box.querySelector('iframe');
   let tries=0;
   let imgTries=0;
   function fillPhoto(){
-    if(!photo) return;
+    if(!photo&&!imgMap) return;
     imgTries++;
     let doc;try{doc=ifr.contentDocument||ifr.contentWindow.document;}catch(e){doc=null;}
-    const slot=doc&&doc.querySelector&&doc.querySelector('image-slot');
-    if(slot){
-      if(slot.getAttribute('src')!==photo) slot.setAttribute('src',photo);
-      if(imgTries<60) setTimeout(fillPhoto,500);
-    }else if(imgTries<60){
-      setTimeout(fillPhoto,250);
+    let found=false;
+    if(doc&&doc.querySelector){
+      if(photo){
+        const slot=doc.querySelector('image-slot');
+        if(slot){found=true;if(slot.getAttribute('src')!==photo)slot.setAttribute('src',photo);}
+      }
+      if(imgMap){
+        imgMap.forEach(function(pair){
+          const m=pair[0],src=pair[1];
+          doc.querySelectorAll('img').forEach(function(im){
+            if((im.getAttribute('src')||'').indexOf(m)>-1&&im.getAttribute('src')!==src){im.setAttribute('src',src);found=true;}
+            else if((im.getAttribute('src')||'')===src){found=true;}
+          });
+        });
+      }
     }
+    if(imgTries<60) setTimeout(fillPhoto,found?500:250);
   }
   function findPhone(doc){
     let best=null;
@@ -1357,7 +1368,7 @@ function renderPhase(i){
   </div>`;
   const media=p.proto?`<div class="ph-proto"><iframe src="${p.proto}" loading="lazy" title="Eqary app prototype" scrolling="no"></iframe></div>`:'';
   panel.innerHTML=`<div class="rm-fade ${p.proto?'has-video':''}">${text}${media}</div>`;
-  if(p.proto) fitProto(panel.querySelector('.ph-proto'),p.photo);
+  if(p.proto) fitProto(panel.querySelector('.ph-proto'),p.photo,p.imgMap);
   nodes.forEach((n,k)=>n.classList.toggle('active',k===i));
   const mobile=matchMedia('(max-width:680px)').matches;
   const pct=i/(phases.length-1)*100;
