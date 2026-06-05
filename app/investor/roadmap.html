@@ -1300,6 +1300,18 @@ function fitProto(box){
   if(!box) return;
   const ifr=box.querySelector('iframe');
   let tries=0;
+  let imgTries=0;
+  function fillPhoto(){
+    imgTries++;
+    let doc;try{doc=ifr.contentDocument||ifr.contentWindow.document;}catch(e){doc=null;}
+    const slot=doc&&doc.querySelector&&doc.querySelector('image-slot#eq-alreem, image-slot');
+    if(slot){
+      if(slot.getAttribute('src')!=='/al-reem-marina.webp') slot.setAttribute('src','/al-reem-marina.webp');
+      if(imgTries<60) setTimeout(fillPhoto,500);
+    }else if(imgTries<60){
+      setTimeout(fillPhoto,250);
+    }
+  }
   function findPhone(doc){
     let best=null;
     (function rec(n){
@@ -1327,7 +1339,8 @@ function fitProto(box){
     }
   }
   attempt();
-  ifr.addEventListener('load',()=>{tries=0;attempt();});
+  fillPhoto();
+  ifr.addEventListener('load',()=>{tries=0;imgTries=0;attempt();fillPhoto();});
 }
 function renderPhase(i){
   const p=phases[i];
