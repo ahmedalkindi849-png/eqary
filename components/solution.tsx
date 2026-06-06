@@ -13,8 +13,8 @@ const features = [
   },
   {
     icon: Percent,
-    title: "0% Commission Model",
-    description: "We disrupt the traditional 2% brokerage fee with a transparent, zero-commission approach."
+    title: "Low Fee Model",
+    description: "We disrupt the traditional 2% brokerage fee with low, transparent fees."
   },
   {
     icon: Building2,
